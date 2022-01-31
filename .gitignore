@@ -348,3 +348,5 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+/src/MauiBlazor.Markup/PackageName.txt
+/src/MauiBlazor.Markup/Push-Release-Package.bat
