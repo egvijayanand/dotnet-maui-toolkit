@@ -1,5 +1,7 @@
-What's new in ver. 1.0.0-pre1:
+What's new in ver. 1.0.0-pre2:
 
 Initial release of toolkit with a set of fluent helper methods to configure BlazorWebView and simplify working with .NET MAUI Blazor in C#.
 
 This is release is on top of .NET MAUI Preview 12, latest release as of Jan 2022.
+
+Fixed an issue of Windows target library not generated part of the NuGet package build.
