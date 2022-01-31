@@ -4,10 +4,6 @@ This toolkit a set of fluent helper methods and classes to simplify working with
 
 This toolkit depends on [Microsoft.AspNetCore.Components.WebView.Maui](https://www.nuget.org/packages/Microsoft.AspNetCore.Components.WebView.Maui) NuGet package.
 
-|Version|Icon Font|
-|:---:|:---:|
-|[![NuGet Package](https://badgen.net/nuget/v/VijayAnand.MauiBlazor.Markup/)](https://www.nuget.org/packages/VijayAnand.MauiBlazor.Markup/)|[.NET MAUI Blazor Toolkit](https://www.nuget.org/packages/VijayAnand.MauiBlazor.Markup/)|
-
 Most useful method will be `Configure`, which can be invoked on an instance of a BlazorWebView and its derivatives, and it simplifies the initialization of BlazorWebView into a single fluent method call as shown in the below sample.
 
 Note: Gateway is a Razor component.
