@@ -53,7 +53,7 @@
 
 	<ItemGroup>
 		<PackageReference Include="Microsoft.AspNetCore.Components.WebView.Maui"
-						  Version="6.0.200-preview.12.*" />
+						  Version="6.0.200-preview.13.*" />
 	</ItemGroup>
 	<ItemGroup>
 
@@ -63,4 +63,3 @@
 		<None Include="release-notes.txt" />
 	</ItemGroup>
 </Project>
-
