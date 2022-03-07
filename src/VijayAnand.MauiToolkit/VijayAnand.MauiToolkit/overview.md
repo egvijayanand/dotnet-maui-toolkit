@@ -13,7 +13,7 @@ To start with, implements the concrete definition of the abstractions defined in
 * Navigation - `NavigationService` (based on Shell Navigation pattern)
 * Share - `ShareService` (based on Maui Essentials)
 
-Most importantly, provides the below method to register these services in .NET MAUI host builder startup:
+Most importantly, provides an extension method to register these services in .NET MAUI host builder startup:
 
 `UseVijayAnandMauiToolkit()`
 
