@@ -1,0 +1,28 @@
+What's new in ver. 1.0.0-pre1:
+
+Initial release of VijayAnand.MauiToolkit NuGet package.
+
+It depends on VijayAnand.MauiToolkit.Core NuGet package.
+
+To start with, implements the concrete definition of the abstractions defined in Core package:
+
+1. Dialogs - DialogService (works with MainPage or Shell definition)
+
+    1.1 Additional abstraction specific to .NET MAUI
+
+2. Navigation - NavigationService (based on Shell Navigation pattern)
+
+3. Share - ShareService (based on Maui Essentials)
+
+Most importantly, provides the below method to register these services in .NET MAUI host builder startup:
+
+UseVijayAnandMauiToolkit()
+
+Usage:
+
+public static MauiApp CreateMauiApp()
+{
+    var builder = MauiApp.CreateBuilder();
+    builder.UseMauiApp<App>().UseVijayAnandMauiToolkit();
+    return builder.Build();
+}
