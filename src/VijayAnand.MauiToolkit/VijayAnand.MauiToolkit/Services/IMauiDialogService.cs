@@ -1,4 +1,4 @@
-﻿namespace VijayAnand.MauiToolkit
+﻿namespace VijayAnand.MauiToolkit.Services
 {
     public interface IMauiDialogService : IDialogService
     {

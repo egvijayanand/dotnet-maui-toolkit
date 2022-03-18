@@ -1,6 +1,6 @@
-What's new in ver. 1.0.0-pre1:
+What's new in ver. 1.0.0-pre2:
 
-Initial release of VijayAnand.MauiToolkit.Core NuGet package and is built on top of .NET 6.
+Updated release of VijayAnand.MauiToolkit.Core NuGet package and is built on top of .NET 6.
 
 The objective is to ease the development of the Razor Class Library (RCL) so that it can be shared with all Blazor targets (.NET MAUI, Server, WebAssembly, Windows Forms, and WPF).
 
@@ -11,3 +11,5 @@ To start with defines the following abstractions:
 1. Dialogs - IDialogService
 2. Navigation - INavigationService
 3. Share - IShareService
+
+Added a Model class for UserToken and frequently used Constants for OAuth / OIDC authentication.
