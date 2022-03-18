@@ -17,6 +17,7 @@
 		<Title>.NET MAUI Toolkit - Core</Title>
 		<Description>VijayAnand.MauiToolkit.Core is a set of helper methods and classes to simplify working with .NET MAUI (and Blazor).</Description>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
 		<RepositoryUrl>https://github.com/egvijayanand/dotnet-maui-toolkit</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 		<PackageTags>.NET,MAUI,Blazor,BlazorWebView,C#,Hybrid,Toolkit,Razor,RCL,iOS,Android,macOS,WinForms,Windows,WinUI3,WPF,MacCatalyst,Server,WebAssembly,WASM</PackageTags>
