@@ -10,5 +10,12 @@
             builder.Services.AddSingleton<IShareService, ShareService>();
             return builder;
         }
+
+        public static MauiAppBuilder ConfigureServices(this MauiAppBuilder builder,
+                                                       Action<IServiceCollection>? configureDelegate)
+        {
+            configureDelegate?.Invoke(builder.Services);
+            return builder;
+        }
     }
 }

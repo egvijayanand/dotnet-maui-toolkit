@@ -1,6 +1,6 @@
-What's new in ver. 1.0.0-pre1:
+What's new in ver. 1.0.0-pre2:
 
-Initial release of VijayAnand.MauiToolkit NuGet package.
+Updated release of VijayAnand.MauiToolkit NuGet package and is released on top of .NET MAUI Preview 14.
 
 It depends on VijayAnand.MauiToolkit.Core NuGet package.
 

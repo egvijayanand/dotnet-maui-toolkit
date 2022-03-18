@@ -1,4 +1,4 @@
-﻿namespace VijayAnand.MauiToolkit
+﻿namespace VijayAnand.MauiToolkit.Services
 {
     public class ShareService : IShareService
     {

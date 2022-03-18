@@ -1,4 +1,4 @@
-﻿namespace VijayAnand.MauiToolkit
+﻿namespace VijayAnand.MauiToolkit.Services
 {
     public class DialogService : IMauiDialogService, IDialogService
     {
@@ -26,15 +26,15 @@
             }
         }
 
-        public async Task DisplayAlert(string title, string message, string cancel)
+        public Task DisplayAlert(string title, string message, string cancel)
         {
             if (Application.Current.MainPage is Shell)
             {
-                await Shell.Current.DisplayAlert(title, message, cancel);
+                return Shell.Current.DisplayAlert(title, message, cancel);
             }
             else
             {
-                await Application.Current.MainPage.DisplayAlert(title, message, cancel);
+                return Application.Current.MainPage.DisplayAlert(title, message, cancel);
             }
         }
 
@@ -50,15 +50,15 @@
             }
         }
 
-        public async Task DisplayAlert(string title, string message, string cancel, FlowDirection flowDirection)
+        public Task DisplayAlert(string title, string message, string cancel, FlowDirection flowDirection)
         {
             if (Application.Current.MainPage is Shell)
             {
-                await Shell.Current.DisplayAlert(title, message, cancel, flowDirection);
+                return Shell.Current.DisplayAlert(title, message, cancel, flowDirection);
             }
             else
             {
-                await Application.Current.MainPage.DisplayAlert(title, message, cancel, flowDirection);
+                return Application.Current.MainPage.DisplayAlert(title, message, cancel, flowDirection);
             }
         }
 
