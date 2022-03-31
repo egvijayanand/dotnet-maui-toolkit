@@ -13,3 +13,4 @@ To start with defines the following abstractions:
 * Dialogs - `IDialogService`
 * Navigation - `INavigationService`
 * Share - `IShareService`
+* Theme - `IThemeService`

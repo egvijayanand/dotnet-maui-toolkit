@@ -2,11 +2,18 @@
 {
     public class ShareService : IShareService
     {
+        private readonly IShare share;
+
+        public ShareService(IShare share)
+        {
+            this.share = share;
+        }
+
         public async Task ShareText(string title, string text)
         {
             try
             {
-                await Share.RequestAsync(new ShareTextRequest(text, title));
+                await share.RequestAsync(new ShareTextRequest(text, title));
             }
             catch
             {
@@ -18,7 +25,7 @@
         {
             try
             {
-                await Share.RequestAsync(new ShareTextRequest() { Title = $"{title} - {text}", Uri = uri });
+                await share.RequestAsync(new ShareTextRequest(text, title) { Uri = uri });
             }
             catch
             {

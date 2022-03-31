@@ -1,28 +1,21 @@
-What's new in ver. 1.0.0-pre2:
+What's new in ver. 1.0.0-pre3:
 
 Updated release of VijayAnand.MauiToolkit NuGet package and is released on top of .NET MAUI Preview 14.
 
-It depends on VijayAnand.MauiToolkit.Core NuGet package.
+This release includes the Markup extension methods for rapid application development with C#.
 
-To start with, implements the concrete definition of the abstractions defined in Core package:
+These fluent APIs are made available in the VijayAnand.MauiToolkit.Markup namespace.
 
-1. Dialogs - DialogService (works with MainPage or Shell definition)
+Now it's possible to selectively register the services required into the DI container.
 
-    1.1 Additional abstraction specific to .NET MAUI
+Configure the UseVijayAnandMauiToolkit() method with configuration parameter of type ServiceRegistrations (Flags-attributed) enum
 
-2. Navigation - NavigationService (based on Shell Navigation pattern)
+To illustrate with a sample, if only interested in NavigationService:
 
-3. Share - ShareService (based on Maui Essentials)
+Then, invoke UseVijayAnandMauiToolkit(ServiceRegistrations.Navigation)
 
-Most importantly, provides the below method to register these services in .NET MAUI host builder startup:
+And if DialogService is required along with NavigationService:
 
-UseVijayAnandMauiToolkit()
+Then, invoke UseVijayAnandMauiToolkit(ServiceRegistrations.Dialogs | ServiceRegistrations.Navigation)
 
-Usage:
-
-public static MauiApp CreateMauiApp()
-{
-    var builder = MauiApp.CreateBuilder();
-    builder.UseMauiApp<App>().UseVijayAnandMauiToolkit();
-    return builder.Build();
-}
+By default, the configuration parameter value is set to ServiceRegistrations.All

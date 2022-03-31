@@ -4,7 +4,7 @@
     {
         public static TService? GetService<TService>() => Current.GetService<TService>();
 
-        public static IServiceProvider Current =>
+        internal static IServiceProvider Current =>
 #if ANDROID
             MauiApplication.Current.Services;
 #elif IOS || MACCATALYST
