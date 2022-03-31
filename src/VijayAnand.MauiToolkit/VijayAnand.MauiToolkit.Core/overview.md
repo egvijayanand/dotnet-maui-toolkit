@@ -14,3 +14,5 @@ To start with defines the following abstractions:
 * Navigation - `INavigationService`
 * Share - `IShareService`
 * Theme - `IThemeService`
+
+A Model class for UserToken and frequently used Constants for OAuth / OIDC authentication.

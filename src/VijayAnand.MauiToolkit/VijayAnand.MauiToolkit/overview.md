@@ -24,17 +24,17 @@ Most importantly, provides an extension method to register these services in .NE
 
 Now it's possible to selectively register the services required into the DI container.
 
-Added a configuration parameter of type ServiceRegistrations (Flags-attributed) enum to the `UseVijayAnandMauiToolkit()` method
+Added a configuration parameter of Enum type `ServiceRegistrations` (Flags-attributed) to the `UseVijayAnandMauiToolkit()` method.
 
 To illustrate with a sample, if only interested in NavigationService:
 
-Then, invoke `UseVijayAnandMauiToolkit(ServiceRegistrations.Navigation)`
+Then, invoke `UseVijayAnandMauiToolkit(ServiceRegistrations.Navigation)`.
 
 And if DialogService is required along with NavigationService:
 
-Then, invoke `UseVijayAnandMauiToolkit(ServiceRegistrations.Dialogs | ServiceRegistrations.Navigation)`
+Then, invoke `UseVijayAnandMauiToolkit(ServiceRegistrations.Dialogs | ServiceRegistrations.Navigation)`.
 
-By default, the default value of configuration parameter is set to `ServiceRegistrations.All`
+By default, the default value of configuration parameter is set to `ServiceRegistrations.All`.
 
 Usage:
 
