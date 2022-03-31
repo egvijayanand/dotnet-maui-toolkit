@@ -13,6 +13,9 @@ To start with defines the following abstractions:
 * Dialogs - `IDialogService`
 * Navigation - `INavigationService`
 * Share - `IShareService`
+* Theme - `IThemeService`
+
+A Model class for UserToken and frequently used Constants for OAuth / OIDC authentication.
 
 ### VijayAnand.MauiToolkit
 
@@ -28,10 +31,29 @@ To start with, implements the concrete definition of the abstractions defined in
   - Additional abstraction specific to .NET MAUI with `FlowDirection`
 * Navigation - `NavigationService` (based on Shell Navigation pattern)
 * Share - `ShareService` (based on Maui Essentials)
+* Theme - `ThemeService` (based on UserAppTheme property)
+
+And includes a set of Markup extension methods for rapid application development with C#.
+
+These fluent APIs are made available in the `VijayAnand.MauiToolkit.Markup` namespace.
 
 Most importantly, provides an extension method to register these services in .NET MAUI host builder startup:
 
 `UseVijayAnandMauiToolkit()`
+
+Now it's possible to selectively register the services required into the DI container.
+
+Added a configuration parameter of Enum type `ServiceRegistrations` (Flags-attributed) to the `UseVijayAnandMauiToolkit()` method.
+
+To illustrate with a sample, if only interested in NavigationService:
+
+Then, invoke `UseVijayAnandMauiToolkit(ServiceRegistrations.Navigation)`.
+
+And if DialogService is required along with NavigationService:
+
+Then, invoke `UseVijayAnandMauiToolkit(ServiceRegistrations.Dialogs | ServiceRegistrations.Navigation)`.
+
+By default, the default value of configuration parameter is set to `ServiceRegistrations.All`.
 
 Usage:
 
@@ -42,7 +64,7 @@ public static class MauiProgram
     {
         var builder = MauiApp.CreateBuilder();
         builder.UseMauiApp<App>()
-               .UseVijayAnandMauiToolkit();
+               .UseVijayAnandMauiToolkit(); // Implicit value of ServiceRegistrations.All passed as configuration parameter
         return builder.Build();
     }
 }

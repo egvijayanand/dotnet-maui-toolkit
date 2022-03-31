@@ -13,3 +13,6 @@ To start with defines the following abstractions:
 * Dialogs - `IDialogService`
 * Navigation - `INavigationService`
 * Share - `IShareService`
+* Theme - `IThemeService`
+
+A Model class for UserToken and frequently used Constants for OAuth / OIDC authentication.
