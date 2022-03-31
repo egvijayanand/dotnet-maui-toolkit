@@ -1,4 +1,4 @@
-What's new in ver. 1.0.0-pre3:
+What's new in ver. 1.0.0-pre4:
 
 Updated release of VijayAnand.MauiToolkit NuGet package and is released on top of .NET MAUI Preview 14.
 
