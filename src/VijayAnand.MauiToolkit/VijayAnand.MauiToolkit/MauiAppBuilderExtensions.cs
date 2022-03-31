@@ -9,23 +9,23 @@ namespace VijayAnand.MauiToolkit
         public static MauiAppBuilder UseVijayAnandMauiToolkit(this MauiAppBuilder builder,
                                                               ServiceRegistrations configuration = ServiceRegistrations.All)
         {
-            if (configuration is ServiceRegistrations.Dialogs or ServiceRegistrations.All)
+            if (configuration.HasFlag(ServiceRegistrations.Dialogs) || configuration.HasFlag(ServiceRegistrations.All))
             {
                 builder.Services.AddSingleton<IDialogService, DialogService>();
                 builder.Services.AddSingleton<IMauiDialogService, DialogService>();
             }
 
-            if (configuration is ServiceRegistrations.Navigation or ServiceRegistrations.All)
+            if (configuration.HasFlag(ServiceRegistrations.Navigation) || configuration.HasFlag(ServiceRegistrations.All))
             {
                 builder.Services.AddSingleton<INavigationService, NavigationService>();
             }
 
-            if (configuration is ServiceRegistrations.Share or ServiceRegistrations.All)
+            if (configuration.HasFlag(ServiceRegistrations.Share) || configuration.HasFlag(ServiceRegistrations.All))
             {
                 builder.Services.AddSingleton<IShareService, ShareService>();
             }
 
-            if (configuration is ServiceRegistrations.Theme or ServiceRegistrations.All)
+            if (configuration.HasFlag(ServiceRegistrations.Theme) || configuration.HasFlag(ServiceRegistrations.All))
             {
                 builder.Services.AddSingleton<IPreferences, PreferencesImplementation>();
                 builder.Services.AddSingleton<IThemeService, ThemeService>();
