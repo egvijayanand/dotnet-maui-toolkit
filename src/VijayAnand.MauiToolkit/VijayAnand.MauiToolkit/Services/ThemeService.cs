@@ -9,7 +9,7 @@
             this.preferences = preferences;
         }
 
-        public int Theme => preferences.Get(nameof(Theme), 0, null);
+        public int Theme => preferences.Get(nameof(Theme), (int)AppTheme.Unspecified, null);
 
         public void SetTheme()
         {
