@@ -22,6 +22,7 @@ namespace VijayAnand.MauiToolkit
 
             if (configuration.HasFlag(ServiceRegistrations.Share) || configuration.HasFlag(ServiceRegistrations.All))
             {
+                builder.Services.AddSingleton<IShare, ShareImplementation>();
                 builder.Services.AddSingleton<IShareService, ShareService>();
             }
 

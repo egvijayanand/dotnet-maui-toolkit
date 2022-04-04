@@ -1,21 +1,15 @@
-What's new in ver. 1.0.0-pre4:
+What's new in ver. 1.0.0-pre5:
 
-Updated release of VijayAnand.MauiToolkit NuGet package and is released on top of .NET MAUI Preview 14.
+Updated release of VijayAnand.MauiToolkit NuGet package and is built on top of .NET MAUI Preview 14.
 
-This release includes the Markup extension methods for rapid application development with C#.
+This release includes additional Markup extension methods for accessing the resources.
 
-These fluent APIs are made available in the VijayAnand.MauiToolkit.Markup namespace.
+These fluent APIs, from the Utility class, are made available in the VijayAnand.MauiToolkit.Markup namespace.
 
-Now it's possible to selectively register the services required into the DI container.
+Add a static using statement like, global using static VijayAnand.MauiToolkit.Markup.Utility; and then access the methods directly.
 
-Configure the UseVijayAnandMauiToolkit() method with configuration parameter of type ServiceRegistrations (Flags-attributed) enum
+Most useful method will be:
 
-To illustrate with a sample, if only interested in NavigationService:
+T? AppResource<T>(string key)
 
-Then, invoke UseVijayAnandMauiToolkit(ServiceRegistrations.Navigation)
-
-And if DialogService is required along with NavigationService:
-
-Then, invoke UseVijayAnandMauiToolkit(ServiceRegistrations.Dialogs | ServiceRegistrations.Navigation)
-
-By default, the configuration parameter value is set to ServiceRegistrations.All
+Updated the NavigationService implementation such that those methods will raise a NotSupportedException if Shell is not enabled.
