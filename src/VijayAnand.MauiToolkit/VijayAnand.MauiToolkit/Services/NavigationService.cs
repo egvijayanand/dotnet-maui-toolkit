@@ -8,7 +8,7 @@ namespace VijayAnand.MauiToolkit.Services
         {
             if (Shell.Current is null)
             {
-                throw new Exception($"Navigation with '{nameof(GoToAsync)}' method is currently supported only with Shell application.");
+                throw new NotSupportedException($"Navigation with the '{nameof(GoToAsync)}' method is currently supported only with a Shell-enabled application.");
             }
 
             return Shell.Current.GoToAsync(route);
@@ -19,7 +19,7 @@ namespace VijayAnand.MauiToolkit.Services
 
             if (Shell.Current is null)
             {
-                throw new Exception($"Navigation with '{nameof(GoToAsync)}' method is currently supported only with Shell application.");
+                throw new NotSupportedException($"Navigation with the '{nameof(GoToAsync)}' method is currently supported only with a Shell-enabled application.");
             }
 
             return Shell.Current.GoToAsync($"{route}?{key}={value}");
@@ -29,7 +29,7 @@ namespace VijayAnand.MauiToolkit.Services
         {
             if (Shell.Current is null)
             {
-                throw new Exception($"Navigation with '{nameof(GoToAsync)}' method is currently supported only with Shell application.");
+                throw new NotSupportedException($"Navigation with the '{nameof(GoToAsync)}' method is currently supported only with a Shell-enabled application.");
             }
 
             return Shell.Current.GoToAsync(BuildUri(route, routeParameters));
@@ -39,7 +39,7 @@ namespace VijayAnand.MauiToolkit.Services
         {
             if (Shell.Current is null)
             {
-                throw new Exception($"Navigation with '{nameof(GoBackAsync)}' method is currently supported only with Shell application.");
+                throw new NotSupportedException($"Navigation with the '{nameof(GoBackAsync)}' method is currently supported only with a Shell-enabled application.");
             }
 
             return Shell.Current.GoToAsync("..");
