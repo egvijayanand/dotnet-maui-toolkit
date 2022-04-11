@@ -9,7 +9,7 @@
             this.share = share;
         }
 
-        public async Task ShareText(string title, string text)
+        public async Task ShareTextAsync(string title, string text)
         {
             try
             {
@@ -21,7 +21,7 @@
             }
         }
 
-        public async Task ShareUri(string title, string text, string uri)
+        public async Task ShareUriAsync(string title, string text, string uri)
         {
             try
             {

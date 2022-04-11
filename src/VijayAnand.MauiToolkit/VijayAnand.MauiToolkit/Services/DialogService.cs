@@ -2,8 +2,17 @@
 {
     public class DialogService : IMauiDialogService, IDialogService
     {
-        public Task<string> DisplayActionSheet(string title, string cancel, string destruction, params string[] buttons)
+        public Task<string> DisplayActionSheetAsync(string title, string cancel, string destruction, params string[] buttons)
         {
+            if (Application.Current is null)
+            {
+                throw new InvalidOperationException("Application.Current cannot be null");
+            }
+            else if (Application.Current.MainPage is null)
+            {
+                throw new InvalidOperationException("Application.Current.MainPage cannot be null");
+            }
+
             if (Application.Current.MainPage is Shell)
             {
                 return Shell.Current.DisplayActionSheet(title, cancel, destruction, buttons);
@@ -14,8 +23,17 @@
             }
         }
 
-        public Task<string> DisplayActionSheet(string title, string cancel, string destruction, FlowDirection flowDirection, params string[] buttons)
+        public Task<string> DisplayActionSheetAsync(string title, string cancel, string destruction, FlowDirection flowDirection, params string[] buttons)
         {
+            if (Application.Current is null)
+            {
+                throw new InvalidOperationException("Application.Current cannot be null");
+            }
+            else if (Application.Current.MainPage is null)
+            {
+                throw new InvalidOperationException("Application.Current.MainPage cannot be null");
+            }
+
             if (Application.Current.MainPage is Shell)
             {
                 return Shell.Current.DisplayActionSheet(title, cancel, destruction, flowDirection, buttons);
@@ -26,8 +44,17 @@
             }
         }
 
-        public Task DisplayAlert(string title, string message, string cancel)
+        public Task DisplayAlertAsync(string title, string message, string cancel)
         {
+            if (Application.Current is null)
+            {
+                throw new InvalidOperationException("Application.Current cannot be null");
+            }
+            else if (Application.Current.MainPage is null)
+            {
+                throw new InvalidOperationException("Application.Current.MainPage cannot be null");
+            }
+
             if (Application.Current.MainPage is Shell)
             {
                 return Shell.Current.DisplayAlert(title, message, cancel);
@@ -38,8 +65,17 @@
             }
         }
 
-        public Task<bool> DisplayAlert(string title, string message, string accept, string cancel)
+        public Task<bool> DisplayAlertAsync(string title, string message, string accept, string cancel)
         {
+            if (Application.Current is null)
+            {
+                throw new InvalidOperationException("Application.Current cannot be null");
+            }
+            else if (Application.Current.MainPage is null)
+            {
+                throw new InvalidOperationException("Application.Current.MainPage cannot be null");
+            }
+
             if (Application.Current.MainPage is Shell)
             {
                 return Shell.Current.DisplayAlert(title, message, accept, cancel);
@@ -50,8 +86,17 @@
             }
         }
 
-        public Task DisplayAlert(string title, string message, string cancel, FlowDirection flowDirection)
+        public Task DisplayAlertAsync(string title, string message, string cancel, FlowDirection flowDirection)
         {
+            if (Application.Current is null)
+            {
+                throw new InvalidOperationException("Application.Current cannot be null");
+            }
+            else if (Application.Current.MainPage is null)
+            {
+                throw new InvalidOperationException("Application.Current.MainPage cannot be null");
+            }
+
             if (Application.Current.MainPage is Shell)
             {
                 return Shell.Current.DisplayAlert(title, message, cancel, flowDirection);
@@ -62,8 +107,17 @@
             }
         }
 
-        public Task<bool> DisplayAlert(string title, string message, string accept, string cancel, FlowDirection flowDirection)
+        public Task<bool> DisplayAlertAsync(string title, string message, string accept, string cancel, FlowDirection flowDirection)
         {
+            if (Application.Current is null)
+            {
+                throw new InvalidOperationException("Application.Current cannot be null");
+            }
+            else if (Application.Current.MainPage is null)
+            {
+                throw new InvalidOperationException("Application.Current.MainPage cannot be null");
+            }
+
             if (Application.Current.MainPage is Shell)
             {
                 return Shell.Current.DisplayAlert(title, message, accept, cancel, flowDirection);
@@ -76,6 +130,15 @@
 
         public Task<string> DisplayPromptAsync(string title, string message, string accept = "OK", string cancel = "Cancel", string? placeholder = null, int maxLength = -1, Keyboard? keyboard = null, string initialValue = "")
         {
+            if (Application.Current is null)
+            {
+                throw new InvalidOperationException("Application.Current cannot be null");
+            }
+            else if (Application.Current.MainPage is null)
+            {
+                throw new InvalidOperationException("Application.Current.MainPage cannot be null");
+            }
+
             if (Application.Current.MainPage is Shell)
             {
                 return Shell.Current.DisplayPromptAsync(title, message, accept, cancel, placeholder, maxLength, keyboard, initialValue);
