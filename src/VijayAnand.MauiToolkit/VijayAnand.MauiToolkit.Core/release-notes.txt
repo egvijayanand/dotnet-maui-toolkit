@@ -1,8 +1,10 @@
-What's new in ver. 1.0.0-pre5:
+What's new in ver. 1.0.0-pre6:
 
 Updated release of VijayAnand.MauiToolkit.Core NuGet package and is built on top of .NET 6.
 
-The objective is to ease the development of the Razor Class Library (RCL) so that it can be shared with all Blazor targets (.NET MAUI, Server, WebAssembly, Windows Forms, and WPF).
+Methods in the DialogService have been suffixed with Async.
+
+The objective is to ease the development of the Razor Class Library (RCL) so that it can be shared with all Blazor targets (.NET MAUI, Blazor Server and WebAssembly, Windows Forms, and WPF).
 
 And .NET MAUI targets Android, iOS, macOS (via Mac Catalyst), and Windows (via WinUI 3).
 

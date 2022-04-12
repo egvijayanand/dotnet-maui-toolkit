@@ -1,15 +1,7 @@
-What's new in ver. 1.0.0-pre5:
+What's new in ver. 1.0.0-pre6:
 
 Updated release of VijayAnand.MauiToolkit NuGet package and is built on top of .NET MAUI Preview 14.
 
-This release includes additional Markup extension methods for accessing the resources.
+This release includes additional Markup extension methods for Menu group and item.
 
-These fluent APIs, from the Utility class, are made available in the VijayAnand.MauiToolkit.Markup namespace.
-
-Add a static using statement like, global using static VijayAnand.MauiToolkit.Markup.Utility; and then access the methods directly.
-
-Most useful method will be:
-
-T? AppResource<T>(string key)
-
-Updated the NavigationService implementation such that those methods will raise a NotSupportedException if Shell is not enabled.
+Methods in the DialogService and ShareService have been suffixed with Async.

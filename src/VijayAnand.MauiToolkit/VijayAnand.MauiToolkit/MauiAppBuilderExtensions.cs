@@ -1,7 +1,5 @@
 ﻿using Microsoft.Maui.Essentials.Implementations;
 
-#nullable enable
-
 namespace VijayAnand.MauiToolkit
 {
     public static class MauiAppBuilderExtensions
