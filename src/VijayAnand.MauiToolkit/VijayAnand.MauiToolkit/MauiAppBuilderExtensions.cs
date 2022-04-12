@@ -1,6 +1,4 @@
-﻿using Microsoft.Maui.Essentials.Implementations;
-
-namespace VijayAnand.MauiToolkit
+﻿namespace VijayAnand.MauiToolkit
 {
     public static class MauiAppBuilderExtensions
     {
@@ -20,13 +18,13 @@ namespace VijayAnand.MauiToolkit
 
             if (configuration.HasFlag(ServiceRegistrations.Share) || configuration.HasFlag(ServiceRegistrations.All))
             {
-                builder.Services.AddSingleton<IShare, ShareImplementation>();
+                builder.Services.AddSingleton(Share.Default);
                 builder.Services.AddSingleton<IShareService, ShareService>();
             }
 
             if (configuration.HasFlag(ServiceRegistrations.Theme) || configuration.HasFlag(ServiceRegistrations.All))
             {
-                builder.Services.AddSingleton<IPreferences, PreferencesImplementation>();
+                builder.Services.AddSingleton(Preferences.Default);
                 builder.Services.AddSingleton<IThemeService, ThemeService>();
             }
 
