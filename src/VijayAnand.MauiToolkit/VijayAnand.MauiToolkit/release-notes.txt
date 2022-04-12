@@ -4,4 +4,4 @@ Updated release of VijayAnand.MauiToolkit NuGet package and is built on top of .
 
 This release includes additional Markup extension methods for Menu group and item.
 
-Methods in the DialogService have been suffixed with Async.
+Methods in the DialogService and ShareService have been suffixed with Async.
