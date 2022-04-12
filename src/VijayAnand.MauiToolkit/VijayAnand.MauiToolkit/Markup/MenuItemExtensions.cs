@@ -2,6 +2,7 @@
 {
     public static class MenuItemExtensions
     {
+        // Common        
         public static TMenuItem Accelerator<TMenuItem>(this TMenuItem menuItem, string value)
             where TMenuItem : BaseMenuItem
         {
@@ -10,23 +11,23 @@
         }
 
         public static TMenuItem Title<TMenuItem>(this TMenuItem menuItem, string value)
-            where TMenuItem : BaseMenuItem
+            where TMenuItem : MenuItem
         {
-            menuItem.SetValue(MenuItem.TextProperty, value);
+            menuItem.Text = value;
             return menuItem;
         }
 
         public static TMenuItem Enabled<TMenuItem>(this TMenuItem menuItem, bool value = true)
-            where TMenuItem : BaseMenuItem
+            where TMenuItem : MenuItem
         {
-            menuItem.SetValue(MenuItem.IsEnabledProperty, value);
+            menuItem.IsEnabled = value;
             return menuItem;
         }
 
         public static TMenuItem Destructive<TMenuItem>(this TMenuItem menuItem, bool value = true)
             where TMenuItem : MenuItem
         {
-            menuItem.SetValue(MenuItem.IsDestructiveProperty, value);
+            menuItem.IsDestructive = value;
             return menuItem;
         }
     }
