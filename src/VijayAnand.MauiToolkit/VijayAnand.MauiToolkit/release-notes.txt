@@ -1,7 +1,3 @@
-What's new in ver. 1.0.0-pre6:
+What's new in ver. 1.0.0-pre7:
 
-Updated release of VijayAnand.MauiToolkit NuGet package and is built on top of .NET MAUI Preview 14.
-
-This release includes additional Markup extension methods for Menu group and item.
-
-Methods in the DialogService and ShareService have been suffixed with Async.
+Updated release of VijayAnand.MauiToolkit NuGet package and is built on top of .NET MAUI RC1.
