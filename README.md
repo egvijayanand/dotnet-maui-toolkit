@@ -2,6 +2,8 @@
 
 This is a toolkit with a set of abstractions to simplify working with .NET MAUI and Blazor.
 
+Join me on [**Developer Thoughts**](https://egvijayanand.in/), an exclusive blog for .NET MAUI and Blazor, for articles on working with these toolkit and much more.
+
 It's built on top of .NET 6 and published as a NuGet package - [![VijayAnand.MauiToolkit.Core - NuGet Package](https://badgen.net/nuget/v/VijayAnand.MauiToolkit.Core/)](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Core/)
 
 The objective is to ease the development of the `Razor Class Library` (RCL) so that it can be shared with all Blazor targets (.NET MAUI, Server, WebAssembly, Windows Forms, and WPF).
