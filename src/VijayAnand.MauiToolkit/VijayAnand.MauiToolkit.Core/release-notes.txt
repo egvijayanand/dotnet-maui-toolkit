@@ -1,4 +1,4 @@
-What's new in ver. 1.0.0-pre7:
+What's new in ver. 1.0.0-pre8:
 
 Updated release of VijayAnand.MauiToolkit.Core NuGet package and is built on top of .NET 6.
 
