@@ -6,7 +6,7 @@
 		<!-- Targets possible from macOS -->
 		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('osx'))">$(TargetFrameworks);net6.0-ios;net6.0-maccatalyst</TargetFrameworks>
 		<!-- Uncomment to also build the Tizen app. You will need to install Tizen by following this: https://github.com/Samsung/Tizen.NET -->
-		<!-- <TargetFrameworks>$(TargetFrameworks);net6.0-tizen</TargetFrameworks> -->
+		<TargetFrameworks>$(TargetFrameworks);net6.0-tizen</TargetFrameworks>
 
 		<!-- .NET MAUI -->
 		<UseMaui>true</UseMaui>
@@ -39,10 +39,10 @@
 		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
 		<RepositoryUrl>https://github.com/egvijayanand/dotnet-maui-toolkit</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
-		<PackageTags>.NET,MAUI,Blazor,BlazorWebView,C#,Hybrid,Toolkit,Razor,RCL,iOS,Android,macOS,Windows,WinUI3,MacCatalyst</PackageTags>
+		<PackageTags>.NET,MAUI,Blazor,BlazorWebView,C#,Hybrid,Toolkit,Razor,RCL,iOS,Android,macOS,Windows,WinUI3,MacCatalyst,Tizen</PackageTags>
 		<PackageReleaseNotes>$([System.IO.File]::ReadAllText("$(MSBuildProjectDirectory)/release-notes.txt"))</PackageReleaseNotes>
 		<AssemblyName>VijayAnand.MauiToolkit</AssemblyName>
-		<Version>1.0.0-pre8</Version>
+		<Version>1.0.0-pre9</Version>
 		<AssemblyVersion>1.0.0.0</AssemblyVersion>
 		<FileVersion>1.0.0.0</FileVersion>
 		<PackageReadmeFile>overview.md</PackageReadmeFile>
