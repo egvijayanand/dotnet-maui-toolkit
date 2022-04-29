@@ -20,7 +20,7 @@
 		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
 		<RepositoryUrl>https://github.com/egvijayanand/dotnet-maui-toolkit</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
-		<PackageTags>.NET,MAUI,Blazor,BlazorWebView,C#,Hybrid,Toolkit,Razor,RCL,iOS,Android,macOS,WinForms,Windows,WinUI3,WPF,MacCatalyst,Server,WebAssembly,WASM</PackageTags>
+		<PackageTags>.NET,MAUI,Blazor,BlazorWebView,C#,Hybrid,Toolkit,Razor,RCL,iOS,Android,macOS,WinForms,Windows,WinUI3,WPF,MacCatalyst,Server,WebAssembly,WASM,Tizen</PackageTags>
 		<PackageReleaseNotes>$([System.IO.File]::ReadAllText("$(MSBuildProjectDirectory)/release-notes.txt"))</PackageReleaseNotes>
 		<AssemblyName>VijayAnand.MauiToolkit.Core</AssemblyName>
 		<Version>1.0.0-pre8</Version>
