@@ -6,7 +6,7 @@ It's built on top of .NET 6 and published as a NuGet package - [VijayAnand.MauiT
 
 The objective is to ease the development of the `Razor Class Library` (RCL) so that it can be shared with all Blazor targets (.NET MAUI, Server, WebAssembly, Windows Forms, and WPF).
 
-And .NET MAUI targets Android, iOS, macOS (via Mac Catalyst), and Windows (via WinUI 3).
+And .NET MAUI targets Android, iOS, macOS (via Mac Catalyst), Tizen, and Windows (via WinUI 3).
 
 To start with defines the following abstractions:
 
