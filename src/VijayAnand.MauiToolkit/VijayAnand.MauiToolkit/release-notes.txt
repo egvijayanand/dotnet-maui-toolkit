@@ -1,4 +1,4 @@
-What's new in ver. 1.0.0-pre9:
+What's new in ver. 1.0.0-pre10:
 
 Updated release of VijayAnand.MauiToolkit NuGet package and is built on top of .NET MAUI RC2.
 

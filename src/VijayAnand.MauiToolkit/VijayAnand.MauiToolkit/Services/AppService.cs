@@ -17,7 +17,7 @@
         public static TService? GetService<TService>() => Current.GetService<TService>();
 
         internal static IServiceProvider Current =>
-#if ANDROID
+#if ANDROID || TIZEN
             MauiApplication.Current.Services;
 #elif IOS || MACCATALYST
             MauiUIApplicationDelegate.Current.Services;
