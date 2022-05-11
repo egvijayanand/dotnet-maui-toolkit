@@ -1,5 +1,3 @@
-What's new in ver. 1.0.0-pre6:
+What's new in ver. 1.0.0-pre7:
 
-This package is released on top of .NET MAUI RC2 dependencies, latest release as of Apr 2022.
-
-Tizen is added as a supported platform.
+This version of package is released on top of .NET MAUI RC3, latest release as of May 2022.
