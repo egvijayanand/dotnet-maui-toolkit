@@ -23,7 +23,7 @@
 		<PackageTags>.NET,MAUI,Blazor,BlazorWebView,C#,Hybrid,Toolkit,Razor,RCL,iOS,Android,macOS,WinForms,Windows,WinUI3,WPF,MacCatalyst,Server,WebAssembly,WASM,Tizen</PackageTags>
 		<PackageReleaseNotes>$([System.IO.File]::ReadAllText("$(MSBuildProjectDirectory)/release-notes.txt"))</PackageReleaseNotes>
 		<AssemblyName>VijayAnand.MauiToolkit.Core</AssemblyName>
-		<Version>1.0.0-pre10</Version>
+		<Version>1.0.0-pre11</Version>
 		<AssemblyVersion>1.0.0.0</AssemblyVersion>
 		<FileVersion>1.0.0.0</FileVersion>
 		<PackageReadmeFile>overview.md</PackageReadmeFile>

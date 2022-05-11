@@ -1,5 +1,3 @@
-What's new in ver. 1.0.0-pre10:
+What's new in ver. 1.0.0-pre11:
 
-Updated release of VijayAnand.MauiToolkit NuGet package and is built on top of .NET MAUI RC2.
-
-Samsung Tizen added as supported platform.
+Updated release of VijayAnand.MauiToolkit NuGet package and is released on top of .NET MAUI RC3.
