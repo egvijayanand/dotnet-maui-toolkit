@@ -1,3 +1,5 @@
-What's new in ver. 1.0.0-pre11:
+What's new in ver. 1.0.0-pre12:
 
 Updated release of VijayAnand.MauiToolkit NuGet package and is released on top of .NET MAUI RC3.
+
+The static property (Current) that provides access to the AppService has been made public.

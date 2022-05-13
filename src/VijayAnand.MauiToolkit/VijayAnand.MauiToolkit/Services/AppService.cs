@@ -16,7 +16,7 @@
         /// <returns>A service object of type <typeparamref name="TService"/> or null if there is no such service.</returns>
         public static TService? GetService<TService>() => Current.GetService<TService>();
 
-        internal static IServiceProvider Current =>
+        public static IServiceProvider Current =>
 #if ANDROID || TIZEN
             MauiApplication.Current.Services;
 #elif IOS || MACCATALYST
