@@ -41,7 +41,7 @@
 		<PackageTags>.NET,MAUI,Blazor,BlazorWebView,C#,Markup,Fluent,API,Declarative,Hybrid</PackageTags>
 		<PackageReleaseNotes>$([System.IO.File]::ReadAllText("$(MSBuildProjectDirectory)/release-notes.txt"))</PackageReleaseNotes>
 		<AssemblyName>VijayAnand.MauiBlazor.Markup</AssemblyName>
-		<Version>1.0.0-pre7</Version>
+		<Version>1.0.0</Version>
 		<AssemblyVersion>1.0.0.0</AssemblyVersion>
 		<FileVersion>1.0.0.0</FileVersion>
 		<PackageReadmeFile>overview.md</PackageReadmeFile>
