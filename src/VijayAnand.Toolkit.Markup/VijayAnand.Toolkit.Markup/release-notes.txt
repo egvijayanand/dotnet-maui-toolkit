@@ -1,0 +1,7 @@
+What's new in ver. 1.0.0-pre1:
+
+Initial (preview) release of C# Markup Toolkit package.
+
+.NET Standard 2.0 library targets Xamarin.Forms and extends the features of the Xamarin.CommunityToolkit.Markup package.
+
+And .NET 6.0 library targets .NET MAUI and extends the features of CommunityToolkit.Maui.Markup package.
