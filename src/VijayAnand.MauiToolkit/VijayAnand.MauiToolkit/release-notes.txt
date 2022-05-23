@@ -1,5 +1,5 @@
-What's new in ver. 1.0.0-pre12:
+What's new in ver. 1.0.0:
 
-Updated release of VijayAnand.MauiToolkit NuGet package and is released on top of .NET MAUI RC3.
+Updated release of VijayAnand.MauiToolkit NuGet package and is built on top of .NET MAUI GA version.
 
-The static property (Current) that provides access to the AppService has been made public.
+Join me on Developer Thoughts, https://egvijayanand.in/, an exclusive blog for .NET MAUI and Blazor.
