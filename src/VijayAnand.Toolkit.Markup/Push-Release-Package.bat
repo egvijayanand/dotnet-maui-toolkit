@@ -23,9 +23,11 @@ if [%packageVersion%]==[] call Error "Package version # not configured." & goto 
 
 if not exist .\VijayAnand.Toolkit.Markup\bin\Release\%packageName%.%packageVersion%.nupkg call Error "NuGet package not avilable." & goto end
 
-:: Push the Package
+:: Validate and Push the Package
 
-call Info "Pushing %packageName% ver. %packageVersion% to My NuGet ..."
+call Info "Validating and Pushing %packageName% ver. %packageVersion% to My NuGet ..."
+
+dotnet-validate package local .\VijayAnand.Toolkit.Markup\bin\Release\%packageName%.%packageVersion%.nupkg
 
 dotnet nuget push .\VijayAnand.Toolkit.Markup\bin\Release\%packageName%.%packageVersion%.nupkg --source %nugetSource%\%packageName%
 
