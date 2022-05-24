@@ -1,6 +1,6 @@
-What's new in ver. 1.0.0-pre1:
+What's new in ver. 1.0.0-pre2:
 
-Initial (preview) release of C# Markup Toolkit package.
+Updated (preview) release of C# Markup Toolkit package to support .NET MAUI GA, a stable release version.
 
 .NET Standard 2.0 library targets Xamarin.Forms and extends the features of the Xamarin.CommunityToolkit.Markup package.
 
