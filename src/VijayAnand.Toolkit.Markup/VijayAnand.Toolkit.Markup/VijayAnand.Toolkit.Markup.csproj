@@ -21,9 +21,9 @@
 		<Title>VijayAnand.Toolkit.Markup</Title>
 		<Description>VijayAnand.Toolkit.Markup is a set of fluent helper methods and classes for Xamarin.Forms / .NET MAUI to facilitate rapid UI development and better reuse in C#.</Description>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<RepositoryUrl>https://github.com/egvijayanand/toolkit.markup</RepositoryUrl>
+		<RepositoryUrl>https://github.com/egvijayanand/dotnet-maui-toolkit</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
-		<PackageTags>.NET,MAUI,Xamarin,Forms,C#,CSharp,Markup,Toolkit</PackageTags>
+		<PackageTags>.NET,MAUI,Xamarin,Forms,C#,CSharp,Markup,Toolkit,Fluent,API,Shared</PackageTags>
 		<PackageReleaseNotes>$([System.IO.File]::ReadAllText("$(MSBuildProjectDirectory)/release-notes.txt"))</PackageReleaseNotes>
 		<AssemblyName>VijayAnand.Toolkit.Markup</AssemblyName>
 		<Version>1.0.0</Version>
@@ -65,7 +65,7 @@
 
 	<ItemGroup Condition="'$(TargetFramework)' == 'net6.0'">
 		<PackageReference Include="CommunityToolkit.Maui.Markup"
-						  Version="1.0.0-rc3" />
+						  Version="1.0.0" />
 	</ItemGroup>
 
 	<ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
