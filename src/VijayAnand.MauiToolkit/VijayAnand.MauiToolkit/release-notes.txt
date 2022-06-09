@@ -1,5 +1,7 @@
-What's new in ver. 1.0.0:
+What's new in ver. 1.0.1-pre1:
 
-Updated release of VijayAnand.MauiToolkit NuGet package and is built on top of .NET MAUI GA version.
+Route parameters in the Navigation service methods can also be passed as Tuple (string key, object value).
+
+Now GoBackAsync method also takes parameters.
 
 Join me on Developer Thoughts, https://egvijayanand.in/, an exclusive blog for .NET MAUI and Blazor.
