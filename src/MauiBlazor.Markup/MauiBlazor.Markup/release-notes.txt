@@ -1,5 +1,5 @@
-What's new in ver. 1.0.0:
+What's new in ver. 1.0.1:
 
-This version of package is released on top of .NET MAUI GA stable version.
+This version of package is released on top of .NET MAUI SR1 (Service Release 1) version.
 
 Join me on Developer Thoughts, https://egvijayanand.in/, an exclusive blog for .NET MAUI and Blazor.
