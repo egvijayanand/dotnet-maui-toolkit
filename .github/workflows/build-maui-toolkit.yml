@@ -13,7 +13,7 @@ env:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build-weekly-xamarin-blazor"
+  # This workflow contains a single job called "build-maui-toolkit"
   build-maui-toolkit:
     # The type of runner that the job will run on
     runs-on: windows-latest
@@ -37,11 +37,11 @@ jobs:
 
       # Install Maui workload
       - name: Install Maui workload
-        run: dotnet workload install maui --from-rollback-file https://aka.ms/dotnet/maui/${{ secrets.DOTNET_VERSION }}.json --source https://aka.ms/dotnet6/nuget/index.json --source https://api.nuget.org/v3/index.json
+        run: dotnet workload install maui
 
       # Install WebAssembly workload
       - name: Install WebAssembly workload
-        run: dotnet workload install wasm-tools --from-rollback-file https://aka.ms/dotnet/maui/${{ secrets.DOTNET_VERSION }}.json --source https://aka.ms/dotnet6/nuget/index.json --source https://api.nuget.org/v3/index.json
+        run: dotnet workload install wasm-tools
 
       # List installed workload
       - name: List installed workloads
