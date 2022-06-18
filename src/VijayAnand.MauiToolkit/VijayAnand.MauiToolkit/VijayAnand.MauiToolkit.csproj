@@ -6,10 +6,11 @@
 		<!-- Targets possible from macOS -->
 		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('osx'))">$(TargetFrameworks);net6.0-ios;net6.0-maccatalyst</TargetFrameworks>
 		<!-- Uncomment to also build the Tizen app. You will need to install Tizen by following this: https://github.com/Samsung/Tizen.NET -->
-		<!-- <TargetFrameworks>$(TargetFrameworks);net6.0-tizen</TargetFrameworks> -->
+		<TargetFrameworks>$(TargetFrameworks);net6.0-tizen</TargetFrameworks>
 
 		<!-- .NET MAUI -->
 		<UseMaui>true</UseMaui>
+		<MauiVersion>6.0.312</MauiVersion>
 		<SingleProject>true</SingleProject>
 
 		<!-- Project Options -->
