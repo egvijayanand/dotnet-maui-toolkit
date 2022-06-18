@@ -37,11 +37,15 @@ jobs:
 
       # Install Maui workload
       - name: Install Maui workload
-        run: dotnet workload install maui
+        run: dotnet workload install maui --from-rollback-file https://aka.ms/dotnet/maui/6.0.300.json --source https://aka.ms/dotnet6/nuget/index.json --source https://api.nuget.org/v3/index.json
 
       # Install WebAssembly workload
       - name: Install WebAssembly workload
-        run: dotnet workload install wasm-tools
+        run: dotnet workload install wasm-tools --from-rollback-file https://aka.ms/dotnet/maui/6.0.300.json --source https://aka.ms/dotnet6/nuget/index.json --source https://api.nuget.org/v3/index.json
+
+      # List installed workload
+      - name: List installed workloads
+        run: dotnet workload list
 
       # Restore dependencies
       - name: Restore dependencies
@@ -49,4 +53,5 @@ jobs:
 
       # Build the project in Release mode
       - name: Build the Solution in Release mode
-        run: Create-Release-Package.bat
+        shell: cmd
+        run: .\Create-Package.bat Release
