@@ -5,6 +5,8 @@ if [%1]==[] (echo Build configuration input is not provided. & goto end)
 
 set config=%1
 
+if not [%2]==[] (set pkgVersion=%2)
+
 :: Package Name
 
 if not exist CorePackageName.txt (echo Core package name file not available. & goto end)
@@ -23,7 +25,8 @@ if [%toolkitPkgName%]==[] (echo Toolkit package name not configured. & goto end)
 
 if not exist PackageVersion.txt (echo Version file not available. & goto end)
 
-set /P pkgVersion=<PackageVersion.txt
+:: If value of pkgVersion is still blank, attempt to read from the PackageVersion file
+if [%pkgVersion%]==[] (set /P pkgVersion=<PackageVersion.txt)
 
 if [%pkgVersion%]==[] (echo Version # not configured. & goto end)
 

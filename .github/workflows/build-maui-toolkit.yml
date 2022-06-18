@@ -53,16 +53,16 @@ jobs:
 
       # Build the project in Release mode
       - name: Build the Solution in Release mode
-        run: .\Create-Package.bat ${{ secrets.BUILD_CONFIG }}
+        run: .\Create-Package.bat ${{ secrets.BUILD_CONFIG }} ${{ secrets:MAUI_TOOLKIT_PKG_VERSION }}
 
       - name: Archive VijayAnand.MauiToolkit.Core NuGet package
         uses: actions/upload-artifact@v3
         with:
           name: archive-core-nuget-package
-          path: src/VijayAnand.MauiToolkit/VijayAnand.MauiToolkit.Core/bin/${{ secrets.BUILD_CONFIG }}/VijayAnand.MauiToolkit.Core.${{ secrets.PKG_VERSION }}.nupkg
+          path: src/VijayAnand.MauiToolkit/VijayAnand.MauiToolkit.Core/bin/${{ secrets.BUILD_CONFIG }}/VijayAnand.MauiToolkit.Core.${{ secrets.MAUI_TOOLKIT_PKG_VERSION }}.nupkg
 
       - name: Archive VijayAnand.MauiToolkit NuGet package
         uses: actions/upload-artifact@v3
         with:
           name: archive-toolkit-nuget-package
-          path: src/VijayAnand.MauiToolkit/VijayAnand.MauiToolkit/bin/${{ secrets.BUILD_CONFIG }}/VijayAnand.MauiToolkit.${{ secrets.PKG_VERSION }}.nupkg
+          path: src/VijayAnand.MauiToolkit/VijayAnand.MauiToolkit/bin/${{ secrets.BUILD_CONFIG }}/VijayAnand.MauiToolkit.${{ secrets.MAUI_TOOLKIT_PKG_VERSION }}.nupkg
