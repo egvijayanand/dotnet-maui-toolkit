@@ -53,7 +53,7 @@ jobs:
 
       # Build the project in Release mode
       - name: Build the Solution in Release mode
-        run: .\Create-Package.bat ${{ secrets.BUILD_CONFIG }} ${{ secrets:MAUI_TOOLKIT_PKG_VERSION }}
+        run: .\Create-Package.bat ${{ secrets.BUILD_CONFIG }} ${{ secrets.MAUI_TOOLKIT_PKG_VERSION }}
 
       - name: Archive VijayAnand.MauiToolkit.Core NuGet package
         uses: actions/upload-artifact@v3
