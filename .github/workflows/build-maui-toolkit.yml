@@ -60,10 +60,10 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: archive-core-nuget-package
-          path: .\VijayAnand.MauiToolkit.Core\bin\Release\VijayAnand.MauiToolkit.Core.1.0.1-pre1.nupkg
+          path: VijayAnand.MauiToolkit.Core/bin/Release/VijayAnand.MauiToolkit.Core.1.0.1-pre1.nupkg
 
       - name: Archive VijayAnand.MauiToolkit NuGet package
         uses: actions/upload-artifact@v3
         with:
           name: archive-toolkit-nuget-package
-          path: .\VijayAnand.MauiToolkit\bin\Release\VijayAnand.MauiToolkit.1.0.1-pre1.nupkg
+          path: VijayAnand.MauiToolkit/bin/Release/VijayAnand.MauiToolkit.1.0.1-pre1.nupkg
