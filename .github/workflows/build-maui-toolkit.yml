@@ -10,6 +10,8 @@ on:
 # Allows you to run this workflow manually from the Actions tab
 env:
   DOTNET_VERSION: '6.0.300'
+  BUILD_CONFIG: Release
+  PKG_VERSION: 1.0.1-pre1
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -47,23 +49,26 @@ jobs:
       - name: List installed workloads
         run: dotnet workload list
 
+      # List environment variables
+      - name: List environment variables
+        run: env
+
       # Restore dependencies
       - name: Restore dependencies
         run: dotnet restore
 
       # Build the project in Release mode
       - name: Build the Solution in Release mode
-        shell: cmd
-        run: .\Create-Package.bat Release
+        run: .\Create-Package.bat ${{ env.BUILD_CONFIG }}
 
       - name: Archive VijayAnand.MauiToolkit.Core NuGet package
         uses: actions/upload-artifact@v3
         with:
           name: archive-core-nuget-package
-          path: VijayAnand.MauiToolkit.Core/bin/Release/VijayAnand.MauiToolkit.Core.1.0.1-pre1.nupkg
+          path: src/VijayAnand.MauiToolkit/VijayAnand.MauiToolkit.Core/bin/${{ env.BUILD_CONFIG }}/VijayAnand.MauiToolkit.Core.${{ env.PKG_VERSION }}.nupkg
 
       - name: Archive VijayAnand.MauiToolkit NuGet package
         uses: actions/upload-artifact@v3
         with:
           name: archive-toolkit-nuget-package
-          path: VijayAnand.MauiToolkit/bin/Release/VijayAnand.MauiToolkit.1.0.1-pre1.nupkg
+          path: src/VijayAnand.MauiToolkit/VijayAnand.MauiToolkit/bin/${{ env.BUILD_CONFIG }}/VijayAnand.MauiToolkit.${{ env.PKG_VERSION }}.nupkg
