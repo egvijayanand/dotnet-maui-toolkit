@@ -6,12 +6,18 @@ name: Build VijayAnand.MauiToolkit
 on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+    inputs:
+      buildConfig:
+        description: 'Build configuration'
+        required: true
+        default: 'Release'
+      pkgVersion:
+        description: 'Package version'
+        required: true
 
 # Allows you to run this workflow manually from the Actions tab
 env:
-  DOTNET_VERSION: ${{ secrets.DOTNET_VERSION }}
-  BUILD_CONFIG: ${{ secrets.BUILD_CONFIG }}
-  PKG_VERSION: ${{ secrets.MAUI_TOOLKIT_PKG_VERSION }}
+  DOTNET_VERSION: '6.0.400-preview.22301.10'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -67,16 +73,16 @@ jobs:
 
       # Build the project in Release mode
       - name: Build the Solution in Release mode
-        run: .\Create-Package.bat ${{ env.BUILD_CONFIG }} ${{ env.PKG_VERSION }}
+        run: .\Create-Package.bat ${{ github.event.inputs.buildConfig }} ${{ github.event.inputs.pkgVersion }}
 
       - name: Archive VijayAnand.MauiToolkit.Core NuGet package
         uses: actions/upload-artifact@v3
         with:
           name: archive-core-nuget-package
-          path: src/VijayAnand.MauiToolkit/VijayAnand.MauiToolkit.Core/bin/${{ env.BUILD_CONFIG }}/VijayAnand.MauiToolkit.Core.${{ env.PKG_VERSION }}.nupkg
+          path: src/VijayAnand.MauiToolkit/VijayAnand.MauiToolkit.Core/bin/${{ github.event.inputs.buildConfig }}/VijayAnand.MauiToolkit.Core.${{ github.event.inputs.pkgVersion }}.nupkg
 
       - name: Archive VijayAnand.MauiToolkit NuGet package
         uses: actions/upload-artifact@v3
         with:
           name: archive-toolkit-nuget-package
-          path: src/VijayAnand.MauiToolkit/VijayAnand.MauiToolkit/bin/${{ env.BUILD_CONFIG }}/VijayAnand.MauiToolkit.${{ env.PKG_VERSION }}.nupkg
+          path: src/VijayAnand.MauiToolkit/VijayAnand.MauiToolkit/bin/${{ github.event.inputs.buildConfig }}/VijayAnand.MauiToolkit.${{ github.event.inputs.pkgVersion }}.nupkg
