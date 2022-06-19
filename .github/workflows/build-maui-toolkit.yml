@@ -33,7 +33,7 @@ jobs:
           # Optional SDK version to use. If not provided, will install global.json version when available. Examples: 2.2.104, 3.1, 3.1.x
           dotnet-version: ${{ secrets.DOTNET_VERSION }}
           # Whether prerelease versions should be matched with non-exact versions (for example 5.0.0-preview.6 being matched by 5, 5.0, 5.x or 5.0.x). Defaults to false if not provided.
-          include-prerelease: false
+          include-prerelease: true
 
       # Install Maui workload
       - name: Install Maui workload
@@ -42,6 +42,14 @@ jobs:
       # Install WebAssembly workload
       - name: Install WebAssembly workload
         run: dotnet workload install wasm-tools
+
+      # Download Tizen workload install file
+      - name: Download Tizen workload install file
+        run: Invoke-WebRequest 'https://raw.githubusercontent.com/Samsung/Tizen.NET/main/workload/scripts/workload-install.ps1' -OutFile 'tizen-workload-install.ps1';
+
+      # Install Tizen workload
+      - name: Install Tizen workload
+        run: .\tizen-workload-install.ps1
 
       # List installed workload
       - name: List installed workloads
