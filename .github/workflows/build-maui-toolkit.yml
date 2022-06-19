@@ -9,7 +9,9 @@ on:
 
 # Allows you to run this workflow manually from the Actions tab
 env:
-  DOTNET_VERSION: '6.0.x'
+  DOTNET_VERSION: ${{ secrets.DOTNET_VERSION }}
+  BUILD_CONFIG: ${{ secrets.BUILD_CONFIG }}
+  PKG_VERSION: ${{ secrets.MAUI_TOOLKIT_PKG_VERSION }}
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -31,9 +33,13 @@ jobs:
         uses: actions/setup-dotnet@v2
         with:
           # Optional SDK version to use. If not provided, will install global.json version when available. Examples: 2.2.104, 3.1, 3.1.x
-          dotnet-version: ${{ secrets.DOTNET_VERSION }}
+          dotnet-version: ${{ env.DOTNET_VERSION }}
           # Whether prerelease versions should be matched with non-exact versions (for example 5.0.0-preview.6 being matched by 5, 5.0, 5.x or 5.0.x). Defaults to false if not provided.
           include-prerelease: false
+
+      # Display .NET SDK version
+      - name: Display .NET SDK version
+        run: dotnet --version
 
       # Install Maui workload
       - name: Install Maui workload
@@ -61,16 +67,16 @@ jobs:
 
       # Build the project in Release mode
       - name: Build the Solution in Release mode
-        run: .\Create-Package.bat ${{ secrets.BUILD_CONFIG }} ${{ secrets.MAUI_TOOLKIT_PKG_VERSION }}
+        run: .\Create-Package.bat ${{ env.BUILD_CONFIG }} ${{ env.PKG_VERSION }}
 
       - name: Archive VijayAnand.MauiToolkit.Core NuGet package
         uses: actions/upload-artifact@v3
         with:
           name: archive-core-nuget-package
-          path: src/VijayAnand.MauiToolkit/VijayAnand.MauiToolkit.Core/bin/${{ secrets.BUILD_CONFIG }}/VijayAnand.MauiToolkit.Core.${{ secrets.MAUI_TOOLKIT_PKG_VERSION }}.nupkg
+          path: src/VijayAnand.MauiToolkit/VijayAnand.MauiToolkit.Core/bin/${{ env.BUILD_CONFIG }}/VijayAnand.MauiToolkit.Core.${{ env.PKG_VERSION }}.nupkg
 
       - name: Archive VijayAnand.MauiToolkit NuGet package
         uses: actions/upload-artifact@v3
         with:
           name: archive-toolkit-nuget-package
-          path: src/VijayAnand.MauiToolkit/VijayAnand.MauiToolkit/bin/${{ secrets.BUILD_CONFIG }}/VijayAnand.MauiToolkit.${{ secrets.MAUI_TOOLKIT_PKG_VERSION }}.nupkg
+          path: src/VijayAnand.MauiToolkit/VijayAnand.MauiToolkit/bin/${{ env.BUILD_CONFIG }}/VijayAnand.MauiToolkit.${{ env.PKG_VERSION }}.nupkg
