@@ -4,7 +4,7 @@
     {
         /// <summary>Defines an accelerator for the menu item.</summary>
         public static TMenuItem Accelerator<TMenuItem>(this TMenuItem menuItem, string value)
-            where TMenuItem : BaseMenuItem
+            where TMenuItem : MenuItem
         {
             menuItem.SetValue(MenuItem.AcceleratorProperty, value);
             return menuItem;
