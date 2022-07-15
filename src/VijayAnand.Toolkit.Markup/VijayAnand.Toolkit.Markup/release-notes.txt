@@ -1,6 +1,22 @@
-What's new in ver. 1.0.0:
--------------------------
-Updated release of C# Markup Toolkit package to support .NET MAUI GA / SR1, a stable release version.
+What's new in ver. 1.0.1-pre1:
+------------------------------
+Added a new helper method named GetXamlResource<T> (in the ResourceHelper class) to obtain an instance for XAML only type definition.
+
+    Configured with <?xaml-comp compile="true" ?> and No code-behind file with C# type definition (hence no x:Class attribute).
+
+Reorganization of extension methods in the Utility class.
+
+Helper Method -> Moved to New type
+----------------------------------
+AppResource -> ResourceHelper
+AppResource<T> -> ResourceHelper
+
+AddSwipeItem<T> -> SwipeViewHelper
+CreateSwipeItems -> SwipeViewHelper
+
+CreateVisualStateGroupList -> VisualStateHelper
+
+Updated release of C# Markup Toolkit package to support .NET MAUI GA and later versions, a stable release version.
 
 .NET Standard 2.0 library targets Xamarin.Forms and extends the features of the Xamarin.CommunityToolkit.Markup package.
 
