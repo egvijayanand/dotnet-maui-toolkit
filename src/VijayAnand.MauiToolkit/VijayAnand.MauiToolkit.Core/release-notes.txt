@@ -1,4 +1,6 @@
-What's new in ver. 1.0.2-pre2:
+What's new in ver. 1.0.2-pre3:
+
+DisplayActionSheetAsync method in IDialogService interface now takes message and defaultButton as additional parameters.
 
 Route parameters in the Navigation service methods can also be passed as Tuple (string key, object value).
 

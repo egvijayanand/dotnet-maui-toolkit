@@ -1,6 +1,6 @@
-What's new in ver. 1.0.2-pre2:
+What's new in ver. 1.0.2-pre3:
 
-Fix on top of the earlier preview release.
+DisplayActionSheetAsync method in DialogService class now takes message and defaultButton as additional parameters in accordance with updated interface definition.
 
 Added a new Markup Method, named AddSubMenuGroup, to define a sub-menu group within a menu group to manage the multi-level menu.
 
