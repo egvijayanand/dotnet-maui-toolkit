@@ -6,11 +6,13 @@
         /// Displays an action sheet.
         /// </summary>
         /// <param name="title">The title of the action sheet.</param>
+        /// <param name="message">The optional message of the action sheet.</param>
         /// <param name="cancel">The cancellation action.</param>
-        /// <param name="destruction">The desctructive action.</param>
-        /// <param name="buttons">The list of actions to be displayed.</param>
+        /// <param name="destruction">The destructive action.</param>
         /// <returns>The name of the action that the user has opted for.</returns>
-        Task<string> DisplayActionSheetAsync(string title, string cancel, string destruction, params string[] buttons);
+        /// <param name="defaultButton">The action to be in focus on launch, if supported.</param>
+        /// <param name="buttons">The list of actions to be displayed.</param>
+        Task<string> DisplayActionSheetAsync(string title, string message, string cancel, string destruction, string defaultButton, params string[] buttons);
 
         /// <summary>
         /// Displays an alert.
