@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>net6.0</TargetFramework>
+		<TargetFramework>net7.0</TargetFramework>
 
 		<!-- Project Options -->
 		<Nullable>enable</Nullable>
@@ -21,11 +21,11 @@
 		<RepositoryUrl>https://github.com/egvijayanand/dotnet-maui-toolkit</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 		<PackageTags>.NET,MAUI,Blazor,BlazorWebView,C#,Hybrid,Toolkit,Razor,RCL,iOS,Android,macOS,WinForms,Windows,WinUI3,WPF,MacCatalyst,Server,WebAssembly,WASM,Tizen</PackageTags>
-		<PackageReleaseNotes>$([System.IO.File]::ReadAllText("$(MSBuildProjectDirectory)/release-notes.txt"))</PackageReleaseNotes>
+		<PackageReleaseNotes>$([System.IO.File]::ReadAllText("$(MSBuildProjectDirectory)/release-notes-net7.txt"))</PackageReleaseNotes>
 		<AssemblyName>VijayAnand.MauiToolkit.Core</AssemblyName>
-		<Version>1.0.0</Version>
-		<AssemblyVersion>1.0.0.0</AssemblyVersion>
-		<FileVersion>1.0.0.0</FileVersion>
+		<Version>2.0.0</Version>
+		<AssemblyVersion>2.0.0.0</AssemblyVersion>
+		<FileVersion>2.0.0.0</FileVersion>
 		<PackageReadmeFile>overview.md</PackageReadmeFile>
 		<PackageProjectUrl>https://egvijayanand.in/</PackageProjectUrl>
 
@@ -47,7 +47,7 @@
 
 	<ItemGroup>
 		<None Include="overview.md" Pack="true" PackagePath="\" />
-		<None Include="release-notes.txt" />
+		<None Include="release-notes-net7.txt" />
 	</ItemGroup>
 
 </Project>

@@ -1,11 +1,21 @@
 :: Creates a new NuGet package from the project file
 @echo off
 
-if [%1]==[] (echo Build configuration input is not provided. & goto end)
+set inputReqd=0
 
-set config=%1
+if [%1]==[] (echo Project Id is not provided. & set inputReqd=1)
 
-if not [%2]==[] (set pkgVersion=%2)
+if [%1]==[] (echo Build configuration is not provided. & set inputReqd=1)
+
+if [%2]==[] (echo Version # not provided. & set inputReqd=1)
+
+if %inputReqd% == 1 goto end
+
+set projId=%1
+
+set config=%2
+
+set pkgVersion=%3
 
 :: Package Name
 
@@ -20,15 +30,6 @@ if not exist ToolkitPackageName.txt (echo Toolkit package name file not availabl
 set /P toolkitPkgName=<ToolkitPackageName.txt
 
 if [%toolkitPkgName%]==[] (echo Toolkit package name not configured. & goto end)
-
-:: Package Version
-
-if not exist PackageVersion.txt (echo Version file not available. & goto end)
-
-:: If value of pkgVersion is still blank, attempt to read from the PackageVersion file
-if [%pkgVersion%]==[] (set /P pkgVersion=<PackageVersion.txt)
-
-if [%pkgVersion%]==[] (echo Version # not configured. & goto end)
 
 :: .NET SDK Version
 
@@ -47,15 +48,13 @@ if exist .\VijayAnand.MauiToolkit\bin\%config%\%toolkitPkgName%.%pkgVersion%.nup
 
 echo Creating NuGet package ...
 
-dotnet build .\VijayAnand.MauiToolkit.Core\VijayAnand.MauiToolkit.Core.csproj -c %config% -p:PackageVersion=%pkgVersion% -p:ContinuousIntegrationBuild=true
+dotnet build .\VijayAnand.MauiToolkit.Core\VijayAnand.MauiToolkit.Core.%projId%.csproj -c %config% -p:PackageVersion=%pkgVersion% -p:ContinuousIntegrationBuild=true
 
 if not %errorlevel% == 0 (echo Core package creation failed. & goto end)
 
 echo.
-:: Adding NuGet reference
-::dotnet add .\VijayAnand.MauiToolkit\VijayAnand.MauiToolkit.csproj package %corePkgName% --version %pkgVersion%
 
-dotnet build .\VijayAnand.MauiToolkit\VijayAnand.MauiToolkit.csproj -c %config% -p:PackageVersion=%pkgVersion% -p:ContinuousIntegrationBuild=true
+dotnet build .\VijayAnand.MauiToolkit\VijayAnand.MauiToolkit.%projId%.csproj -c %config% -p:PackageVersion=%pkgVersion% -p:ContinuousIntegrationBuild=true
 
 echo.
 if %errorlevel% == 0 (echo Process completed.) else (echo Toolkit package creation failed.)

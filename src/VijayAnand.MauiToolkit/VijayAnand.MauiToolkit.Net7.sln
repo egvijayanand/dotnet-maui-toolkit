@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VijayAnand.MauiToolkit", "VijayAnand.MauiToolkit\VijayAnand.MauiToolkit.csproj", "{8384E7C5-B193-4915-A493-7488B92DF85C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VijayAnand.MauiToolkit", "VijayAnand.MauiToolkit\VijayAnand.MauiToolkit.Net7.csproj", "{8384E7C5-B193-4915-A493-7488B92DF85C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VijayAnand.MauiToolkit.Core", "VijayAnand.MauiToolkit.Core\VijayAnand.MauiToolkit.Core.csproj", "{AF5EAD10-57A6-49D1-B449-CFB3F2EFA5E4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VijayAnand.MauiToolkit.Core", "VijayAnand.MauiToolkit.Core\VijayAnand.MauiToolkit.Core.Net7.csproj", "{AF5EAD10-57A6-49D1-B449-CFB3F2EFA5E4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
