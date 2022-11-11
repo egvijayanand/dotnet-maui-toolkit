@@ -1,0 +1,24 @@
+What's new in ver. 1.0.2:
+-------------------------
+Package target .NET 6 and is build on top of .NET SDK 6.0.403 (6.0.11).
+
+DisplayActionSheetAsync method in IDialogService interface now takes message and defaultButton as additional parameters.
+
+Route parameters in the Navigation service methods can also be passed as Tuple (string key, object value).
+
+Now GoBackAsync method also takes parameters.
+
+The objective is to ease the development of the Razor Class Library (RCL) so that it can be shared with all Blazor targets (.NET MAUI, Blazor Server and WebAssembly, Windows Forms, and WPF).
+
+And .NET MAUI targets Android, iOS, macOS (via Mac Catalyst), Tizen, and Windows (via WinUI 3).
+
+To start with defines the following abstractions:
+
+1. Dialogs - IDialogService
+2. Navigation - INavigationService
+3. Share - IShareService
+4. Theme - IThemeService
+
+A Model class for UserToken and frequently used Constants for OAuth / OIDC authentication.
+
+Join me on Developer Thoughts, https://egvijayanand.in/, an exclusive blog for .NET MAUI and Blazor.

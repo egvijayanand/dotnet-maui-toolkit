@@ -1,0 +1,28 @@
+What's new in ver. 2.0.0:
+-------------------------
+Package supports .NET MAUI on .NET 7 and is built on top of .NET 7 GA release (7.0.49).
+
+DisplayActionSheetAsync method in DialogService class now takes message and defaultButton as additional parameters in accordance with updated interface definition.
+
+Added a new Markup Method, named AddSubMenuGroup, to define a sub-menu group within a menu group to manage the multi-level menu.
+
+Here is an example of a sub-menu group:
+
+"Change Location" is a first level menu group (under the "Locations" top level menu item) and "India" is a second level menu group within that.
+
+This way multi-level menu can be defined.
+
+MenuBarItems.Add(new MenuBarItem().Title("Locations")
+                                  .AddMenuGroup(new MenuFlyoutSubItem().Title("Change Location")
+                                                                       .AddSubMenuItem(new MenuFlyoutItem().Title("New York, USA"))
+                                                                       .AddSubMenuItem(new MenuFlyoutItem().Title("London, UK"))
+                                                                       .AddSubMenuItem(new MenuFlyoutItem().Title("Cape Town, RSA"))
+                                                                       .AddSubMenuItem(new MenuFlyoutItem().Title("Beijing, PRC"))
+                                                                       .AddSubMenuGroup(new MenuFlyoutSubItem().Title("India")
+                                                                                                               .AddSubMenuItem(new MenuFlyoutItem().Title("Chennai, TN"))
+                                                                                                               .AddSubMenuItem(new MenuFlyoutItem().Title("Kolkata, WB"))
+                                                                                                               .AddSubMenuItem(new MenuFlyoutItem().Title("Mumbai, MH"))
+                                                                                                               .AddSubMenuItem(new MenuFlyoutItem().Title("New Delhi, NCR"))))
+                                  .AddMenuItem(new MenuFlyoutItem().Title("Add a Location").BindCommand("AddLocationCommand")));
+
+Join me on Developer Thoughts, https://egvijayanand.in/, an exclusive blog for .NET MAUI and Blazor.

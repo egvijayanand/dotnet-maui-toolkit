@@ -1,9 +1,21 @@
 :: Creates a new NuGet package from the project file
 @echo off
 
-if [%1]==[] (call Error "Build configuration input is not provided." & goto end)
+set inputReqd=0
 
-set config=%1
+if [%1]==[] (call Error "Project Id is not provided." & set inputReqd=1)
+
+if [%2]==[] (call Error "Build configuration is not provided." & set inputReqd=1)
+
+if [%3]==[] (call Error "Version # not provided." & set inputReqd=1)
+
+if %inputReqd% == 1 goto end
+
+set projId=%1
+
+set config=%2
+
+set pkgVersion=%3
 
 :: Package Name
 
@@ -18,14 +30,6 @@ if not exist ToolkitPackageName.txt (call Error "Toolkit package name file not a
 set /P toolkitPkgName=<ToolkitPackageName.txt
 
 if [%toolkitPkgName%]==[] (call Error "Toolkit package name not configured." & goto end)
-
-:: Package Version
-
-if not exist PackageVersion.txt (call Error "Version file not available." & goto end)
-
-set /P pkgVersion=<PackageVersion.txt
-
-if [%pkgVersion%]==[] (call Error "Version # not configured." & goto end)
 
 :: .NET SDK Version
 
@@ -44,15 +48,13 @@ if exist .\VijayAnand.MauiToolkit\bin\%config%\%toolkitPkgName%.%pkgVersion%.nup
 
 call Info "Creating NuGet package ..."
 
-dotnet build .\VijayAnand.MauiToolkit.Core\VijayAnand.MauiToolkit.Core.csproj -c %config% -p:PackageVersion=%pkgVersion% -p:ContinuousIntegrationBuild=true
+dotnet build .\VijayAnand.MauiToolkit.Core\VijayAnand.MauiToolkit.Core.%projId%.csproj -c %config% -p:PackageVersion=%pkgVersion% -p:ContinuousIntegrationBuild=true
 
 if not %errorlevel% == 0 (call Error "Core package creation failed." & goto end)
 
 echo.
-:: Adding NuGet reference
-::dotnet add .\VijayAnand.MauiToolkit\VijayAnand.MauiToolkit.csproj package %corePkgName% --version %pkgVersion%
 
-dotnet build .\VijayAnand.MauiToolkit\VijayAnand.MauiToolkit.csproj -c %config% -p:PackageVersion=%pkgVersion% -p:ContinuousIntegrationBuild=true
+dotnet build .\VijayAnand.MauiToolkit\VijayAnand.MauiToolkit.%projId%.csproj -c %config% -p:PackageVersion=%pkgVersion% -p:ContinuousIntegrationBuild=true
 
 echo.
 if %errorlevel% == 0 (call Success "Process completed.") else (call Error "Toolkit package creation failed.")
