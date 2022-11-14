@@ -1,20 +1,35 @@
 :: Creates a new NuGet package from the project file
 @echo off
 
-if not exist PackageVersion.txt (echo Version file not available && goto end)
+set projId=
 
-set /P packageVersion=<PackageVersion.txt
+set config=Release
 
-if [%packageVersion%]==[] (echo Version # not configured && goto end)
+:: Package Version
+:: .NET 6
 
-@echo Version #: %packageVersion%
+set projId=Net6
 
-@echo Delete existing package
-if exist .\MauiBlazor.Markup\bin\Release\MauiBlazor.Markup.%packageVersion%.nupkg del .\MauiBlazor.Markup\bin\Release\MauiBlazor.Markup.%packageVersion%.nupkg
+if not exist PackageVersion-%projId%.txt (call Error ".NET 6 version file not available." & goto end)
 
-echo Creating NuGet package ...
-dotnet build .\MauiBlazor.Markup\MauiBlazor.Markup.csproj -c Release -p:PackageVersion=%packageVersion% -p:ContinuousIntegrationBuild=true
-echo Process completed.
+set /P pkgVersion=<PackageVersion-%projId%.txt
+
+if [%pkgVersion%]==[] (call Error ".NET 6 version # not configured." & goto end)
+
+call Create-Package.bat %projId% %config% %pkgVersion%
+
+:: .NET 7
+
+echo.
+set projId=Net7
+
+if not exist PackageVersion-%projId%.txt (call Error ".NET 7 version file not available." & goto end)
+
+set /P pkgVersion=<PackageVersion-%projId%.txt
+
+if [%pkgVersion%]==[] (call Error ".NET 7 version # not configured." & goto end)
+
+call Create-Package.bat %projId% %config% %pkgVersion%
 
 :end
 pause
