@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>netstandard2.0;net6.0</TargetFrameworks>
+		<TargetFrameworks>netstandard2.0;net7.0</TargetFrameworks>
 
 		<!-- Project Options -->
 
@@ -51,9 +51,9 @@
 		<None Include="release-notes.txt" />
 	</ItemGroup>
 
-	<PropertyGroup Condition="'$(TargetFramework)' == 'net6.0'">
+	<PropertyGroup Condition="'$(TargetFramework)' == 'net7.0'">
 		<UseMaui>true</UseMaui>
-		<MauiVersion>6.0.312</MauiVersion>
+		<MauiVersion>7.0.49</MauiVersion>
 		<SingleProject>true</SingleProject>
 	</PropertyGroup>
 
@@ -64,9 +64,9 @@
 						  Version="2.0.4" />
 	</ItemGroup>
 
-	<ItemGroup Condition="'$(TargetFramework)' == 'net6.0'">
+	<ItemGroup Condition="'$(TargetFramework)' == 'net7.0'">
 		<PackageReference Include="CommunityToolkit.Maui.Markup"
-						  Version="1.0.0" />
+						  Version="2.0.0" />
 	</ItemGroup>
 
 	<ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
@@ -74,7 +74,7 @@
 		<None Include="**\*.maui.cs" />
 	</ItemGroup>
 
-	<ItemGroup Condition="'$(TargetFramework)' == 'net6.0'">
+	<ItemGroup Condition="'$(TargetFramework)' == 'net7.0'">
 		<Compile Include="**\*.shared.cs;**\*.maui.cs" />
 		<None Include="**\*.forms.cs" />
 	</ItemGroup>
