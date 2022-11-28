@@ -1,5 +1,9 @@
-What's new in ver. 1.0.1:
+What's new in ver. 2.0.0:
 -------------------------
+Package updated to support .NET MAUI on .NET 7 GA release (7.0.49).
+
+v1.0.1:
+
 Stable release. Below mentioned features out of preview.
 
 1. Added utility methods in the ResourceHelper class for accessing commonly used types such as Color, Converters, Style and ResourceDictionary.
