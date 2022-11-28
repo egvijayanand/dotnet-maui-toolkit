@@ -48,7 +48,7 @@ namespace VijayAnand.Toolkit.Markup
 
 			if (!Uri.TryCreate(resourcePath, UriKind.Relative, out var _))
 			{
-				throw new ArgumentException($"Not a well formed '{resourcePath}'. Check the path again.", nameof(resourcePath));
+				throw new ArgumentException($"Not a well formed {resourcePath}. Check the path again.", nameof(resourcePath));
 			}
 
 			var assemblyName = assembly.GetName().Name;
@@ -77,7 +77,7 @@ namespace VijayAnand.Toolkit.Markup
 				}
 				else
 				{
-					throw new Exception($"Unable to get the resource from '{resourcePath}'.");
+					throw new Exception($"Unable to get the resource from {resourcePath}.");
 				}
 			}
 			catch (Exception)
@@ -100,7 +100,7 @@ namespace VijayAnand.Toolkit.Markup
 
 			if (!Uri.TryCreate(resourcePath, UriKind.Relative, out var _))
 			{
-				throw new ArgumentException($"Not a well formed '{resourcePath}'. Check the path again.", nameof(resourcePath));
+				throw new ArgumentException($"Not a well formed {resourcePath}. Check the path again.", nameof(resourcePath));
 			}
 
 			try
@@ -110,11 +110,11 @@ namespace VijayAnand.Toolkit.Markup
 				if (customAttr is not null)
 				{
 					var instance = Activator.CreateInstance(customAttr.Type);
-					return instance is T obj ? obj : throw new Exception($"Resource available at '{resourcePath}' is not of type {nameof(T)}.");
+					return instance is T obj ? obj : throw new Exception($"Resource available at {resourcePath} is not of type {typeof(T).FullName}.");
 				}
 				else
 				{
-					throw new Exception($"Resource not found at '{resourcePath}'.");
+					throw new Exception($"Resource not found at {resourcePath}.");
 				}
 			}
 			catch (Exception)

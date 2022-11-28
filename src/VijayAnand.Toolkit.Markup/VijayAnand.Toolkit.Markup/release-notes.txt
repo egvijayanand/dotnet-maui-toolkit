@@ -1,5 +1,7 @@
-What's new in ver. 1.0.1-pre2:
-------------------------------
+What's new in ver. 1.0.1:
+-------------------------
+Stable release. Below mentioned features out of preview.
+
 1. Added utility methods in the ResourceHelper class for accessing commonly used types such as Color, Converters, Style and ResourceDictionary.
 
 AppColor
