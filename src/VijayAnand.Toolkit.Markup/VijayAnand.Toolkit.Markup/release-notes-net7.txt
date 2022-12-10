@@ -1,5 +1,9 @@
-What's new in ver. 2.0.0:
+What's new in ver. 2.0.1:
 -------------------------
+CommunityToolkit.Maui.Markup (.NET MAUI), the dependent package for .NET MAUI is updated to v2.1.0 so as to address the source generator issue.
+
+v2.0.0:
+
 Package updated to support .NET MAUI on .NET 7 GA release (7.0.49).
 
 v1.0.1:

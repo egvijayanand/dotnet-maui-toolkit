@@ -24,7 +24,7 @@
 		<RepositoryUrl>https://github.com/egvijayanand/dotnet-maui-toolkit</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 		<PackageTags>.NET,MAUI,Xamarin,Forms,C#,CSharp,Markup,Toolkit,Fluent,API,Shared</PackageTags>
-		<PackageReleaseNotes>$([System.IO.File]::ReadAllText("$(MSBuildProjectDirectory)/release-notes.txt"))</PackageReleaseNotes>
+		<PackageReleaseNotes>$([System.IO.File]::ReadAllText("$(MSBuildProjectDirectory)/release-notes-net7.txt"))</PackageReleaseNotes>
 		<AssemblyName>VijayAnand.Toolkit.Markup</AssemblyName>
 		<Version>1.0.0</Version>
 		<AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -48,7 +48,8 @@
 		<None Include="overview.md"
 			  Pack="true"
 			  PackagePath="\" />
-		<None Include="release-notes.txt" />
+		<None Remove="release-notes-net6.txt" />
+		<None Include="release-notes-net7.txt" />
 	</ItemGroup>
 
 	<PropertyGroup Condition="'$(TargetFramework)' == 'net7.0'">
@@ -66,7 +67,7 @@
 
 	<ItemGroup Condition="'$(TargetFramework)' == 'net7.0'">
 		<PackageReference Include="CommunityToolkit.Maui.Markup"
-						  Version="2.0.0" />
+						  Version="2.1.0" />
 	</ItemGroup>
 
 	<ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">

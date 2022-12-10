@@ -1,0 +1,87 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>netstandard2.0;net6.0</TargetFrameworks>
+
+		<!-- Project Options -->
+
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<RootNamespace>VijayAnand.Toolkit.Markup</RootNamespace>
+		<LangVersion>latest</LangVersion>
+		<EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+
+		<!-- NuGet Package Info -->
+
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<PackageId>VijayAnand.Toolkit.Markup</PackageId>
+		<Authors>Vijay Anand E G</Authors>
+		<Copyright>Copyright &#169; 2022 Vijay Anand E G</Copyright>
+		<Product>VijayAnand.Toolkit.Markup is a set of fluent helper methods and classes for Xamarin.Forms / .NET MAUI to facilitate rapid UI development and better reuse in C#.</Product>
+		<Title>VijayAnand.Toolkit.Markup</Title>
+		<Description>VijayAnand.Toolkit.Markup is a set of fluent helper methods and classes for Xamarin.Forms / .NET MAUI to facilitate rapid UI development and better reuse in C#.</Description>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<RepositoryUrl>https://github.com/egvijayanand/dotnet-maui-toolkit</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageTags>.NET,MAUI,Xamarin,Forms,C#,CSharp,Markup,Toolkit,Fluent,API,Shared</PackageTags>
+		<PackageReleaseNotes>$([System.IO.File]::ReadAllText("$(MSBuildProjectDirectory)/release-notes-net6.txt"))</PackageReleaseNotes>
+		<AssemblyName>VijayAnand.Toolkit.Markup</AssemblyName>
+		<Version>1.0.0</Version>
+		<AssemblyVersion>1.0.0.0</AssemblyVersion>
+		<FileVersion>1.0.0.0</FileVersion>
+		<PackageReadmeFile>overview.md</PackageReadmeFile>
+		<PackageProjectUrl>https://egvijayanand.in/</PackageProjectUrl>
+		<NeutralLanguage>en</NeutralLanguage>
+		<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+
+		<!-- Source Linking -->
+		<PublishRepositoryUrl>true</PublishRepositoryUrl>
+		<EmbedUntrackedSources>true</EmbedUntrackedSources>
+		<DebugType>embedded</DebugType>
+		<IncludeSymbols>true</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+
+		<!-- Package Validation -->
+		<ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+	</PropertyGroup>
+	<ItemGroup>
+		<None Include="overview.md"
+			  Pack="true"
+			  PackagePath="\" />
+		<None Include="release-notes-net6.txt" />
+		<None Remove="release-notes-net7.txt" />
+	</ItemGroup>
+
+	<PropertyGroup Condition="'$(TargetFramework)' == 'net6.0'">
+		<UseMaui>true</UseMaui>
+		<MauiVersion>6.0.312</MauiVersion>
+		<SingleProject>true</SingleProject>
+	</PropertyGroup>
+
+	<ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+		<PackageReference Include="Xamarin.Forms"
+						  Version="5.0.0.2291" />
+		<PackageReference Include="Xamarin.CommunityToolkit.Markup"
+						  Version="2.0.4" />
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(TargetFramework)' == 'net6.0'">
+		<PackageReference Include="CommunityToolkit.Maui.Markup"
+						  Version="1.0.0" />
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+		<Compile Include="**\*.shared.cs;**\*.forms.cs" />
+		<None Include="**\*.maui.cs" />
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(TargetFramework)' == 'net6.0'">
+		<Compile Include="**\*.shared.cs;**\*.maui.cs" />
+		<None Include="**\*.forms.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" />
+	</ItemGroup>
+
+</Project>

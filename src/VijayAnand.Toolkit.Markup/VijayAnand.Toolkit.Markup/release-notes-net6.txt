@@ -1,0 +1,36 @@
+What's new in ver. 1.0.1:
+-------------------------
+Stable release. Below mentioned features out of preview.
+
+1. Added utility methods in the ResourceHelper class for accessing commonly used types such as Color, Converters, Style and ResourceDictionary.
+
+AppColor
+AppConverter
+AppStyle
+GetXamlResourceDictionary
+
+2. For Xamarin.Forms supported package, dependent version of Xamarin.CommunityToolkit.Markup bumped to v2.0.4 (the GA compatible version).
+
+v1.0.1-pre1:
+
+Added a new helper method named GetXamlResource<T> (in the ResourceHelper class) to obtain an instance for XAML only type definition.
+
+    Configured with <?xaml-comp compile="true" ?> and No code-behind file with C# type definition (hence no x:Class attribute).
+
+Reorganization of extension methods in the Utility class.
+
+Helper Method -> Moved to New type
+----------------------------------
+AppResource -> ResourceHelper
+AppResource<T> -> ResourceHelper
+
+AddSwipeItem<T> -> SwipeViewHelper
+CreateSwipeItems -> SwipeViewHelper
+
+CreateVisualStateGroupList -> VisualStateHelper
+
+Updated release of C# Markup Toolkit package to support .NET MAUI GA and later versions, a stable release version.
+
+.NET Standard 2.0 library targets Xamarin.Forms and extends the features of the Xamarin.CommunityToolkit.Markup package.
+
+And .NET 6.0 library targets .NET MAUI and extends the features of CommunityToolkit.Maui.Markup package.
