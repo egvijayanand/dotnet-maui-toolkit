@@ -1,5 +1,9 @@
-What's new in ver. 1.0.1:
+What's new in ver. 1.0.2:
 -------------------------
+This version of package is released on top of .NET MAUI on .NET 6 SR8 (6.0.548) version.
+
+v1.0.1:
+
 Stable release. Below mentioned features out of preview.
 
 1. Added utility methods in the ResourceHelper class for accessing commonly used types such as Color, Converters, Style and ResourceDictionary.

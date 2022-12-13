@@ -54,7 +54,7 @@
 
 	<PropertyGroup Condition="'$(TargetFramework)' == 'net7.0'">
 		<UseMaui>true</UseMaui>
-		<MauiVersion>7.0.49</MauiVersion>
+		<!--<MauiVersion>7.0.52</MauiVersion>-->
 		<SingleProject>true</SingleProject>
 	</PropertyGroup>
 
