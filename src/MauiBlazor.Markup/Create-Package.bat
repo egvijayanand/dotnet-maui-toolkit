@@ -33,6 +33,7 @@ call Info "Creating %pkgName% ver. %pkgVersion% NuGet package in %config% mode .
 
 dotnet build .\MauiBlazor.Markup\MauiBlazor.Markup.%projId%.csproj -c %config% -p:PackageVersion=%pkgVersion%
 
+echo.
 if %errorlevel% == 0 (call Success "Process completed.") else (call Error "Failed to create package.")
 
 :end

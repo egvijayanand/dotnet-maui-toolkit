@@ -1,5 +1,9 @@
-What's new in ver. 1.0.7:
+What's new in ver. 1.0.8:
 -------------------------
+This version of package is released on top of .NET MAUI SR8 (6.0.548) version.
+
+v1.0.7:
+
 This version of package is released on top of .NET MAUI SR7 (6.0.547) version.
 
 Join me on Developer Thoughts, https://egvijayanand.in/, an exclusive blog for .NET MAUI and Blazor.

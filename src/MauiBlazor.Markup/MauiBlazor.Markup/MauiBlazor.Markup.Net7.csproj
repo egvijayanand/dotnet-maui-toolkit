@@ -1,12 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 	<PropertyGroup>
-		<TargetFrameworks>net7.0;net7.0-android</TargetFrameworks>
-		<!-- Targets possible from Windows OS -->
-		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net7.0-ios;net7.0-maccatalyst;net7.0-windows10.0.19041.0</TargetFrameworks>
-		<!-- Targets possible from macOS -->
-		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('osx'))">$(TargetFrameworks);net7.0-ios;net7.0-maccatalyst</TargetFrameworks>
-		<!-- Uncomment to also build the Tizen app. You will need to install Tizen by following this: https://github.com/Samsung/Tizen.NET -->
-		<TargetFrameworks>$(TargetFrameworks);net7.0-tizen</TargetFrameworks>
+		<TargetFramework>net7.0</TargetFramework>
 
 		<!-- .NET MAUI Options -->
 		<UseMaui>true</UseMaui>
@@ -16,16 +10,6 @@
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<RootNamespace>VijayAnand.MauiBlazor.Markup</RootNamespace>
-
-		<!-- Target Platform Options -->
-		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.2</SupportedOSPlatformVersion>
-		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">14.0</SupportedOSPlatformVersion>
-		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">23.0</SupportedOSPlatformVersion>
-		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
-		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
-
-		<!-- Minimum Target OS Version for Windows Platform -->
-		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
 
 		<!-- NuGet Package Info -->
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -46,14 +30,14 @@
 		<FileVersion>2.0.0.0</FileVersion>
 		<PackageReadmeFile>overview.md</PackageReadmeFile>
 		<PackageProjectUrl>https://egvijayanand.in/</PackageProjectUrl>
-        <!-- This project has no other dependencies, so disable the warning for that -->
-        <NoWarn>$(NoWarn);NU5017</NoWarn>
+		<!-- This project has no other dependencies, so disable the warning for that -->
+		<NoWarn>$(NoWarn);NU5017</NoWarn>
 		<!-- Source Linking -->
 		<PublishRepositoryUrl>true</PublishRepositoryUrl>
 		<EmbedUntrackedSources>true</EmbedUntrackedSources>
 		<DebugType>embedded</DebugType>
-		<IncludeSymbols>true</IncludeSymbols>
-		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+		<!--<IncludeSymbols>true</IncludeSymbols>-->
+		<!--<SymbolPackageFormat>snupkg</SymbolPackageFormat>-->
 
 		<!-- Package Validation -->
 		<ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
@@ -64,8 +48,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
-
 		<None Include="overview.md" Pack="true" PackagePath="\" />
 		<None Include="release-notes-net7.txt" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Remove="release-notes-net6.txt" />
 	</ItemGroup>
 </Project>
