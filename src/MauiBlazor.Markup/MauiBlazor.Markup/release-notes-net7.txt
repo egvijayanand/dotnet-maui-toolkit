@@ -1,5 +1,9 @@
-What's new in ver. 2.0.0:
+What's new in ver. 2.0.1:
 -------------------------
+This version of package is released on top of .NET MAUI on .NET 7 SR1.1 (7.0.52) version.
+
+v2.0.0:
+
 This version of package is released on top of .NET MAUI on .NET 7 GA (7.0.49) version.
 
 Join me on Developer Thoughts, https://egvijayanand.in/, an exclusive blog for .NET MAUI and Blazor.

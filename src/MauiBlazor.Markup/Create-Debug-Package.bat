@@ -32,4 +32,5 @@ if [%pkgVersion%]==[] (call Error ".NET 7 version # not configured." & goto end)
 call Create-Package.bat %projId% %config% %pkgVersion%
 
 :end
+echo.
 pause
