@@ -1,5 +1,9 @@
-What's new in ver. 1.0.2:
+What's new in ver. 1.0.3:
 -------------------------
+This version of package is released on top of .NET MAUI on .NET 6 SR8 (6.0.548) version.
+
+v1.0.2:
+
 Package supports .NET MAUI on .NET 6 and is built on top of .NET 6 SR7 (6.0.547).
 
 DisplayActionSheetAsync method in DialogService class now takes message and defaultButton as additional parameters in accordance with updated interface definition.

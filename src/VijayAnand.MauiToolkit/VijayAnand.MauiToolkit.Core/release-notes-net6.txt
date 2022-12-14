@@ -1,5 +1,9 @@
-What's new in ver. 1.0.2:
+What's new in ver. 1.0.3:
 -------------------------
+This version of package is released on top of .NET SDK 6.0.404 (6.0.12) version.
+
+v1.0.2:
+
 Package target .NET 6 and is build on top of .NET SDK 6.0.403 (6.0.11).
 
 DisplayActionSheetAsync method in IDialogService interface now takes message and defaultButton as additional parameters.

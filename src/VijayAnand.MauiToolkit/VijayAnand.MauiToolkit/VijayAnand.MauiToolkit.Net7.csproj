@@ -10,7 +10,7 @@
 
 		<!-- .NET MAUI -->
 		<UseMaui>true</UseMaui>
-		<MauiVersion>7.0.49</MauiVersion>
+		<MauiVersion>7.0.52</MauiVersion>
 		<SingleProject>true</SingleProject>
 
 		<!-- Project Options -->
@@ -52,7 +52,7 @@
 		<!-- Source Linking -->
 		<PublishRepositoryUrl>true</PublishRepositoryUrl>
 		<EmbedUntrackedSources>true</EmbedUntrackedSources>
-		<DebugType>embedded</DebugType>
+		<!--<DebugType>embedded</DebugType>-->
 		<IncludeSymbols>true</IncludeSymbols>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
 
@@ -71,6 +71,10 @@
 	<ItemGroup>
 		<None Include="overview.md" Pack="true" PackagePath="\" />
 		<None Include="release-notes-net7.txt" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Remove="release-notes-net6.txt" />
 	</ItemGroup>
 
 	<ItemGroup>
