@@ -40,21 +40,23 @@ dotnet --version
 call Info "Core Package: %corePkgName% ver. %pkgVersion%"
 call Info "Toolkit Package: %toolkitPkgName% ver. %pkgVersion%"
 
+echo.
 call Info "Delete existing package ..."
 
 if exist .\VijayAnand.MauiToolkit.Core\bin\%config%\%corePkgName%.%pkgVersion%.nupkg del .\VijayAnand.MauiToolkit.Core\bin\%config%\%corePkgName%.%pkgVersion%.nupkg
 
 if exist .\VijayAnand.MauiToolkit\bin\%config%\%toolkitPkgName%.%pkgVersion%.nupkg del .\VijayAnand.MauiToolkit\bin\%config%\%toolkitPkgName%.%pkgVersion%.nupkg
 
+echo.
 call Info "Creating NuGet package ..."
 
-dotnet build .\VijayAnand.MauiToolkit.Core\VijayAnand.MauiToolkit.Core.%projId%.csproj -c %config% -p:PackageVersion=%pkgVersion% -p:ContinuousIntegrationBuild=true
+dotnet build .\VijayAnand.MauiToolkit.Core\VijayAnand.MauiToolkit.Core.%projId%.csproj -c %config% -p:PackageVersion=%pkgVersion%
 
 if not %errorlevel% == 0 (call Error "Core package creation failed." & goto end)
 
 echo.
 
-dotnet build .\VijayAnand.MauiToolkit\VijayAnand.MauiToolkit.%projId%.csproj -c %config% -p:PackageVersion=%pkgVersion% -p:ContinuousIntegrationBuild=true
+dotnet build .\VijayAnand.MauiToolkit\VijayAnand.MauiToolkit.%projId%.csproj -c %config% -p:PackageVersion=%pkgVersion% -p:PublishReadyToRun=false
 
 echo.
 if %errorlevel% == 0 (call Success "Process completed.") else (call Error "Toolkit package creation failed.")

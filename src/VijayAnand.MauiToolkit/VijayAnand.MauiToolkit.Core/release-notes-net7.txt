@@ -1,4 +1,8 @@
-What's new in ver. 2.0.0:
+What's new in ver. 2.0.1:
+-------------------------
+This version of package is released on top of .NET SDK 7.0.101 (7.0.1) version.
+
+v2.0.0
 
 Package target .NET 7 and is build on top of .NET SDK 7.0.100 (7.0.0).
 

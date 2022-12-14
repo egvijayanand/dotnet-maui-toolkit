@@ -1,7 +1,9 @@
 :: Installs the NuGet package
 @echo off
 
-if defined MyGetSource (set "nugetSource=%MyGetSource%") else (set nugetSource=E:\Tasks\Projects\Templates\Release\NuGet\Packages)
+if defined MyGetSource (set "nugetSource=%MyGetSource%") else (call Error "MyGet folder source path is not defined." & goto end)
+
+if defined MyGetServer (set "nugetServer=%MyGetServer%") else (call Error "MyGet hosted source path is not defined." & goto end)
 
 :: Package Name
 
@@ -51,17 +53,28 @@ dotnet-validate package local .\VijayAnand.MauiToolkit\bin\Release\%toolkitPkgNa
 
 call Info "Pushing .NET 6 %corePkgName% ver. %pkgVersion% to My NuGet ..."
 
+echo.
 dotnet nuget push .\VijayAnand.MauiToolkit.Core\bin\Release\%corePkgName%.%pkgVersion%.nupkg --source %nugetSource%\%corePkgName%
 
-if not %errorlevel% == 0 (call Error ".NET 6 Core package push failed." & goto end)
+if not %errorlevel% == 0 (call Error ".NET 6 Core package folder push failed." & goto end)
+
+echo.
+nuget add .\VijayAnand.MauiToolkit.Core\bin\Release\%corePkgName%.%pkgVersion%.nupkg -Source %nugetServer%\
+
+if not %errorlevel% == 0 (call Error ".NET 6 Core package hosted push failed." & goto end)
 
 echo.
 call Info "Pushing .NET 6 %toolkitPkgName% ver. %pkgVersion% to My NuGet ..."
 
+echo.
 dotnet nuget push .\VijayAnand.MauiToolkit\bin\Release\%toolkitPkgName%.%pkgVersion%.nupkg --source %nugetSource%\%toolkitPkgName%
 
 echo.
-if not %errorlevel% == 0 (call Error ".NET 6 Toolkit package push failed." & goto end)
+if not %errorlevel% == 0 (call Error ".NET 6 Toolkit package folder push failed." & goto end)
+
+nuget add .\VijayAnand.MauiToolkit\bin\Release\%toolkitPkgName%.%pkgVersion%.nupkg -Source %nugetServer%\
+
+if not %errorlevel% == 0 (call Error ".NET 6 Toolkit package hosted push failed." & goto end)
 
 :: .NET 7 Package Version
 
@@ -91,17 +104,29 @@ dotnet-validate package local .\VijayAnand.MauiToolkit\bin\Release\%toolkitPkgNa
 
 call Info "Pushing .NET 7 %corePkgName% ver. %pkgVersion% to My NuGet ..."
 
+echo.
 dotnet nuget push .\VijayAnand.MauiToolkit.Core\bin\Release\%corePkgName%.%pkgVersion%.nupkg --source %nugetSource%\%corePkgName%
 
-if not %errorlevel% == 0 (call Error ".NET 7 Core package push failed." & goto end)
+if not %errorlevel% == 0 (call Error ".NET 7 Core package folder push failed." & goto end)
+
+echo.
+nuget add .\VijayAnand.MauiToolkit.Core\bin\Release\%corePkgName%.%pkgVersion%.nupkg -Source %nugetServer%\
+
+if not %errorlevel% == 0 (call Error ".NET 7 Core package hosted push failed." & goto end)
 
 echo.
 call Info "Pushing .NET 7 %toolkitPkgName% ver. %pkgVersion% to My NuGet ..."
 
+echo.
 dotnet nuget push .\VijayAnand.MauiToolkit\bin\Release\%toolkitPkgName%.%pkgVersion%.nupkg --source %nugetSource%\%toolkitPkgName%
 
+if not %errorlevel% == 0 (call Error ".NET 7 Toolkit package folder push failed." & goto end)
+
 echo.
-if %errorlevel% == 0 (call Success "Process completed.") else (call Error ".NET 7 Toolkit package push failed.")
+nuget add .\VijayAnand.MauiToolkit\bin\Release\%toolkitPkgName%.%pkgVersion%.nupkg -Source %nugetServer%\
+
+echo.
+if %errorlevel% == 0 (call Success "Process completed.") else (call Error ".NET 7 Toolkit package hosted push failed.")
 
 :end
 pause
