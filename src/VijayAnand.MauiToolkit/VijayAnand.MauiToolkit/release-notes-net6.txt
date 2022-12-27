@@ -1,5 +1,11 @@
-What's new in ver. 1.0.3:
--------------------------
+What's new in ver. 1.1.0-preview.1:
+-----------------------------------
+1. ServiceRegistrations enum type is now moved to Core package.
+
+2. Defined the MauiPage class, a base page to inherit while defining other pages, to easily work with .NET MAUI.
+
+v1.0.3:
+
 This version of package is released on top of .NET MAUI on .NET 6 SR8 (6.0.548) version.
 
 v1.0.2:

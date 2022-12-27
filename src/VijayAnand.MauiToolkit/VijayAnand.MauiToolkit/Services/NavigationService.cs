@@ -27,14 +27,21 @@ namespace VijayAnand.MauiToolkit.Services
             return Shell.Current.GoToAsync($"{route}?{key}={value}");
         }
 
-        public Task GoToAsync(string route, IDictionary<string, object> routeParameters)
+        public Task GoToAsync(string route, IDictionary<string, object>? routeParameters = null)
         {
             if (Shell.Current is null)
             {
                 throw new NotSupportedException($"Navigation with the '{nameof(GoToAsync)}' method is currently supported only with a Shell-enabled application.");
             }
 
-            return Shell.Current.GoToAsync(BuildUri(route, routeParameters));
+            if (routeParameters is null)
+            {
+                return Shell.Current.GoToAsync(new ShellNavigationState(route));
+            }
+            else
+            {
+                return Shell.Current.GoToAsync(new ShellNavigationState(route), routeParameters);
+            }
         }
 
         public Task GoToAsync(string route, params (string key, object value)[] routeParameters)
@@ -67,14 +74,21 @@ namespace VijayAnand.MauiToolkit.Services
             return Shell.Current.GoToAsync($"{BackNavigationRoute}?{key}={value}");
         }
 
-        public Task GoBackAsync(IDictionary<string, object> routeParameters)
+        public Task GoBackAsync(IDictionary<string, object>? routeParameters = null)
         {
             if (Shell.Current is null)
             {
                 throw new NotSupportedException($"Navigation with the '{nameof(GoBackAsync)}' method is currently supported only with a Shell-enabled application.");
             }
 
-            return Shell.Current.GoToAsync(BuildUri(BackNavigationRoute, routeParameters));
+            if (routeParameters is null)
+            {
+                return Shell.Current.GoToAsync(new ShellNavigationState(BackNavigationRoute));
+            }
+            else
+            {
+                return Shell.Current.GoToAsync(new ShellNavigationState(BackNavigationRoute), routeParameters);
+            }
         }
 
         public Task GoBackAsync(params (string key, object value)[] routeParameters)

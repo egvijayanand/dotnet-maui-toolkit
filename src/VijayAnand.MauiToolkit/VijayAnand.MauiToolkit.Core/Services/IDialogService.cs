@@ -12,7 +12,7 @@
         /// <returns>The name of the action that the user has opted for.</returns>
         /// <param name="defaultButton">The action to be in focus on launch, if supported.</param>
         /// <param name="buttons">The list of actions to be displayed.</param>
-        Task<string> DisplayActionSheetAsync(string title, string message, string cancel, string destruction, string defaultButton, params string[] buttons);
+        Task<string> DisplayActionSheetAsync(string title, string message, string cancel, string? destruction, string? defaultButton, params string[] buttons);
 
         /// <summary>
         /// Displays an alert.
@@ -44,7 +44,7 @@
         /// <param name="maxLength">The maximum length of the user input.</param>
         /// <param name="inputType">The type of the user input.</param>
         /// <param name="initialValue">The initial value, if any.</param>
-        /// <returns></returns>
+        /// <returns>The value entered in the prompt if the user clicks on the accept button. Otherwise blank.</returns>
         Task<string> DisplayPromptAsync(string title, string message, string accept = "OK", string cancel = "Cancel", string? placeholder = null, int maxLength = -1, InputType inputType = InputType.Default, string initialValue = "");
     }
 }

@@ -24,7 +24,7 @@
         /// <param name="route">Target route.</param>
         /// <param name="routeParameters">Set of parameters of Name/Value pairs.</param>
         /// <returns></returns>
-        Task GoToAsync(string route, IDictionary<string, object> routeParameters);
+        Task GoToAsync(string route, IDictionary<string, object>? routeParameters = null);
 
         /// <summary>
         /// Navigates to the specified route with a set of parameters.
@@ -53,7 +53,7 @@
         /// </summary>
         /// <param name="routeParameters">Set of parameters of Name/Value pairs.</param>
         /// <returns></returns>
-        Task GoBackAsync(IDictionary<string, object> routeParameters);
+        Task GoBackAsync(IDictionary<string, object>? routeParameters = null);
 
         /// <summary>
         /// Navigates one step backward.
