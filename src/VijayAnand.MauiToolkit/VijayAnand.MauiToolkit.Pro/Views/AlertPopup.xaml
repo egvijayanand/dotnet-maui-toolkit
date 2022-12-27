@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<mct:Popup
+    x:Class="VijayAnand.MauiToolkit.Pro.Views.AlertPopup"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:VijayAnand.MauiToolkit.Pro.Views"
+    xmlns:mct="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    CanBeDismissedByTappingOutsideOfPopup="False"
+    Size="320, 240"
+    Color="Transparent">
+    <mct:Popup.Content>
+        <Frame
+            Padding="0"
+            CornerRadius="5"
+            HasShadow="True">
+            <Grid
+                x:Name="container"
+                Padding="20"
+                RowDefinitions="50, 1, *, 60">
+                <Label
+                    x:Name="lblTitle"
+                    Grid.Row="0"
+                    FontAttributes="Bold"
+                    VerticalOptions="Center" />
+                <BoxView
+                    Grid.Row="1"
+                    HeightRequest="1"
+                    HorizontalOptions="Fill"
+                    Color="LightGray" />
+                <Label
+                    x:Name="lblMessage"
+                    Grid.Row="2"
+                    VerticalOptions="Center" />
+                <HorizontalStackLayout
+                    Grid.Row="3"
+                    HorizontalOptions="End"
+                    VerticalOptions="Center">
+                    <Button
+                        x:Name="btnAccept"
+                        Clicked="OnAcceptClicked" />
+                    <Button
+                        x:Name="btnCancel"
+                        Clicked="OnCancelClicked" />
+                </HorizontalStackLayout>
+            </Grid>
+        </Frame>
+    </mct:Popup.Content>
+</mct:Popup>

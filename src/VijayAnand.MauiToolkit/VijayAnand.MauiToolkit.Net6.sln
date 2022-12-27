@@ -7,6 +7,8 @@ Project("{A64FC0F4-D351-4E0D-8A68-25EE4AC42AA8}") = "VijayAnand.MauiToolkit", "V
 EndProject
 Project("{A64FC0F4-D351-4E0D-8A68-25EE4AC42AA8}") = "VijayAnand.MauiToolkit.Core", "VijayAnand.MauiToolkit.Core\VijayAnand.MauiToolkit.Core.Net6.csproj", "{BECDDE19-4B87-40AC-925C-6F8D636D6A6E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VijayAnand.MauiToolkit.Pro", "VijayAnand.MauiToolkit.Pro\VijayAnand.MauiToolkit.Pro.Net6.csproj", "{7433886C-DA77-41B0-A7E3-7AFF86D5CD02}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{BECDDE19-4B87-40AC-925C-6F8D636D6A6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BECDDE19-4B87-40AC-925C-6F8D636D6A6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BECDDE19-4B87-40AC-925C-6F8D636D6A6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7433886C-DA77-41B0-A7E3-7AFF86D5CD02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7433886C-DA77-41B0-A7E3-7AFF86D5CD02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7433886C-DA77-41B0-A7E3-7AFF86D5CD02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7433886C-DA77-41B0-A7E3-7AFF86D5CD02}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

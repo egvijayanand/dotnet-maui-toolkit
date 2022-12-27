@@ -2,7 +2,7 @@
 {
     public class DialogService : IMauiDialogService, IDialogService
     {
-        public Task<string> DisplayActionSheetAsync(string title, string message, string cancel, string destruction, string defaultButton, params string[] buttons)
+        public Task<string> DisplayActionSheetAsync(string title, string message, string cancel, string? destruction, string? defaultButton, params string[] buttons)
         {
             if (Application.Current is null)
             {

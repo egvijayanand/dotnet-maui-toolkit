@@ -1,0 +1,30 @@
+What's new in ver. 2.1.0-preview.1:
+-----------------------------------
+Note: Version # is aligned with the other packages in this suite.
+
+1. Initial version of VijayAnand.MauiToolkit.Pro version of NuGet package.
+
+2. Has dependency on CommunityToolkit.Maui and VijayAnand.MauiToolkit.Core NuGet packages.
+
+3. To start with, a custom definition of the Dialogs based on the CommunityToolkit's Popup type.
+
+3.1 This DialogService class is the implementation of the IDialogService interface definition in the Core package.
+
+3.2 Register the dependency in the startup pipeline (MauiProgram.cs) with a call to the UseVijayAnandMauiToolkitPro() method:
+
+Sample code:
+
+public static class MauiProgram
+{
+    public static MauiApp CreateMauiApp()
+    {
+        var builder = MauiApp.CreateBuilder();
+        builder.UseMauiApp<App>()
+               .UseMauiCommunityToolkit()
+               .UseVijayAnandMauiToolkitPro();
+
+        return builder.Build();
+    }
+}
+
+Join me on Developer Thoughts, https://egvijayanand.in/, an exclusive blog for .NET MAUI and Blazor.
