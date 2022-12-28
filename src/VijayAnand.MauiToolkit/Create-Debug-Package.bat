@@ -1,6 +1,8 @@
 :: Creates a new NuGet package from the project file in Debug configuration
 @echo off
 
+title Building the toolkit in Debug config ...
+
 :: .NET 6 package version
 
 if not exist PackageVersion-Net6.txt (echo .NET 6 version file not available. & goto end)

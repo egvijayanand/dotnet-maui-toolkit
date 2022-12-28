@@ -1,5 +1,9 @@
-What's new in ver. 1.1.0-preview.1:
+What's new in ver. 1.1.0-preview.2:
 -----------------------------------
+The toolkit updated to a newer revision.
+
+v1.1.0-preview.1:
+
 1. ServiceRegistrations enum type is now moved to Core package.
 
 2. Defined the IViewModel interface and BaseViewModel class to make working with MVVM a delight.

@@ -1,6 +1,9 @@
 ﻿namespace VijayAnand.MauiToolkit.Pro.Services
 {
-    public class DialogService : IDialogService
+    /// <summary>
+    /// <seealso cref="Popup"/> based implementation of the <seealso cref="IDialogService"/> methods.
+    /// </summary>
+    internal class DialogService : IDialogService
     {
         /// <summary>
         /// Displays an action sheet.
