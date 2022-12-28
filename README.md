@@ -23,7 +23,7 @@ This is a toolkit with a set of abstractions to simplify working with .NET MAUI 
 |[VijayAnand.MauiToolkit.Core](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Core/)|.NET 6|.NET 7|
 |:---:|:---:|:---:|
 |Stable|[![.NET 6](https://badgen.net/badge/nuget/v1.0.3/blue?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Core/1.0.3)|[![.NET 7](https://badgen.net/nuget/v/VijayAnand.MauiToolkit.Core/?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Core/)|
-|Preview|[![.NET 6](https://badgen.net/badge/nuget/v1.1.0-preview.1/blue?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Core/1.1.0-preview.1)|[![.NET 7](https://badgen.net/nuget/v/VijayAnand.MauiToolkit.Core/pre?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Core/absoluteLatest)|
+|Preview|[![.NET 6](https://badgen.net/badge/nuget/v1.1.0-preview.2/blue?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Core/1.1.0-preview.2)|[![.NET 7](https://badgen.net/nuget/v/VijayAnand.MauiToolkit.Core/pre?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Core/absoluteLatest)|
 
 The objective is to ease the development of the `Razor Class Library` (RCL) so that it can be shared with all Blazor targets (.NET MAUI, Server, WebAssembly, Windows Forms, and WPF).
 
@@ -45,7 +45,7 @@ This is a toolkit with a set of helper methods and classes to simplify working w
 |[VijayAnand.MauiToolkit](https://www.nuget.org/packages/VijayAnand.MauiToolkit/)|.NET 6|.NET 7|
 |:---:|:---:|:---:|
 |Stable|[![.NET 6](https://badgen.net/badge/nuget/v1.0.3/blue?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit/1.0.3)|[![.NET 7](https://badgen.net/nuget/v/VijayAnand.MauiToolkit/?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit/)|
-|Preview|[![.NET 6](https://badgen.net/badge/nuget/v1.1.0-preview.1/blue?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit/1.1.0-preview.1)|[![.NET 7](https://badgen.net/nuget/v/VijayAnand.MauiToolkit/pre?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit/absoluteLatest)|
+|Preview|[![.NET 6](https://badgen.net/badge/nuget/v1.1.0-preview.2/blue?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit/1.1.0-preview.2)|[![.NET 7](https://badgen.net/nuget/v/VijayAnand.MauiToolkit/pre?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit/absoluteLatest)|
 
 It depends on [VijayAnand.MauiToolkit.Core](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Core/) NuGet package.
 
@@ -99,7 +99,7 @@ This is a toolkit with a set of helper methods and classes to simplify working w
 
 |[VijayAnand.MauiToolkit.Pro](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Pro/)|.NET 6|.NET 7|
 |:---:|:---:|:---:|
-|Preview|[![.NET 6](https://badgen.net/badge/nuget/v1.1.0-preview.1/blue?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Pro/1.1.0-preview.1)|[![.NET 7](https://badgen.net/nuget/v/VijayAnand.MauiToolkit.Pro/pre?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Pro/absoluteLatest)|
+|Preview|[![.NET 6](https://badgen.net/badge/nuget/v1.1.0-preview.2/blue?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Pro/1.1.0-preview.2)|[![.NET 7](https://badgen.net/nuget/v/VijayAnand.MauiToolkit.Pro/pre?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Pro/absoluteLatest)|
 
 It depends on the following NuGet packages:
 
