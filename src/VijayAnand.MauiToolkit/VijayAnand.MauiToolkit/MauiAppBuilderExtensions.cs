@@ -2,6 +2,12 @@
 {
     public static class MauiAppBuilderExtensions
     {
+        /// <summary>
+        /// An extension method that registers the dependencies in the .NET MAUI startup pipeline.
+        /// </summary>
+        /// <param name="builder">App builder instance on which this method is invoked.</param>
+        /// <param name="configuration">Selective service registration(s).</param>
+        /// <returns>Same app builder instance on which this method is invoked.</returns>
         public static MauiAppBuilder UseVijayAnandMauiToolkit(this MauiAppBuilder builder,
                                                               ServiceRegistrations configuration = ServiceRegistrations.All)
         {
@@ -37,8 +43,5 @@
             configureDelegate?.Invoke(builder.Services);
             return builder;
         }
-
-        private static bool HasFlag(this ServiceRegistrations configured, ServiceRegistrations option)
-            => (configured & option) == option;
     }
 }

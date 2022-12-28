@@ -1,6 +1,8 @@
 :: Installs the NuGet package
 @echo off
 
+title Publishing the NuGet packages to MyGet ...
+
 if defined MyGetSource (set "nugetSource=%MyGetSource%") else (call Error "MyGet folder source path is not defined." & goto end)
 
 if defined MyGetServer (set "nugetServer=%MyGetServer%") else (call Error "MyGet hosted source path is not defined." & goto end)
