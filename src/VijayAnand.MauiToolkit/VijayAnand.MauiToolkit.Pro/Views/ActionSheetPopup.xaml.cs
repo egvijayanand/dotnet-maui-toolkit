@@ -10,24 +10,30 @@ namespace VijayAnand.MauiToolkit.Pro.Views
         {
             var height = 200 + buttons.Length * 60;
 
-            if (!string.IsNullOrEmpty(destruction))
+            if (!string.IsNullOrEmpty(destruction) && buttons.Any(x => x == destruction))
             {
                 height -= 60;
             }
 
-            DialogSize = new(320, height < 260 ? 260 : height);
-            Buttons = buttons.Where(x => x != destruction);
-
             InitializeComponent();
-            BindingContext = this;
+            Size = new Size(320, height < 260 ? 260 : height);
+            BindableLayout.SetItemsSource(actions, buttons.Where(x => x != destruction));
 
             lblTitle.Text = title;
             lblMessage.Text = message;
-            btnDestructive.Text = destruction;
-            btnDestructive.IsVisible = !string.IsNullOrEmpty(destruction);
-            btnCancel.Text = cancel;
 
-            container.Style = AppResource<Style>("DialogStyle");
+            if (Content?.FlowDirection == FlowDirection.RightToLeft)
+            {
+                btnRight.Text = destruction;
+                btnRight.IsVisible = !string.IsNullOrEmpty(destruction);
+                btnLeft.Text = cancel;
+            }
+            else
+            {
+                btnLeft.Text = destruction;
+                btnLeft.IsVisible = !string.IsNullOrEmpty(destruction);
+                btnRight.Text = cancel;
+            }
 
             var hasDefaultButton = !string.IsNullOrEmpty(defaultButton);
             var actionStyle = AppResource<Style>("Action");
@@ -51,17 +57,16 @@ namespace VijayAnand.MauiToolkit.Pro.Views
             {
                 if (!string.IsNullOrEmpty(destruction) && destruction == defaultButton)
                 {
-                    btnDefault = btnDestructive;
+                    btnDefault = Content?.FlowDirection == FlowDirection.RightToLeft ? btnRight : btnLeft;
                 }
             }
 
-            btnDestructive.Style = AppResource<Style>("DestructiveAction");
-            btnCancel.Style = AppResource<Style>("SecondaryAction");
+            container.Style = AppResource<Style>("DialogStyle");
+            lblTitle.Style = AppResource<Style>("DialogTitle");
+            lblMessage.Style = AppResource<Style>("DialogMessage");
+            btnLeft.Style = AppResource<Style>("DestructiveAction");
+            btnRight.Style = AppResource<Style>("SecondaryAction");
         }
-
-        public Size DialogSize { get; }
-
-        public IEnumerable<string> Buttons { get; }
 
         private void OnClicked(object sender, EventArgs e)
         {

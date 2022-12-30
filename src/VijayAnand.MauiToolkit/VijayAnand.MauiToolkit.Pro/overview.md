@@ -7,11 +7,11 @@ Published as a NuGet package - [VijayAnand.MauiToolkit.Pro](https://www.nuget.or
 It depends on the following NuGet packages:
 
 * [CommunityToolkit.Maui](https://www.nuget.org/packages/CommunityToolkit.Maui/)
-* [VijayAnand.MauiToolkit.Core](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Core/)
+* [VijayAnand.MauiToolkit](https://www.nuget.org/packages/VijayAnand.MauiToolkit/)
 
-To start with, implements the concrete definition `DialogService` for the `IDialogService` abstraction defined in Core package with the `Popup` type from the `CommunityToolkit.Maui` NuGet package.
+To start with, implements the concrete definition `PopupDialogService` for the `IDialogService` abstraction defined in Core package and `IMauiDialogService` abstraction defined in Regular package with the `Popup` type from the `CommunityToolkit.Maui` NuGet package.
 
-Most importantly, provides an extension method to register this service in .NET MAUI host builder startup:
+Provides an extension method to register this service in .NET MAUI host builder startup:
 
 `UseVijayAnandMauiToolkitPro()`
 

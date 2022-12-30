@@ -1,5 +1,8 @@
 ﻿namespace VijayAnand.MauiToolkit.Core.Services
 {
+    /// <summary>
+    /// Abstraction for the commonly used dialogs.
+    /// </summary>
     public interface IDialogService
     {
         /// <summary>
@@ -9,9 +12,9 @@
         /// <param name="message">The optional message of the action sheet.</param>
         /// <param name="cancel">The cancellation action.</param>
         /// <param name="destruction">The destructive action.</param>
-        /// <returns>The name of the action that the user has opted for.</returns>
         /// <param name="defaultButton">The action to be in focus on launch, if supported.</param>
         /// <param name="buttons">The list of actions to be displayed.</param>
+        /// <returns>The name of the action that the user has opted for.</returns>
         Task<string> DisplayActionSheetAsync(string title, string message, string cancel, string? destruction, string? defaultButton, params string[] buttons);
 
         /// <summary>

@@ -13,8 +13,8 @@
         {
             if (configuration.HasFlag(ServiceRegistrations.Dialogs) || configuration.HasFlag(ServiceRegistrations.All))
             {
-                builder.Services.AddSingleton<IDialogService, DialogService>();
-                builder.Services.AddSingleton<IMauiDialogService, DialogService>();
+                builder.Services.AddSingleton(GenericDialog.Instance);
+                builder.Services.AddSingleton(MauiDialog.Instance);
             }
 
             if (configuration.HasFlag(ServiceRegistrations.Navigation) || configuration.HasFlag(ServiceRegistrations.All))
