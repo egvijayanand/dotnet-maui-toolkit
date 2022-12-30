@@ -78,7 +78,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\VijayAnand.MauiToolkit.Core\VijayAnand.MauiToolkit.Core.Net7.csproj" />
+		<ProjectReference Include="..\VijayAnand.MauiToolkit\VijayAnand.MauiToolkit.Net7.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

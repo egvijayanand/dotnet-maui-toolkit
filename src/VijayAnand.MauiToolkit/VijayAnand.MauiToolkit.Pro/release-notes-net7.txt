@@ -1,6 +1,24 @@
-What's new in ver. 2.1.0-preview.2:
+What's new in ver. 2.1.0-preview.3:
 -----------------------------------
 Note: Version # is aligned with the other packages in this suite.
+
+VijayAnand.MauiToolkit.Pro NuGet package now depends on the VijayAnand.MauiToolkit NuGet package.
+
+DialogService class renamed as PopupDialogService.
+
+To support localization, support for the FlowDirection parameter is now part of the overloaded methods. To be opted-in explicitly.
+
+To allow further customization, custom Style properties have been assigned to the respective Views in the Popup dialog design.
+
+DialogStyle -> Style of the Popup dialog (to be defined on the Border View)
+DialogTitle -> Title of the Popup dialog
+DialogMessage -> Message shown in the Popup dialog
+Action -> Default button style on the ActionSheet
+PrimaryAction -> Style for the Accept action on the Popup dialog
+SecondaryAction -> Style for the Cancel action on the Popup dialog
+DestructiveAction -> Style for the Destructive action on the Popup dialog
+
+v2.1.0-preview.2:
 
 DialogService class is now marked as internal.
 

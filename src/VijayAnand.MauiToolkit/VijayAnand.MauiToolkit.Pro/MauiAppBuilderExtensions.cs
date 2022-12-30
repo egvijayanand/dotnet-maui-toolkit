@@ -14,6 +14,7 @@
             if (configuration.HasFlag(ServiceRegistrations.Dialogs) || configuration.HasFlag(ServiceRegistrations.All))
             {
                 builder.Services.AddSingleton(PopupDialog.Instance);
+                builder.Services.AddSingleton(MauiPopupDialog.Instance);
             }
 
             return builder;

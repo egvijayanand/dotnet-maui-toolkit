@@ -1,6 +1,35 @@
-What's new in ver. 2.1.0-preview.2:
+What's new in ver. 2.1.0-preview.3:
 -----------------------------------
-The toolkit updated to a newer revision.
+DialogService class is now marked as internal.
+
+And to show the .NET MAUI dialogs, follow any of the below-mentioned approaches:
+
+1. via Dependency Injection:
+
+Register the dependency in the .NET MAUI startup pipeline.
+
+Either with the UseVijayAnandMauiToolkit() extension method (invoked on the MauiAppBuilder instance).
+
+Or directly add it to the Service collection, like:
+
+builder.Services.AddSingleton<IDialogService>(GenericDialog.Instance);
+builder.Services.AddSingleton<IMauiDialogService>(MauiDialog.Instance);
+
+Then inject the implementation instance of the IDialogService/IMauiDialogService into the Page and invoke the appropriate method.
+
+// Assuming _dialogService is the injected instance of IDialogService
+await _dialogService.DisplayAlertAsync("Greeting", "Hello World", "OK");
+
+// Assuming _mauiDialogService is the injected instance of IMauiDialogService with FlowDirection support
+await _mauiDialogService.DisplayAlertAsync("Greeting", "Hello World", "OK", FlowDirection.RightToLeft);
+
+2. via Static:
+
+Instance of IDialogService is accessible via the GenericDialog/MauiDialog type's Instance property.
+
+await GenericDialog.Instance.DisplayAlertAsync("Greeting", "Hello World", "OK");
+// with FlowDirection support
+await MauiDialog.Instance.DisplayAlertAsync("Greeting", "Hello World", "OK", FlowDirection.RightToLeft);
 
 v2.1.0-preview.1:
 

@@ -14,6 +14,8 @@
 
             // Assign Style
             container.Style = AppResource<Style>("DialogStyle");
+            lblTitle.Style = AppResource<Style>("DialogTitle");
+            lblMessage.Style = AppResource<Style>("DialogMessage");
             btnCancel.Style = AppResource<Style>("PrimaryAction");
         }
 
@@ -28,6 +30,8 @@
 
             // Assign Style
             container.Style = AppResource<Style>("DialogStyle");
+            lblTitle.Style = AppResource<Style>("DialogTitle");
+            lblMessage.Style = AppResource<Style>("DialogMessage");
             btnAccept.Style = AppResource<Style>("PrimaryAction");
             btnCancel.Style = AppResource<Style>("SecondaryAction");
         }

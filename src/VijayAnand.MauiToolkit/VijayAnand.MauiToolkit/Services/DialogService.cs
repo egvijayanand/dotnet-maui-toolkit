@@ -1,6 +1,9 @@
 ﻿namespace VijayAnand.MauiToolkit.Services
 {
-    public class DialogService : IMauiDialogService, IDialogService
+    /// <summary>
+    /// Platform-specific .NET MAUI dialog invocation for both <seealso cref="IMauiDialogService"/> and <seealso cref="IDialogService"/> methods.
+    /// </summary>
+    internal class DialogService : IMauiDialogService, IDialogService
     {
         public Task<string> DisplayActionSheetAsync(string title, string message, string cancel, string? destruction, string? defaultButton, params string[] buttons)
         {
@@ -128,7 +131,7 @@
             }
         }
 
-        public Task<string> DisplayPromptAsync(string title, string message, string accept = "OK", string cancel = "Cancel", string? placeholder = null, int maxLength = -1, Keyboard? keyboard = null, string initialValue = "")
+        public Task<string> DisplayPromptAsync(string title, string message, FlowDirection flowDirection, string accept = "OK", string cancel = "Cancel", string? placeholder = null, int maxLength = -1, Keyboard? keyboard = null, string initialValue = "")
         {
             if (Application.Current is null)
             {
@@ -165,7 +168,7 @@
                 _ => Keyboard.Default
             };
 
-            return DisplayPromptAsync(title, message, accept, cancel, placeholder, maxLength, keyboard, initialValue);
+            return DisplayPromptAsync(title, message, FlowDirection.MatchParent, accept, cancel, placeholder, maxLength, keyboard, initialValue);
         }
     }
 }
