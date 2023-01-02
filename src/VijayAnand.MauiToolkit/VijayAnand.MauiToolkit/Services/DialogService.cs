@@ -9,11 +9,11 @@
         {
             if (Application.Current is null)
             {
-                throw new InvalidOperationException("Application.Current cannot be null");
+                throw new InvalidOperationException("Application.Current cannot be null.");
             }
             else if (Application.Current.MainPage is null)
             {
-                throw new InvalidOperationException("Application.Current.MainPage cannot be null");
+                throw new InvalidOperationException("Application.Current.MainPage cannot be null.");
             }
 
             if (Application.Current.MainPage is Shell)
@@ -30,11 +30,11 @@
         {
             if (Application.Current is null)
             {
-                throw new InvalidOperationException("Application.Current cannot be null");
+                throw new InvalidOperationException("Application.Current cannot be null.");
             }
             else if (Application.Current.MainPage is null)
             {
-                throw new InvalidOperationException("Application.Current.MainPage cannot be null");
+                throw new InvalidOperationException("Application.Current.MainPage cannot be null.");
             }
 
             if (Application.Current.MainPage is Shell)
@@ -51,11 +51,11 @@
         {
             if (Application.Current is null)
             {
-                throw new InvalidOperationException("Application.Current cannot be null");
+                throw new InvalidOperationException("Application.Current cannot be null.");
             }
             else if (Application.Current.MainPage is null)
             {
-                throw new InvalidOperationException("Application.Current.MainPage cannot be null");
+                throw new InvalidOperationException("Application.Current.MainPage cannot be null.");
             }
 
             if (Application.Current.MainPage is Shell)
@@ -72,11 +72,11 @@
         {
             if (Application.Current is null)
             {
-                throw new InvalidOperationException("Application.Current cannot be null");
+                throw new InvalidOperationException("Application.Current cannot be null.");
             }
             else if (Application.Current.MainPage is null)
             {
-                throw new InvalidOperationException("Application.Current.MainPage cannot be null");
+                throw new InvalidOperationException("Application.Current.MainPage cannot be null.");
             }
 
             if (Application.Current.MainPage is Shell)
@@ -93,11 +93,11 @@
         {
             if (Application.Current is null)
             {
-                throw new InvalidOperationException("Application.Current cannot be null");
+                throw new InvalidOperationException("Application.Current cannot be null.");
             }
             else if (Application.Current.MainPage is null)
             {
-                throw new InvalidOperationException("Application.Current.MainPage cannot be null");
+                throw new InvalidOperationException("Application.Current.MainPage cannot be null.");
             }
 
             if (Application.Current.MainPage is Shell)
@@ -114,11 +114,11 @@
         {
             if (Application.Current is null)
             {
-                throw new InvalidOperationException("Application.Current cannot be null");
+                throw new InvalidOperationException("Application.Current cannot be null.");
             }
             else if (Application.Current.MainPage is null)
             {
-                throw new InvalidOperationException("Application.Current.MainPage cannot be null");
+                throw new InvalidOperationException("Application.Current.MainPage cannot be null.");
             }
 
             if (Application.Current.MainPage is Shell)
@@ -131,15 +131,15 @@
             }
         }
 
-        public Task<string> DisplayPromptAsync(string title, string message, FlowDirection flowDirection, string accept = "OK", string cancel = "Cancel", string? placeholder = null, int maxLength = -1, Keyboard? keyboard = null, string initialValue = "")
+        public Task<string> DisplayPromptAsync(string title, string message, FlowDirection flowDirection, string accept = "OK", string cancel = "Cancel", string? placeholder = null, int maxLength = -1, Keyboard? keyboard = null, string initialValue = "", Func<string, (bool, string)>? predicate = null)
         {
             if (Application.Current is null)
             {
-                throw new InvalidOperationException("Application.Current cannot be null");
+                throw new InvalidOperationException("Application.Current cannot be null.");
             }
             else if (Application.Current.MainPage is null)
             {
-                throw new InvalidOperationException("Application.Current.MainPage cannot be null");
+                throw new InvalidOperationException("Application.Current.MainPage cannot be null.");
             }
 
             if (Application.Current.MainPage is Shell)
@@ -152,7 +152,7 @@
             }
         }
 
-        public Task<string> DisplayPromptAsync(string title, string message, string accept = "OK", string cancel = "Cancel", string? placeholder = null, int maxLength = -1, InputType inputType = InputType.Default, string initialValue = "")
+        public Task<string> DisplayPromptAsync(string title, string message, string accept = "OK", string cancel = "Cancel", string? placeholder = null, int maxLength = -1, InputType inputType = InputType.Default, string initialValue = "", Func<string, (bool, string)>? predicate = null)
         {
             var keyboard = inputType switch
             {
@@ -168,7 +168,7 @@
                 _ => Keyboard.Default
             };
 
-            return DisplayPromptAsync(title, message, FlowDirection.MatchParent, accept, cancel, placeholder, maxLength, keyboard, initialValue);
+            return DisplayPromptAsync(title, message, FlowDirection.MatchParent, accept, cancel, placeholder, maxLength, keyboard, initialValue, predicate);
         }
     }
 }

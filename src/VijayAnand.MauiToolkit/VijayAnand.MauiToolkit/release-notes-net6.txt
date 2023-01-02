@@ -1,5 +1,9 @@
-What's new in ver. 1.1.0-preview.3:
+What's new in ver. 1.1.0-preview.4:
 -----------------------------------
+Additional parameter introduced in the custom Prompt dialog to validate the user entered value before dismissing the dialog.
+
+1.1.0-preview.3:
+
 DialogService class is now marked as internal.
 
 And to show the .NET MAUI dialogs, follow any of the below-mentioned approaches:

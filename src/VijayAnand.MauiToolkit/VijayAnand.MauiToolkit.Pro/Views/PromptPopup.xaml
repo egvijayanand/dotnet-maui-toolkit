@@ -30,7 +30,12 @@
                     Grid.Row="2"
                     VerticalOptions="Center">
                     <Label x:Name="lblMessage" />
-                    <Entry x:Name="txtPrompt" />
+                    <VerticalStackLayout Spacing="5">
+                        <Label
+                            x:Name="lblError"
+                            IsVisible="False" />
+                        <Entry x:Name="txtPrompt" />
+                    </VerticalStackLayout>
                 </VerticalStackLayout>
                 <HorizontalStackLayout
                     Grid.Row="3"
