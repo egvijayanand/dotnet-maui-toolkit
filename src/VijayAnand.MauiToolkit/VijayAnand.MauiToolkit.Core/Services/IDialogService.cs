@@ -47,7 +47,12 @@
         /// <param name="maxLength">The maximum length of the user input.</param>
         /// <param name="inputType">The type of the user input.</param>
         /// <param name="initialValue">The initial value, if any.</param>
+        /// <param name="predicate">
+        /// A function that validates the value entered by the user.<br />
+        /// This will get invoked when the user clicks/taps on the accept button.<br />
+        /// If it returns <see langword="true"/>, the dialog will be dismissed, otherwise remain presented.
+        /// </param>
         /// <returns>The value entered in the prompt if the user clicks on the accept button. Otherwise blank.</returns>
-        Task<string> DisplayPromptAsync(string title, string message, string accept = "OK", string cancel = "Cancel", string? placeholder = null, int maxLength = -1, InputType inputType = InputType.Default, string initialValue = "");
+        Task<string> DisplayPromptAsync(string title, string message, string accept = "OK", string cancel = "Cancel", string? placeholder = null, int maxLength = -1, InputType inputType = InputType.Default, string initialValue = "", Func<string, (bool, string)>? predicate = null);
     }
 }

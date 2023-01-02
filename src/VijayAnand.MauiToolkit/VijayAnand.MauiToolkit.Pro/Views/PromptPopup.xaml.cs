@@ -1,13 +1,15 @@
 ﻿using CommunityToolkit.Maui.Core;
-using Microsoft.Maui;
 
 namespace VijayAnand.MauiToolkit.Pro.Views
 {
     public partial class PromptPopup : Popup
     {
-        public PromptPopup(string title, string message, string accept = "OK", string cancel = "Cancel", string? placeholder = null, int maxLength = -1, Keyboard? keyboard = null, string initialValue = "")
+        private readonly Func<string, (bool, string)>? validate;
+
+        public PromptPopup(string title, string message, string accept = "OK", string cancel = "Cancel", string? placeholder = null, int maxLength = -1, Keyboard? keyboard = null, string initialValue = "", Func<string, (bool, string)>? predicate = null)
         {
             InitializeComponent();
+            validate = predicate;
             lblTitle.Text = title;
             lblMessage.Text = message;
             btnAccept.Text = accept;
@@ -21,11 +23,34 @@ namespace VijayAnand.MauiToolkit.Pro.Views
             container.Style = AppResource<Style>("DialogStyle");
             lblTitle.Style = AppResource<Style>("DialogTitle");
             lblMessage.Style = AppResource<Style>("DialogMessage");
+            lblError.Style = AppResource<Style>("ErrorLabel");
             btnAccept.Style = AppResource<Style>("PrimaryAction");
             btnCancel.Style = AppResource<Style>("SecondaryAction");
         }
 
-        private void OnAcceptClicked(object sender, EventArgs e) => Close(txtPrompt.Text);
+        private void OnAcceptClicked(object sender, EventArgs e)
+        {
+            lblError.IsVisible = false;
+            var result = validate?.Invoke(txtPrompt.Text);
+
+            if (validate is null)
+            {
+                Close(txtPrompt.Text);
+            }
+            else if (result.HasValue)
+            {
+                if (result.Value.Item1)
+                {
+                    Close(txtPrompt.Text);
+                }
+                else
+                {
+                    lblError.Text = result.Value.Item2;
+                    lblError.IsVisible = true;
+                    txtPrompt.Focus();
+                }
+            }
+        }
 
         private void OnCancelClicked(object sender, EventArgs e) => Close();
 

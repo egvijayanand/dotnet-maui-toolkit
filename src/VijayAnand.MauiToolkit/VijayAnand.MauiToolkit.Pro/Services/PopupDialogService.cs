@@ -122,12 +122,12 @@ namespace VijayAnand.MauiToolkit.Pro.Services
             return result is true;
         }
 
-        public Task<string> DisplayPromptAsync(string title, string message, string accept = "OK", string cancel = "Cancel", string? placeholder = null, int maxLength = -1, InputType inputType = InputType.Default, string initialValue = "")
-            => DisplayPromptAsync(title, message, FlowDirection.MatchParent, accept, cancel, placeholder, maxLength, GetKeyboard(inputType), initialValue);
+        public Task<string> DisplayPromptAsync(string title, string message, string accept = "OK", string cancel = "Cancel", string? placeholder = null, int maxLength = -1, InputType inputType = InputType.Default, string initialValue = "", Func<string, (bool, string)>? predicate = null)
+            => DisplayPromptAsync(title, message, FlowDirection.MatchParent, accept, cancel, placeholder, maxLength, GetKeyboard(inputType), initialValue, predicate);
 
-        public async Task<string> DisplayPromptAsync(string title, string message, FlowDirection flowDirection, string accept = "OK", string cancel = "Cancel", string? placeholder = null, int maxLength = -1, Keyboard? keyboard = null, string initialValue = "")
+        public async Task<string> DisplayPromptAsync(string title, string message, FlowDirection flowDirection, string accept = "OK", string cancel = "Cancel", string? placeholder = null, int maxLength = -1, Keyboard? keyboard = null, string initialValue = "", Func<string, (bool, string)>? predicate = null)
         {
-            var dialog = new PromptPopup(title, message, accept, cancel, placeholder, maxLength, keyboard, initialValue);
+            var dialog = new PromptPopup(title, message, accept, cancel, placeholder, maxLength, keyboard, initialValue, predicate);
 
             if (dialog.Content is not null)
             {

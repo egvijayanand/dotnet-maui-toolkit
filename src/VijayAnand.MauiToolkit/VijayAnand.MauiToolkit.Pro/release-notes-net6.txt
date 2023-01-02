@@ -1,6 +1,10 @@
-What's new in ver. 1.1.0-preview.3:
+What's new in ver. 1.1.0-preview.4:
 -----------------------------------
 Note: Version # is aligned with the other packages in this suite.
+
+Additional parameter introduced in the custom Prompt dialog to validate the user entered value before dismissing the dialog.
+
+1.1.0-preview.3:
 
 VijayAnand.MauiToolkit.Pro NuGet package now depends on the VijayAnand.MauiToolkit NuGet package.
 
