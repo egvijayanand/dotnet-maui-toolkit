@@ -1,5 +1,31 @@
-What's new in ver. 1.1.0-preview.4:
+What's new in ver. 1.1.0-preview.5:
 -----------------------------------
+1. Async property is now a bindable property.
+
+2. MauiPage's TViewModel generic constraint is strengthened with the inclusion of the INotifyPropertyChanged interface.
+
+3. Introduced another base class for .NET MAUI page definition, titled BasePage, with the ability to Auto Wireup ViewModel that follows a naming convention.
+
+Like, SearchPage -> SearchViewModel
+
+Page types are to be made available in the Views folder and ViewModel types in the ViewModels folder.
+
+And both Page and ViewModel should be in the same assembly. If not then use, generic MauiPage<TViewModel> base type instead.
+
+ViewModel type should inherit from BaseViewModel, a type from Core package that implements the INotifyPropertyChanged interface.
+
+ViewModel should be registered in the .NET MAUI startup pipeline for the type to get resolved.
+
+Then set the ViewModelLocator's AutoWireViewModel attached property to true.
+
+Either from XAML like, ViewModelLocator.AutoWireViewModel="True" (import the appropriate XML namespace).
+
+Or from the page constructor in the code-behind class file:
+
+ViewModelLocator.SetAutoWireViewModel(this, true);
+
+v1.1.0-preview.4:
+
 Additional parameter introduced in the custom Prompt dialog to validate the user entered value before dismissing the dialog.
 
 1.1.0-preview.3:

@@ -1,6 +1,10 @@
-What's new in ver. 2.1.0-preview.4:
+What's new in ver. 2.1.0-preview.5:
 -----------------------------------
 Note: Version # is aligned with the other packages in this suite.
+
+The toolkit updated to a newer revision.
+
+v2.1.0-preview.4:
 
 Additional parameter introduced in the custom Prompt dialog to validate the user entered value before dismissing the dialog.
 
