@@ -1,5 +1,9 @@
-What's new in ver. 2.0.1:
+What's new in ver. 2.0.3:
 -------------------------
+This version of package is released on top of .NET MAUI on .NET 7 SR3 (7.0.59) version.
+
+v2.0.1:
+
 This version of package is released on top of .NET MAUI on .NET 7 SR1.1 (7.0.52) version.
 
 v2.0.0:
