@@ -1,5 +1,9 @@
-What's new in ver. 1.0.8:
--------------------------
+What's new in ver. 1.0.10:
+--------------------------
+This version of package is released on top of .NET MAUI SR10 (6.0.552) version.
+
+v1.0.8:
+
 This version of package is released on top of .NET MAUI SR8 (6.0.548) version.
 
 v1.0.7:

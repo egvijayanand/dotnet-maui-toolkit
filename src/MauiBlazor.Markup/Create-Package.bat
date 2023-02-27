@@ -9,7 +9,7 @@ if [%1]==[] (call Error "Build configuration is not provided." & set inputReqd=1
 
 if [%2]==[] (call Error "Version # is not provided." & set inputReqd=1)
 
-if %inputReqd% == 1 goto end
+if %inputReqd% == 1 (pause & goto end)
 
 set projId=%1
 
@@ -25,13 +25,27 @@ set /P pkgName=<PackageName.txt
 
 if [%pkgName%]==[] (call Error "Package name not configured." & goto end)
 
-call Info "Delete existing package"
+:: Check whether the context is git repository or not
+git rev-parse --is-inside-work-tree
+
+:: Retrieve the hash of the latest commit
+if %errorlevel% == 0 (for /F "tokens=*" %%g in ('git rev-parse --short HEAD') do (set revisionId=+sha.%%g)) else (set revisionId=)
+
+echo.
+call Info ".NET SDK Version"
+
+dotnet --version
+
+echo.
+call Info "Delete existing package ..."
 
 if exist .\MauiBlazor.Markup\bin\%config%\%pkgName%.%pkgVersion%.nupkg del .\MauiBlazor.Markup\bin\%config%\%pkgName%.%pkgVersion%.nupkg
 
+echo.
 call Info "Creating %pkgName% ver. %pkgVersion% NuGet package in %config% mode ..."
 
-dotnet build .\MauiBlazor.Markup\MauiBlazor.Markup.%projId%.csproj -c %config% -p:PackageVersion=%pkgVersion%
+echo.
+dotnet build .\MauiBlazor.Markup\MauiBlazor.Markup.%projId%.csproj -c %config% -p:PackageVersion=%pkgVersion%%revisionId%
 
 echo.
 if %errorlevel% == 0 (call Success "Process completed.") else (call Error "Failed to create package.")
