@@ -20,10 +20,10 @@ Whereas `net6.0` and `net7.0` library targets .NET MAUI and is dependent on the 
 
 This is a toolkit with a set of abstractions to simplify working with .NET MAUI and Blazor.
 
-|[VijayAnand.MauiToolkit.Core](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Core/)|.NET 6|.NET 7|
-|:---:|:---:|:---:|
-|Stable|[![.NET 6](https://badgen.net/badge/nuget/v1.0.3/blue?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Core/1.0.3)|[![.NET 7](https://badgen.net/nuget/v/VijayAnand.MauiToolkit.Core/?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Core/)|
-|Preview|[![.NET 6](https://badgen.net/badge/nuget/v1.1.0-preview.5/blue?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Core/1.1.0-preview.5)|[![.NET 7](https://badgen.net/nuget/v/VijayAnand.MauiToolkit.Core/pre?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Core/absoluteLatest)|
+|[VijayAnand.MauiToolkit.Core](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Core/)|.NET 6|.NET 7|.NET 8|
+|:---:|:---:|:---:|:---:|
+|Stable|[![.NET 6](https://badgen.net/badge/nuget/v1.0.3/blue?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Core/1.0.3)|[![.NET 7](https://badgen.net/nuget/v/VijayAnand.MauiToolkit.Core/?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Core/)|-|
+|Preview|[![.NET 6](https://badgen.net/badge/nuget/v1.1.0-preview.5/blue?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Core/1.1.0-preview.5)|[![.NET 7](https://badgen.net/badge/nuget/v2.1.0-preview.5/blue?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Core/2.1.0-preview.5)|[![.NET 8](https://badgen.net/nuget/v/VijayAnand.MauiToolkit.Core/latest?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Core/absoluteLatest)|
 
 The objective is to ease the development of the `Razor Class Library` (RCL) so that it can be shared with all Blazor targets (.NET MAUI, Server, WebAssembly, Windows Forms, and WPF).
 
@@ -42,10 +42,10 @@ A Model class for UserToken and frequently used Constants for OAuth / OIDC authe
 
 This is a toolkit with a set of helper methods and classes to simplify working with .NET MAUI and Blazor.
 
-|[VijayAnand.MauiToolkit](https://www.nuget.org/packages/VijayAnand.MauiToolkit/)|.NET 6|.NET 7|
-|:---:|:---:|:---:|
-|Stable|[![.NET 6](https://badgen.net/badge/nuget/v1.0.3/blue?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit/1.0.3)|[![.NET 7](https://badgen.net/nuget/v/VijayAnand.MauiToolkit/?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit/)|
-|Preview|[![.NET 6](https://badgen.net/badge/nuget/v1.1.0-preview.5/blue?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit/1.1.0-preview.5)|[![.NET 7](https://badgen.net/nuget/v/VijayAnand.MauiToolkit/pre?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit/absoluteLatest)|
+|[VijayAnand.MauiToolkit](https://www.nuget.org/packages/VijayAnand.MauiToolkit/)|.NET 6|.NET 7|.NET 8|
+|:---:|:---:|:---:|:---:|
+|Stable|[![.NET 6](https://badgen.net/badge/nuget/v1.0.3/blue?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit/1.0.3)|[![.NET 7](https://badgen.net/nuget/v/VijayAnand.MauiToolkit/?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit/)|-|
+|Preview|[![.NET 6](https://badgen.net/badge/nuget/v1.1.0-preview.5/blue?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit/1.1.0-preview.5)|[![.NET 7](https://badgen.net/badge/nuget/v2.1.0-preview.5/blue?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit/2.1.0-preview.5)|[![.NET 8](https://badgen.net/nuget/v/VijayAnand.MauiToolkit/latest?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit/absoluteLatest)|
 
 It depends on [VijayAnand.MauiToolkit.Core](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Core/) NuGet package.
 
@@ -97,9 +97,9 @@ public static class MauiProgram
 
 This is a toolkit with a set of helper methods and classes to simplify working with .NET MAUI and Blazor.
 
-|[VijayAnand.MauiToolkit.Pro](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Pro/)|.NET 6|.NET 7|
-|:---:|:---:|:---:|
-|Preview|[![.NET 6](https://badgen.net/badge/nuget/v1.1.0-preview.5/blue?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Pro/1.1.0-preview.5)|[![.NET 7](https://badgen.net/nuget/v/VijayAnand.MauiToolkit.Pro/pre?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Pro/absoluteLatest)|
+|[VijayAnand.MauiToolkit.Pro](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Pro/)|.NET 6|.NET 7|.NET 8|
+|:---:|:---:|:---:|:---:|
+|Preview|[![.NET 6](https://badgen.net/badge/nuget/v1.1.0-preview.5/blue?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Pro/1.1.0-preview.5)|[![.NET 7](https://badgen.net/badge/nuget/v2.1.0-preview.5/blue?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Pro/2.1.0-preview.5)|[![.NET 8](https://badgen.net/nuget/v/VijayAnand.MauiToolkit.Pro/latest?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Pro/absoluteLatest)|
 
 It depends on the following NuGet packages:
 
@@ -139,7 +139,8 @@ This toolkit depends on [Microsoft.AspNetCore.Components.WebView.Maui](https://w
 
 |[VijayAnand.MauiBlazor.Markup](https://www.nuget.org/packages/VijayAnand.MauiBlazor.Markup/)|.NET 6|.NET 7|.NET 8|
 |:---:|:---:|:---:|:---:|
-|Stable|[![.NET 6](https://badgen.net/badge/nuget/v1.0.10/blue?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiBlazor.Markup/1.0.10)|[![.NET 7](https://badgen.net/nuget/v/VijayAnand.MauiBlazor.Markup/?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiBlazor.Markup/)|[![.NET 8](https://badgen.net/nuget/v/VijayAnand.MauiBlazor.Markup/latest?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiBlazor.Markup/absoluteLatest)|
+|Stable|[![.NET 6](https://badgen.net/badge/nuget/v1.0.10/blue?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiBlazor.Markup/1.0.10)|[![.NET 7](https://badgen.net/nuget/v/VijayAnand.MauiBlazor.Markup/?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiBlazor.Markup/)| - |
+|Preview| - | - |[![.NET 8](https://badgen.net/nuget/v/VijayAnand.MauiBlazor.Markup/latest?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiBlazor.Markup/absoluteLatest)|
 
 Most useful method will be `Configure`, which can be invoked on an instance of a BlazorWebView and its derivatives, and it simplifies the initialization of BlazorWebView into a single fluent method call as shown in the below sample.
 

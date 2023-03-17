@@ -1,5 +1,9 @@
-What's new in ver. 3.0.0-preview.1:
------------------------------------
-This version of package is released on top of .NET MAUI on .NET 8 Preview 1 (8.0.0-preview.1.7762) version.
-
 Join me on Developer Thoughts, https://egvijayanand.in/, an exclusive blog for .NET MAUI and Blazor.
+
+What's new in ver. 3.0.0-preview.2:
+-----------------------------------
+This version of package is released on top of .NET MAUI on .NET 8 Preview 2 (8.0.0-preview.2.7871) version.
+
+v3.0.0-preview.1:
+
+This version of package is released on top of .NET MAUI on .NET 8 Preview 1 (8.0.0-preview.1.7762) version.
