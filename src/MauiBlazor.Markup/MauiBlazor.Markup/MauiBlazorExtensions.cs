@@ -42,6 +42,49 @@ namespace VijayAnand.MauiBlazor.Markup
             return bwv;
         }
 
+#if NET8_0_OR_GREATER
+        /// <summary>Sets the StartPath of the <typeparamref name="TBlazorWebView"/>.</summary>
+        /// <typeparam name="TBlazorWebView"><seealso cref="BlazorWebView"/> or its derivative.</typeparam>
+        /// <param name="bwv"><typeparamref name="TBlazorWebView"/> instance.</param>
+        /// <param name="startPath">Start path of the <typeparamref name="TBlazorWebView"/>.</param>
+        /// <returns>Same instance of <typeparamref name="TBlazorWebView"/> on which this method is invoked.</returns>
+        public static TBlazorWebView StartPath<TBlazorWebView>(this TBlazorWebView bwv, string startPath)
+            where TBlazorWebView : BlazorWebView
+        {
+            bwv.StartPath = startPath;
+            return bwv;
+        }
+
+        /// <summary>Configures a <typeparamref name="TBlazorWebView"/></summary>
+        /// <typeparam name="TBlazorWebView"><seealso cref="BlazorWebView"/> or its derivative.</typeparam>
+        /// <param name="bwv"><typeparamref name="TBlazorWebView"/> instance.</param>
+        /// <param name="hostPage">Host page of the <typeparamref name="TBlazorWebView"/>.</param>
+        /// <param name="startPath">Start path of the <typeparamref name="TBlazorWebView"/>.</param>
+        /// <param name="rootComponents">Array of <seealso cref="Tuple{T1, T2, T3}"/> (of type <seealso cref="string"/>, <seealso cref="Type"/>, <seealso cref="IDictionary{TKey, TValue}"/>), a simplified model representing the <seealso cref="RootComponent"/>, to be managed by this <typeparamref name="TBlazorWebView"/> instance.</param>
+        /// <returns>Same instance of <typeparamref name="TBlazorWebView"/> on which this method is invoked.</returns>
+        public static TBlazorWebView Configure<TBlazorWebView>(this TBlazorWebView bwv,
+                                                               string hostPage,
+                                                               string startPath,
+                                                               params (string selector, Type componentType, IDictionary<string, object?>? parameters)[] rootComponents)
+            where TBlazorWebView : BlazorWebView
+        {
+            bwv.HostPage = hostPage;
+            bwv.StartPath = startPath;
+
+            foreach (var (selector, componentType, parameters) in rootComponents)
+            {
+                bwv.RootComponents.Add(new RootComponent()
+                {
+                    Selector = selector,
+                    ComponentType = componentType,
+                    Parameters = parameters
+                });
+            }
+
+            return bwv;
+        }
+#endif
+
         /// <summary>Sets the component type for the <typeparamref name="TRootComponent"/>.</summary>
         /// <typeparam name="TRootComponent"><seealso cref="RootComponent"/> or its derivative.</typeparam>
         /// <param name="component"><typeparamref name="TRootComponent"/> instance.</param>

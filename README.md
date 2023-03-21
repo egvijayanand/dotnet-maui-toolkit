@@ -167,6 +167,10 @@ public class HomePage : ContentPage
         // In a much simplified form - Real intended usage        
         // Without initialization parameters
         Content = new BlazorWebView().Configure("wwwroot/index.html", ("#app", typeof(Gateway), null));
+
+        // With StartPath property introduced in .NET 8 Preview, overloaded Configure method
+        // Assuming search is the page with which the app is intended to start
+        Content = new BlazorWebView().Configure("wwwroot/index.html", "/search", ("#app", typeof(Gateway), null));
         
         // With optional initialization parameters
         Content = new BlazorWebView().Configure("wwwroot/index.html", ("#app", typeof(Gateway), new Dictionary<string, object?> { [nameof(Gateway.Foo)] = "Bar" }));
