@@ -1,8 +1,12 @@
 Join me on Developer Thoughts, https://egvijayanand.in/, an exclusive blog for .NET MAUI and Blazor.
 
-What's new in ver. 3.0.0-preview.3:
+What's new in ver. 3.0.0-preview.4:
 -----------------------------------
-Support for the StartPath property has been included as a separate Fluent method and in the Configure method as well.
+Added a generic version of Add extension method for the RootComponents collection, inspired from WindowsForms package.
+
+v3.0.0-preview.3:
+
+Support for the StartPath property has been included as a separate Fluent method and in the Configure method overload as well.
 
 v3.0.0-preview.2:
 

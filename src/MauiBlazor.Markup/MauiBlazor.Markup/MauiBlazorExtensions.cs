@@ -84,6 +84,24 @@ namespace VijayAnand.MauiBlazor.Markup
             return bwv;
         }
 #endif
+        /// <summary>
+        /// Adds the component specified by <typeparamref name="TComponent"/> to the collection specified by
+        /// <paramref name="components" /> to be associated with the selector specified by <paramref name="selector"/>
+        /// and to be instantiated with the parameters specified by <paramref name="parameters"/>.
+        /// </summary>
+        /// <typeparam name="TComponent">The component to add to the collection.</typeparam>
+        /// <param name="components">The collection to which the component should be added.</param>
+        /// <param name="selector">The selector to which the component will be associated.</param>
+        /// <param name="parameters">The optional creation parameters for the component.</param>
+        public static void Add<TComponent>(this RootComponentsCollection components, string selector, IDictionary<string, object?>? parameters = null)
+        {
+            components.Add(new RootComponent()
+            {
+                Selector = selector,
+                ComponentType = typeof(TComponent),
+                Parameters = parameters
+            });
+        }
 
         /// <summary>Sets the component type for the <typeparamref name="TRootComponent"/>.</summary>
         /// <typeparam name="TRootComponent"><seealso cref="RootComponent"/> or its derivative.</typeparam>
