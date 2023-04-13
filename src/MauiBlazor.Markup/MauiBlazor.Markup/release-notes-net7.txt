@@ -1,7 +1,11 @@
 Join me on Developer Thoughts, https://egvijayanand.in/, an exclusive blog for .NET MAUI and Blazor.
 
-What's new in ver. 2.0.4:
+What's new in ver. 2.0.5:
 -------------------------
+This version of package is released on top of .NET MAUI SR4 (ver. 7.0.81) on .NET 7.
+
+v2.0.4:
+
 Added a generic version of Add extension method for the RootComponents collection, inspired from WindowsForms package.
 
 v2.0.3:
