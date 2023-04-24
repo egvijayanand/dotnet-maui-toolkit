@@ -1,5 +1,11 @@
-What's new in ver. 2.1.0-preview.5:
+Join me on Developer Thoughts, https://egvijayanand.in/, an exclusive blog for .NET MAUI and Blazor.
+
+What's new in ver. 2.1.0-preview.6:
 -----------------------------------
+WaitingPage, a page with a customizable busy indicator to show the progress to the user.
+
+v2.1.0-preview.5:
+
 1. Async property is now a bindable property.
 
 2. MauiPage's TViewModel generic constraint is strengthened with the inclusion of the INotifyPropertyChanged interface.
@@ -97,5 +103,3 @@ MenuBarItems.Add(new MenuBarItem().Title("Locations")
                                                                                                                .AddSubMenuItem(new MenuFlyoutItem().Title("Mumbai, MH"))
                                                                                                                .AddSubMenuItem(new MenuFlyoutItem().Title("New Delhi, NCR"))))
                                   .AddMenuItem(new MenuFlyoutItem().Title("Add a Location").BindCommand("AddLocationCommand")));
-
-Join me on Developer Thoughts, https://egvijayanand.in/, an exclusive blog for .NET MAUI and Blazor.

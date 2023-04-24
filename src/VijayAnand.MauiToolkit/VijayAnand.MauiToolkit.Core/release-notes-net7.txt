@@ -1,5 +1,11 @@
-What's new in ver. 2.1.0-preview.5:
+Join me on Developer Thoughts, https://egvijayanand.in/, an exclusive blog for .NET MAUI and Blazor.
+
+What's new in ver. 2.1.0-preview.6:
 -----------------------------------
+Additional properties defined in the IViewModel interface and BaseViewModel type.
+
+v2.1.0-preview.5:
+
 The toolkit updated to a newer revision.
 
 v2.1.0-preview.4:
@@ -40,5 +46,3 @@ To start with defines the following abstractions:
 4. Theme - IThemeService
 
 A Model class for UserToken and frequently used Constants for OAuth / OIDC authentication.
-
-Join me on Developer Thoughts, https://egvijayanand.in/, an exclusive blog for .NET MAUI and Blazor.

@@ -1,0 +1,7 @@
+Join me on Developer Thoughts, https://egvijayanand.in/, an exclusive blog for .NET MAUI and Blazor.
+
+What's new in ver. 3.0.0-preview.1:
+-----------------------------------
+Initial release built on top of .NET 8 Preview.
+
+Additional properties defined in the IViewModel interface and BaseViewModel type.

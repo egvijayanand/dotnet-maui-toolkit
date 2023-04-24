@@ -3,21 +3,14 @@ namespace VijayAnand.MauiToolkit.Views
     /// <summary>
     /// Base class for .NET MAUI page definition with Typed ViewModel.
     /// </summary>
-    public class BasePage : ContentPage
+    public class BasePage : MauiPage
     {
-        public static readonly BindableProperty AsyncProperty =
-            BindableProperty.Create(nameof(Async),
-                                    typeof(bool),
-                                    typeof(BasePage),
-                                    default(bool));
-
-        /// <summary>
-        /// If set to true, the Initialize method that is invoked in the OnAppearing will be in async mode.
-        /// </summary>
-        public bool Async
+        public BasePage()
         {
-            get => (bool)GetValue(AsyncProperty);
-            set => SetValue(AsyncProperty, value);
+            SetBinding(TitleProperty, new Binding(nameof(BaseViewModel.Title)));
+            SetBinding(AsyncProperty, new Binding(nameof(BaseViewModel.Async)));
+            SetBinding(IsWaitingProperty, new Binding(nameof(BaseViewModel.IsBusy)));
+            SetBinding(LoadingMessageProperty, new Binding(nameof(BaseViewModel.StatusMessage)));
         }
 
         /// <summary>
@@ -25,9 +18,9 @@ namespace VijayAnand.MauiToolkit.Views
         /// </summary>
         public BaseViewModel? ViewModel { get; set; }
 
-        protected override async void OnAppearing()
+        protected override async void OnNavigatedTo(NavigatedToEventArgs args)
         {
-            base.OnAppearing();
+            base.OnNavigatedTo(args);
 
             if (Async)
             {

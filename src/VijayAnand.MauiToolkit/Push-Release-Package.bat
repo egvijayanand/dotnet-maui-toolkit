@@ -183,5 +183,80 @@ nuget add .\VijayAnand.MauiToolkit.Pro\bin\Release\%proToolkitPkgName%.%pkgVersi
 echo.
 if %errorlevel% == 0 (call Success "Process completed.") else (call Error ".NET 7 Pro toolkit package hosted push failed.")
 
+:: .NET 8 Package Version
+
+if not exist PackageVersion-Net8.txt (call Error ".NET 8 package version file not available." & goto end)
+
+set /P pkgVersion=<PackageVersion-Net8.txt
+
+if [%pkgVersion%]==[] (call Error ".NET 8 package version # not configured." & goto end)
+
+:: Existence Check
+
+if not exist .\VijayAnand.MauiToolkit.Core\bin\Release\%corePkgName%.%pkgVersion%.nupkg call Error ".NET 8 Core NuGet package not avilable ..." & goto end
+
+if not exist .\VijayAnand.MauiToolkit\bin\Release\%toolkitPkgName%.%pkgVersion%.nupkg call Error ".NET 8 Toolkit NuGet package not avilable ..." & goto end
+
+if not exist .\VijayAnand.MauiToolkit.Pro\bin\Release\%proToolkitPkgName%.%pkgVersion%.nupkg call Error ".NET 8 Pro toolkit NuGet package not avilable ..." & goto end
+
+:: Validate the Package
+
+echo.
+call Info "Validating .NET 8 %corePkgName% ver. %pkgVersion% ..."
+
+echo.
+dotnet-validate package local .\VijayAnand.MauiToolkit.Core\bin\Release\%corePkgName%.%pkgVersion%.nupkg
+
+call Info "Validating .NET 8 %toolkitPkgName% ver. %pkgVersion% ..."
+
+echo.
+dotnet-validate package local .\VijayAnand.MauiToolkit\bin\Release\%toolkitPkgName%.%pkgVersion%.nupkg
+
+call Info "Validating .NET 8 %proToolkitPkgName% ver. %pkgVersion% ..."
+
+echo.
+dotnet-validate package local .\VijayAnand.MauiToolkit.Pro\bin\Release\%proToolkitPkgName%.%pkgVersion%.nupkg
+
+:: Push the Package
+
+call Info "Pushing .NET 8 %corePkgName% ver. %pkgVersion% to My NuGet ..."
+
+echo.
+dotnet nuget push .\VijayAnand.MauiToolkit.Core\bin\Release\%corePkgName%.%pkgVersion%.nupkg --source %nugetSource%\%corePkgName%
+
+if not %errorlevel% == 0 (call Error ".NET 8 Core package folder push failed." & goto end)
+
+echo.
+nuget add .\VijayAnand.MauiToolkit.Core\bin\Release\%corePkgName%.%pkgVersion%.nupkg -Source %nugetServer%\
+
+if not %errorlevel% == 0 (call Error ".NET 8 Core package hosted push failed." & goto end)
+
+echo.
+call Info "Pushing .NET 8 %toolkitPkgName% ver. %pkgVersion% to My NuGet ..."
+
+echo.
+dotnet nuget push .\VijayAnand.MauiToolkit\bin\Release\%toolkitPkgName%.%pkgVersion%.nupkg --source %nugetSource%\%toolkitPkgName%
+
+if not %errorlevel% == 0 (call Error ".NET 8 Toolkit package folder push failed." & goto end)
+
+echo.
+nuget add .\VijayAnand.MauiToolkit\bin\Release\%toolkitPkgName%.%pkgVersion%.nupkg -Source %nugetServer%\
+
+echo.
+if not %errorlevel% == 0 (call Error ".NET 8 Toolkit package hosted push failed.")
+
+call Info "Pushing .NET 8 %proToolkitPkgName% ver. %pkgVersion% to My NuGet ..."
+
+echo.
+dotnet nuget push .\VijayAnand.MauiToolkit.Pro\bin\Release\%proToolkitPkgName%.%pkgVersion%.nupkg --source %nugetSource%\%proToolkitPkgName%
+
+if not %errorlevel% == 0 (call Error ".NET 8 Pro toolkit package folder push failed." & goto end)
+
+echo.
+nuget add .\VijayAnand.MauiToolkit.Pro\bin\Release\%proToolkitPkgName%.%pkgVersion%.nupkg -Source %nugetServer%\
+
+echo.
+if %errorlevel% == 0 (call Success "Process completed.") else (call Error ".NET 8 Pro toolkit package hosted push failed.")
+
 :end
 pause
