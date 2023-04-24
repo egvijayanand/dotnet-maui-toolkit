@@ -69,15 +69,24 @@ echo.
 call Info "Creating NuGet package ..."
 
 echo.
+call Info "Building Core package ..."
+
+echo.
 dotnet build .\VijayAnand.MauiToolkit.Core\VijayAnand.MauiToolkit.Core.%projId%.csproj -c %config% -p:PackageVersion=%pkgVersion%%revisionId%
 
 if not %errorlevel% == 0 (call Error "Core package creation failed." & goto end)
+
+echo.
+call Info "Building Toolkit package ..."
 
 echo.
 dotnet build .\VijayAnand.MauiToolkit\VijayAnand.MauiToolkit.%projId%.csproj -c %config% -p:PackageVersion=%pkgVersion%%revisionId% -p:PublishReadyToRun=false
 
 echo.
 if not %errorlevel% == 0 (call Error "Toolkit package creation failed.")
+
+echo.
+call Info "Building Pro package ..."
 
 echo.
 dotnet build .\VijayAnand.MauiToolkit.Pro\VijayAnand.MauiToolkit.Pro.%projId%.csproj -c %config% -p:PackageVersion=%pkgVersion%%revisionId% -p:PublishReadyToRun=false

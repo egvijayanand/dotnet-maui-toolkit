@@ -6,33 +6,27 @@ namespace VijayAnand.MauiToolkit.Views
     /// Generic base class for .NET MAUI page definition with an instance of ViewModel bound to this View.
     /// </summary>
     /// <typeparam name="TViewModel">The type of the ViewModel.</typeparam>
-    public class MauiPage<TViewModel> : MauiPage where TViewModel : class, INotifyPropertyChanged, IViewModel
+    public class MauiPage<TViewModel> : MauiPage
+        where TViewModel : class, INotifyPropertyChanged, IViewModel
     {
-        public static readonly BindableProperty AsyncProperty =
-            BindableProperty.Create(nameof(Async),
-                                    typeof(bool),
-                                    typeof(MauiPage<TViewModel>),
-                                    default(bool));
-
         public MauiPage()
         {
+            SetBinding(TitleProperty, new Binding(nameof(IViewModel.Title)));
+            SetBinding(AsyncProperty, new Binding(nameof(IViewModel.Async)));
+            SetBinding(IsWaitingProperty, new Binding(nameof(IViewModel.IsBusy)));
+            SetBinding(LoadingMessageProperty, new Binding(nameof(IViewModel.StatusMessage)));
             ViewModel = AppService.GetService<TViewModel>();
             BindingContext = ViewModel;
         }
 
         public MauiPage(TViewModel viewModel)
         {
+            SetBinding(TitleProperty, new Binding(nameof(IViewModel.Title)));
+            SetBinding(AsyncProperty, new Binding(nameof(IViewModel.Async)));
+            SetBinding(IsWaitingProperty, new Binding(nameof(IViewModel.IsBusy)));
+            SetBinding(LoadingMessageProperty, new Binding(nameof(IViewModel.StatusMessage)));
             ViewModel = viewModel;
             BindingContext = ViewModel;
-        }
-
-        /// <summary>
-        /// If set to true, the Initialize method that is invoked in the OnAppearing will be in async mode.
-        /// </summary>
-        public bool Async
-        {
-            get => (bool)GetValue(AsyncProperty);
-            set => SetValue(AsyncProperty, value);
         }
 
         /// <summary>
@@ -40,9 +34,9 @@ namespace VijayAnand.MauiToolkit.Views
         /// </summary>
         public TViewModel? ViewModel { get; protected set; }
 
-        protected override async void OnAppearing()
+        protected override async void OnNavigatedTo(NavigatedToEventArgs args)
         {
-            base.OnAppearing();
+            base.OnNavigatedTo(args);
 
             if (Async)
             {
@@ -61,8 +55,18 @@ namespace VijayAnand.MauiToolkit.Views
     /// <summary>
     /// Base class for .NET MAUI page definition.
     /// </summary>
-    public class MauiPage : ContentPage
+    public class MauiPage : WaitingPage
     {
+        public static readonly BindableProperty AsyncProperty =
+            BindableProperty.Create(nameof(Async), typeof(bool), typeof(MauiPage), false);
 
+        /// <summary>
+        /// If set to true, the Initialize method that is invoked in the OnAppearing will be in async mode.
+        /// </summary>
+        public bool Async
+        {
+            get => (bool)GetValue(AsyncProperty);
+            set => SetValue(AsyncProperty, value);
+        }
     }
 }

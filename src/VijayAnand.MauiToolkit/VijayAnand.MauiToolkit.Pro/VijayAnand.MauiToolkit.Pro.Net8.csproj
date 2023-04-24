@@ -1,22 +1,21 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
-		<TargetFrameworks>net6.0;net6.0-android</TargetFrameworks>
+		<TargetFrameworks>net8.0;net8.0-android</TargetFrameworks>
 		<!-- Targets possible from Windows OS -->
-		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net6.0-ios;net6.0-maccatalyst;net6.0-windows10.0.19041.0</TargetFrameworks>
+		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net8.0-ios;net8.0-maccatalyst;net8.0-windows10.0.19041.0</TargetFrameworks>
 		<!-- Targets possible from macOS -->
-		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('osx'))">$(TargetFrameworks);net6.0-ios;net6.0-maccatalyst</TargetFrameworks>
+		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('osx'))">$(TargetFrameworks);net8.0-ios;net8.0-maccatalyst</TargetFrameworks>
 		<!-- Uncomment to also build the Tizen app. You will need to install Tizen by following this: https://github.com/Samsung/Tizen.NET -->
-		<TargetFrameworks>$(TargetFrameworks);net6.0-tizen</TargetFrameworks>
+		<!-- <TargetFrameworks>$(TargetFrameworks);net8.0-tizen</TargetFrameworks> -->
 
 		<!-- .NET MAUI -->
 		<UseMaui>true</UseMaui>
-		<MauiVersion>6.0.548</MauiVersion>
 		<SingleProject>true</SingleProject>
 
 		<!-- Project Options -->
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
-		<RootNamespace>VijayAnand.MauiToolkit</RootNamespace>
+		<RootNamespace>VijayAnand.MauiToolkit.Pro</RootNamespace>
 
 		<!-- Target Platform Options -->
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.2</SupportedOSPlatformVersion>
@@ -30,22 +29,22 @@
 
 		<!-- NuGet Package Info -->
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<PackageId>VijayAnand.MauiToolkit</PackageId>
+		<PackageId>VijayAnand.MauiToolkit.Pro</PackageId>
 		<Authors>Vijay Anand E G</Authors>
 		<Copyright>Copyright &#169; 2022-2023 Vijay Anand E G</Copyright>
-		<Product>VijayAnand.MauiToolkit is a toolkit with a set of helper methods and classes to simplify working with .NET MAUI and Blazor.</Product>
+		<Product>VijayAnand.MauiToolkit.Pro is a toolkit with a set of helper methods and classes to simplify working with .NET MAUI and Blazor.</Product>
 		<Title>.NET MAUI Toolkit</Title>
-		<Description>VijayAnand.MauiToolkit is a toolkit with a set of helper methods and classes to simplify working with .NET MAUI and Blazor.</Description>
+		<Description>VijayAnand.MauiToolkit.Pro is a toolkit with a set of helper methods and classes to simplify working with .NET MAUI and Blazor.</Description>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
 		<RepositoryUrl>https://github.com/egvijayanand/dotnet-maui-toolkit</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 		<PackageTags>.NET,MAUI,Blazor,BlazorWebView,C#,Hybrid,Toolkit,Razor,RCL,iOS,Android,macOS,Windows,WinUI3,MacCatalyst,Tizen</PackageTags>
-		<PackageReleaseNotes>$([System.IO.File]::ReadAllText("$(MSBuildProjectDirectory)\release-notes-net6.txt"))</PackageReleaseNotes>
-		<AssemblyName>VijayAnand.MauiToolkit</AssemblyName>
-		<Version>1.0.0</Version>
-		<AssemblyVersion>1.0.0.0</AssemblyVersion>
-		<FileVersion>1.0.0.0</FileVersion>
+		<PackageReleaseNotes>$([System.IO.File]::ReadAllText("$(MSBuildProjectDirectory)\release-notes-net8.txt"))</PackageReleaseNotes>
+		<AssemblyName>VijayAnand.MauiToolkit.Pro</AssemblyName>
+		<Version>3.0.0</Version>
+		<AssemblyVersion>3.0.0.0</AssemblyVersion>
+		<FileVersion>3.0.0.0</FileVersion>
 		<PackageReadmeFile>overview.md</PackageReadmeFile>
 		<PackageProjectUrl>https://egvijayanand.in/</PackageProjectUrl>
 
@@ -70,14 +69,19 @@
 
 	<ItemGroup>
 		<None Include="overview.md" Pack="true" PackagePath="\" />
-		<None Include="release-notes-net6.txt" />
+		<None Include="release-notes-net8.txt" />
 	</ItemGroup>
 
 	<ItemGroup>
+		<None Remove="release-notes-net6.txt" />
 		<None Remove="release-notes-net7.txt" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\VijayAnand.MauiToolkit.Core\VijayAnand.MauiToolkit.Core.Net6.csproj" />
+		<ProjectReference Include="..\VijayAnand.MauiToolkit\VijayAnand.MauiToolkit.Net8.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="CommunityToolkit.Maui" Version="4.0.0" />
 	</ItemGroup>
 </Project>

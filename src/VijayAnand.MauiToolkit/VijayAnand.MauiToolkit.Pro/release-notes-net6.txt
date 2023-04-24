@@ -1,6 +1,10 @@
-What's new in ver. 1.1.0-preview.5:
+Join me on Developer Thoughts, https://egvijayanand.in/, an exclusive blog for .NET MAUI and Blazor.
+
+What's new in ver. 1.1.0-preview.6:
 -----------------------------------
-Note: Version # is aligned with the other packages in this suite.
+The toolkit updated to a newer revision.
+
+v1.1.0-preview.5:
 
 The toolkit updated to a newer revision.
 
@@ -55,6 +59,8 @@ await PopupDialog.Instance.DisplayAlertAsync("Greeting", "Hello World", "OK");
 
 v1.1.0-preview.1:
 
+Note: Version # is aligned with the other packages in this suite.
+
 1. Initial release of VijayAnand.MauiToolkit.Pro version of NuGet package.
 
 2. Has dependency on CommunityToolkit.Maui and VijayAnand.MauiToolkit.Core NuGet packages.
@@ -79,5 +85,3 @@ public static class MauiProgram
         return builder.Build();
     }
 }
-
-Join me on Developer Thoughts, https://egvijayanand.in/, an exclusive blog for .NET MAUI and Blazor.
