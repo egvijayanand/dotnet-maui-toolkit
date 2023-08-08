@@ -1,7 +1,11 @@
 Join me on Developer Thoughts, https://egvijayanand.in/, an exclusive blog for .NET MAUI and Blazor.
 
-What's new in ver. 3.0.0-preview.5:
+What's new in ver. 3.0.0-preview.6:
 -----------------------------------
+This version of package is released on top of .NET MAUI (ver. 8.0.0-preview.6.8686) on .NET 8 Preview 6.
+
+v3.0.0-preview.5:
+
 This version of package is released on top of .NET MAUI (ver. 8.0.0-preview.3.8149) on .NET 8 Preview 3.
 
 v3.0.0-preview.4:
