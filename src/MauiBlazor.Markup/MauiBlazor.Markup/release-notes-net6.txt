@@ -1,7 +1,11 @@
 Join me on Developer Thoughts, https://egvijayanand.in/, an exclusive blog for .NET MAUI and Blazor.
 
-What's new in ver. 1.0.11:
+What's new in ver. 1.0.12:
 --------------------------
+This version of package is released on top of .NET MAUI SR11 (6.0.553) version.
+
+v1.0.11:
+
 Added a generic version of Add extension method for the RootComponents collection, inspired from WindowsForms package.
 
 v1.0.10:

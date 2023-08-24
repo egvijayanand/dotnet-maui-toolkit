@@ -139,7 +139,7 @@ This toolkit depends on [Microsoft.AspNetCore.Components.WebView.Maui](https://w
 
 |[VijayAnand.MauiBlazor.Markup](https://www.nuget.org/packages/VijayAnand.MauiBlazor.Markup/)|.NET 6|.NET 7|.NET 8|
 |:---:|:---:|:---:|:---:|
-|Stable|[![.NET 6](https://badgen.net/badge/nuget/v1.0.11/blue?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiBlazor.Markup/1.0.11)|[![.NET 7](https://badgen.net/nuget/v/VijayAnand.MauiBlazor.Markup/?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiBlazor.Markup/)| - |
+|Stable|[![.NET 6](https://badgen.net/badge/nuget/v1.0.12/blue?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiBlazor.Markup/1.0.12)|[![.NET 7](https://badgen.net/nuget/v/VijayAnand.MauiBlazor.Markup/?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiBlazor.Markup/)| - |
 |Preview| - | - |[![.NET 8](https://badgen.net/nuget/v/VijayAnand.MauiBlazor.Markup/latest?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiBlazor.Markup/absoluteLatest)|
 
 Most useful method will be `Configure`, which can be invoked on an instance of a BlazorWebView and its derivatives, and it simplifies the initialization of BlazorWebView into a single fluent method call as shown in the below sample.
