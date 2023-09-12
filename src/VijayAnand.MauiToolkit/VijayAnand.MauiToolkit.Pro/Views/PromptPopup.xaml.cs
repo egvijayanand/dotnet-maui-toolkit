@@ -33,11 +33,7 @@ namespace VijayAnand.MauiToolkit.Pro.Views
             lblError.IsVisible = false;
             var result = validate?.Invoke(txtPrompt.Text);
 
-            if (validate is null)
-            {
-                Close(txtPrompt.Text);
-            }
-            else if (result.HasValue)
+            if (result.HasValue)
             {
                 if (result.Value.Item1)
                 {
@@ -49,6 +45,10 @@ namespace VijayAnand.MauiToolkit.Pro.Views
                     lblError.IsVisible = true;
                     txtPrompt.Focus();
                 }
+            }
+            else
+            {
+                Close(txtPrompt.Text);
             }
         }
 

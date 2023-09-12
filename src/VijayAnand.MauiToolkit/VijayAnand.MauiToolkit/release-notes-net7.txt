@@ -1,7 +1,11 @@
 Join me on Developer Thoughts, https://egvijayanand.in/, an exclusive blog for .NET MAUI and Blazor.
 
-What's new in ver. 2.1.0-preview.6:
+What's new in ver. 2.1.0-preview.7:
 -----------------------------------
+This version of package is released on top of .NET MAUI on .NET 7 SR7 (7.0.92) version.
+
+v2.1.0-preview.6:
+
 WaitingPage, a page with a customizable busy indicator to show the progress to the user.
 
 v2.1.0-preview.5:

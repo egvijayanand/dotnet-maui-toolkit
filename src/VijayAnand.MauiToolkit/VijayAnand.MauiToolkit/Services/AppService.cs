@@ -16,6 +16,20 @@
         /// <returns>A service object of type <typeparamref name="TService"/> or null if there is no such service.</returns>
         public static TService? GetService<TService>() => Current.GetService<TService>();
 
+        /// <summary>
+        /// Gets the service object of the specified type.
+        /// </summary>
+        /// <param name="serviceType">An object that specifies the type of service object to get.</param>
+        /// <returns>A service object of type <paramref name="serviceType"/>. -or- raises an <see cref="InvalidOperationException"/> if there is no such service.</returns>
+        public static object GetRequiredService(Type serviceType) => Current.GetRequiredService(serviceType);
+
+        /// <summary>
+        /// Get service of type <typeparamref name="TService"/> from the System.IServiceProvider.
+        /// </summary>
+        /// <typeparam name="TService">The type of service object to get.</typeparam>
+        /// <returns>A service object of type <typeparamref name="TService"/> -or- raises an <see cref="InvalidOperationException"/> if there is no such service.</returns>
+        public static TService GetRequiredService<TService>() => Current.GetRequiredService<TService>();
+
         public static IServiceProvider Current =>
 #if ANDROID || TIZEN
             MauiApplication.Current.Services;
