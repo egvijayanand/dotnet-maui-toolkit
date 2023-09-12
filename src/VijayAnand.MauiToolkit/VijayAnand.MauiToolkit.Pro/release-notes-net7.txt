@@ -1,7 +1,11 @@
 Join me on Developer Thoughts, https://egvijayanand.in/, an exclusive blog for .NET MAUI and Blazor.
 
-What's new in ver. 2.1.0-preview.6:
+What's new in ver. 2.1.0-preview.7:
 -----------------------------------
+The version of the package was released on top of the latest build.
+
+v2.1.0-preview.6:
+
 The toolkit updated to a newer revision.
 
 v2.1.0-preview.5:

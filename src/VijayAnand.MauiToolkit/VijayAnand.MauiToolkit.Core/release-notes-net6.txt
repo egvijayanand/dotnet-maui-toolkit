@@ -1,7 +1,11 @@
 Join me on Developer Thoughts, https://egvijayanand.in/, an exclusive blog for .NET MAUI and Blazor.
 
-What's new in ver. 1.1.0-preview.6:
+What's new in ver. 1.1.0-preview.7:
 -----------------------------------
+The version of the package was released on top of the latest build.
+
+v1.1.0-preview.6:
+
 Additional properties defined in the IViewModel interface and BaseViewModel type.
 
 v1.1.0-preview.5:
