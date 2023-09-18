@@ -16,8 +16,6 @@ goto end
 
 title Publishing the NuGet packages to MyGet ...
 
-if [%arg%] == [0] (goto dotnet6) else (if [%arg%] == [1] (goto dotnet6) else (if [%arg%] == [2] (goto dotnet7) else (if [%arg%] == [3] (goto dotnet8) else (call Error "Invalid input." && goto end))))
-
 if defined MyGetSource (set "nugetSource=%MyGetSource%") else (call Error "MyGet folder source path is not defined." & goto end)
 
 if defined MyGetServer (set "nugetServer=%MyGetServer%") else (call Error "MyGet hosted source path is not defined." & goto end)
@@ -49,6 +47,8 @@ if not exist "%nugetSource%\%corePkgName%\" mkdir "%nugetSource%\%corePkgName%"
 if not exist "%nugetSource%\%toolkitPkgName%\" mkdir "%nugetSource%\%toolkitPkgName%"
 
 if not exist "%nugetSource%\%proToolkitPkgName%\" mkdir "%nugetSource%\%proToolkitPkgName%"
+
+if [%arg%] == [0] (goto dotnet6) else (if [%arg%] == [1] (goto dotnet6) else (if [%arg%] == [2] (goto dotnet7) else (if [%arg%] == [3] (goto dotnet8) else (call Error "Invalid input." && goto end))))
 
 :: .NET 6 Package Version
 
