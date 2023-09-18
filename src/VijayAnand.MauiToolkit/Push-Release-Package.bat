@@ -1,7 +1,22 @@
 :: Installs the NuGet package
 @echo off
 
+if [%1] == [] (set arg=0) else (set arg=%1)
+
+if not [%arg%] == [-h] goto process
+
+echo Pass 0 to build for .NET 6, .NET 7, and .NET 8
+echo Pass 1 to process only for .NET 6
+echo Pass 2 to process only for .NET 7
+echo Pass 3 to process only for .NET 8
+
+goto end
+
+:process
+
 title Publishing the NuGet packages to MyGet ...
+
+if [%arg%] == [0] (goto dotnet6) else (if [%arg%] == [1] (goto dotnet6) else (if [%arg%] == [2] (goto dotnet7) else (if [%arg%] == [3] (goto dotnet8) else (call Error "Invalid input." && goto end))))
 
 if defined MyGetSource (set "nugetSource=%MyGetSource%") else (call Error "MyGet folder source path is not defined." & goto end)
 
@@ -36,6 +51,8 @@ if not exist "%nugetSource%\%toolkitPkgName%\" mkdir "%nugetSource%\%toolkitPkgN
 if not exist "%nugetSource%\%proToolkitPkgName%\" mkdir "%nugetSource%\%proToolkitPkgName%"
 
 :: .NET 6 Package Version
+
+:dotnet6
 
 if not exist PackageVersion-Net6.txt (call Error ".NET 6 package version file not available." & goto end)
 
@@ -108,7 +125,11 @@ nuget add .\VijayAnand.MauiToolkit.Pro\bin\Release\%proToolkitPkgName%.%pkgVersi
 
 if not %errorlevel% == 0 (call Error ".NET 6 Pro toolkit package hosted push failed." & goto end)
 
+if [%arg%] == [0] (echo.) else (if [%arg%] == [1] goto end)
+
 :: .NET 7 Package Version
+
+:dotnet7
 
 if not exist PackageVersion-Net7.txt (call Error ".NET 7 package version file not available." & goto end)
 
@@ -126,7 +147,6 @@ if not exist .\VijayAnand.MauiToolkit.Pro\bin\Release\%proToolkitPkgName%.%pkgVe
 
 :: Validate the Package
 
-echo.
 call Info "Validating .NET 7 %corePkgName% ver. %pkgVersion% ..."
 
 echo.
@@ -183,7 +203,11 @@ nuget add .\VijayAnand.MauiToolkit.Pro\bin\Release\%proToolkitPkgName%.%pkgVersi
 echo.
 if %errorlevel% == 0 (call Success "Process completed.") else (call Error ".NET 7 Pro toolkit package hosted push failed.")
 
+if [%arg%] == [0] (echo.) else (if [%arg%] == [2] goto end)
+
 :: .NET 8 Package Version
+
+:dotnet8
 
 if not exist PackageVersion-Net8.txt (call Error ".NET 8 package version file not available." & goto end)
 
@@ -201,7 +225,6 @@ if not exist .\VijayAnand.MauiToolkit.Pro\bin\Release\%proToolkitPkgName%.%pkgVe
 
 :: Validate the Package
 
-echo.
 call Info "Validating .NET 8 %corePkgName% ver. %pkgVersion% ..."
 
 echo.
@@ -259,4 +282,4 @@ echo.
 if %errorlevel% == 0 (call Success "Process completed.") else (call Error ".NET 8 Pro toolkit package hosted push failed.")
 
 :end
-pause
+if [%1] == [] pause
