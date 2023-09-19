@@ -1,11 +1,11 @@
-﻿using System.Linq.Expressions;
+using System.Linq.Expressions;
 using System.Reflection;
 
 namespace VijayAnand.Toolkit.Markup
 {
-    public static class Util<T>
+    public static class Helper
     {
-        public static string PropertyName<P>(Expression<Func<T, P>> expression)
+        public static string PropertyName<TSource>(Expression<Func<TSource, object>> expression)
         {
             MemberExpression? memExp;
 

@@ -16,7 +16,7 @@
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<PackageId>VijayAnand.Toolkit.Markup</PackageId>
 		<Authors>Vijay Anand E G</Authors>
-		<Copyright>Copyright &#169; 2022 Vijay Anand E G</Copyright>
+		<Copyright>Copyright &#169; 2022-2023 Vijay Anand E G</Copyright>
 		<Product>VijayAnand.Toolkit.Markup is a set of fluent helper methods and classes for Xamarin.Forms / .NET MAUI to facilitate rapid UI development and better reuse in C#.</Product>
 		<Title>VijayAnand.Toolkit.Markup</Title>
 		<Description>VijayAnand.Toolkit.Markup is a set of fluent helper methods and classes for Xamarin.Forms / .NET MAUI to facilitate rapid UI development and better reuse in C#.</Description>
@@ -26,9 +26,9 @@
 		<PackageTags>.NET,MAUI,Xamarin,Forms,C#,CSharp,Markup,Toolkit,Fluent,API,Shared</PackageTags>
 		<PackageReleaseNotes>$([System.IO.File]::ReadAllText("$(MSBuildProjectDirectory)/release-notes-net7.txt"))</PackageReleaseNotes>
 		<AssemblyName>VijayAnand.Toolkit.Markup</AssemblyName>
-		<Version>1.0.0</Version>
-		<AssemblyVersion>1.0.0.0</AssemblyVersion>
-		<FileVersion>1.0.0.0</FileVersion>
+		<Version>2.0.0</Version>
+		<AssemblyVersion>2.0.0.0</AssemblyVersion>
+		<FileVersion>2.0.0.0</FileVersion>
 		<PackageReadmeFile>overview.md</PackageReadmeFile>
 		<PackageProjectUrl>https://egvijayanand.in/</PackageProjectUrl>
 		<NeutralLanguage>en</NeutralLanguage>
@@ -37,7 +37,7 @@
 		<!-- Source Linking -->
 		<PublishRepositoryUrl>true</PublishRepositoryUrl>
 		<EmbedUntrackedSources>true</EmbedUntrackedSources>
-		<DebugType>embedded</DebugType>
+		<!--<DebugType>embedded</DebugType>-->
 		<IncludeSymbols>true</IncludeSymbols>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
 
@@ -45,29 +45,23 @@
 		<ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
 	</PropertyGroup>
 	<ItemGroup>
-		<None Include="overview.md"
-			  Pack="true"
-			  PackagePath="\" />
+		<None Include="overview.md" Pack="true" PackagePath="\" />
 		<None Remove="release-notes-net6.txt" />
 		<None Include="release-notes-net7.txt" />
 	</ItemGroup>
 
 	<PropertyGroup Condition="'$(TargetFramework)' == 'net7.0'">
 		<UseMaui>true</UseMaui>
-		<!--<MauiVersion>7.0.52</MauiVersion>-->
 		<SingleProject>true</SingleProject>
 	</PropertyGroup>
 
 	<ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
-		<PackageReference Include="Xamarin.Forms"
-						  Version="5.0.0.2291" />
-		<PackageReference Include="Xamarin.CommunityToolkit.Markup"
-						  Version="2.0.4" />
+		<PackageReference Include="Xamarin.Forms" Version="5.0.0.2612" />
+		<PackageReference Include="Xamarin.CommunityToolkit.Markup" Version="2.0.6" />
 	</ItemGroup>
 
 	<ItemGroup Condition="'$(TargetFramework)' == 'net7.0'">
-		<PackageReference Include="CommunityToolkit.Maui.Markup"
-						  Version="2.1.0" />
+		<PackageReference Include="CommunityToolkit.Maui.Markup" Version="3.0.0" />
 	</ItemGroup>
 
 	<ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
