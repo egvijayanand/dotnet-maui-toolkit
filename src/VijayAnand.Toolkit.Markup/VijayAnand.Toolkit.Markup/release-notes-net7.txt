@@ -1,5 +1,13 @@
-What's new in ver. 2.0.2:
--------------------------
+What's new in ver. 2.1.0-preview.1:
+-----------------------------------
+.NET MAUI Semantic markup methods moved to a separate namespace - VijayAnand.Toolkit.Markup.Semantics
+
+This version of package is released on top of .NET MAUI on .NET 7 SR7 (7.0.92) version.
+
+Xamarin.Forms dependency bumped to ver. 5.0.0.2612, package released on top of Android 13.
+
+v2.0.2:
+
 This version of package is released on top of .NET MAUI on .NET 7 SR1.1 (7.0.52) version.
 
 v2.0.1:

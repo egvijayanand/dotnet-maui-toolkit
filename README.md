@@ -6,9 +6,10 @@ Join me on [**Developer Thoughts**](https://egvijayanand.in/), an exclusive blog
 
 <!-- [![VijayAnand.Toolkit.Markup - NuGet Package](https://badgen.net/nuget/v/VijayAnand.Toolkit.Markup/)](https://www.nuget.org/packages/VijayAnand.Toolkit.Markup/) -->
 
-|[VijayAnand.Toolkit.Markup](https://www.nuget.org/packages/VijayAnand.Toolkit.Markup/)|.NET 6|.NET 7|
-|:---:|:---:|:---:|
-|Stable|[![.NET 6](https://badgen.net/badge/nuget/v1.0.2/blue?icon=nuget)](https://www.nuget.org/packages/VijayAnand.Toolkit.Markup/1.0.2)|[![.NET 7](https://badgen.net/nuget/v/VijayAnand.Toolkit.Markup/?icon=nuget)](https://www.nuget.org/packages/VijayAnand.Toolkit.Markup/)|
+|[VijayAnand.Toolkit.Markup](https://www.nuget.org/packages/VijayAnand.Toolkit.Markup/)|.NET 6|.NET 7|.NET 8|
+|:---:|:---:|:---:|:---:|
+|Stable|[![.NET 6](https://badgen.net/badge/nuget/v1.0.2/blue?icon=nuget)](https://www.nuget.org/packages/VijayAnand.Toolkit.Markup/1.0.2)|[![.NET 7](https://badgen.net/nuget/v/VijayAnand.Toolkit.Markup/?icon=nuget)](https://www.nuget.org/packages/VijayAnand.Toolkit.Markup/)|-|
+|Preview|[![.NET 6](https://badgen.net/badge/nuget/v1.1.0-preview.1/blue?icon=nuget)](https://www.nuget.org/packages/VijayAnand.Toolkit.Markup/1.1.0-preview.1)|[![.NET 7](https://badgen.net/nuget/v/VijayAnand.Toolkit.Markup/latest?icon=nuget)](https://www.nuget.org/packages/VijayAnand.Toolkit.Markup/latest)|[![.NET 8](https://badgen.net/nuget/v/VijayAnand.Toolkit.Markup/absoluteLatest?icon=nuget)](https://www.nuget.org/packages/VijayAnand.Toolkit.Markup/absoluteLatest)|
 
 This extends the features of the official C# Markup NuGet package from Microsoft.
 

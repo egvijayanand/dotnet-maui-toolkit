@@ -1,3 +1,6 @@
+using System.Linq.Expressions;
+using System.Reflection;
+
 namespace VijayAnand.Toolkit.Markup
 {
     public static class Utility
@@ -11,38 +14,24 @@ namespace VijayAnand.Toolkit.Markup
         #endregion
 
         public static Binding BindTo(string path)
-        {
-            return new Binding(path);
-        }
+            => new Binding(path);
 
         public static Binding BindTo(string path, object? source = null)
-        {
-            return new Binding(path, source: source);
-        }
+            => new Binding(path, source: source);
 
         public static Thickness NoMargin()
-        {
-            return new Thickness(0);
-        }
+            => new Thickness(0);
 
         public static Thickness NoPadding()
-        {
-            return new Thickness(0);
-        }
+            => new Thickness(0);
 
         public static Thickness Margins(double left = 0, double top = 0, double right = 0, double bottom = 0)
-        {
-            return new Thickness(left, top, right, bottom);
-        }
+            => new Thickness(left, top, right, bottom);
 
         public static Thickness Paddings(double left = 0, double top = 0, double right = 0, double bottom = 0)
-        {
-            return new Thickness(left, top, right, bottom);
-        }
+            => new Thickness(left, top, right, bottom);
 
         public static Setter Create(BindableProperty property, object value)
-        {
-            return new Setter() { Property = property, Value = value };
-        }
+            => new Setter() { Property = property, Value = value };        
     }
 }

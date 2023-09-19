@@ -1,5 +1,11 @@
-What's new in ver. 1.0.2:
--------------------------
+What's new in ver. 1.1.0-preview.1:
+-----------------------------------
+This version of package is released on top of .NET MAUI on .NET 6 SR11 (6.0.553) version.
+
+Xamarin.Forms dependency bumped to ver. 5.0.0.2612, package released on top of Android 13.
+
+v1.0.2:
+
 This version of package is released on top of .NET MAUI on .NET 6 SR8 (6.0.548) version.
 
 v1.0.1:
