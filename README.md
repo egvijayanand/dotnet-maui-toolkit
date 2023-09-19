@@ -1,4 +1,4 @@
-Join me on [**Developer Thoughts**](https://egvijayanand.in/), an exclusive blog for .NET MAUI and Blazor, for articles on working with these toolkit and much more.
+Join me on [**Developer Thoughts**](https://egvijayanand.in/), an exclusive blog for .NET MAUI and Blazor, for articles on working with these toolkits and much more.
 
 ### VijayAnand.Toolkit.Markup
 
@@ -9,13 +9,13 @@ Join me on [**Developer Thoughts**](https://egvijayanand.in/), an exclusive blog
 |[VijayAnand.Toolkit.Markup](https://www.nuget.org/packages/VijayAnand.Toolkit.Markup/)|.NET 6|.NET 7|.NET 8|
 |:---:|:---:|:---:|:---:|
 |Stable|[![.NET 6](https://badgen.net/badge/nuget/v1.0.2/blue?icon=nuget)](https://www.nuget.org/packages/VijayAnand.Toolkit.Markup/1.0.2)|[![.NET 7](https://badgen.net/nuget/v/VijayAnand.Toolkit.Markup/?icon=nuget)](https://www.nuget.org/packages/VijayAnand.Toolkit.Markup/)|-|
-|Preview|[![.NET 6](https://badgen.net/badge/nuget/v1.1.0-preview.1/blue?icon=nuget)](https://www.nuget.org/packages/VijayAnand.Toolkit.Markup/1.1.0-preview.1)|[![.NET 7](https://badgen.net/nuget/v/VijayAnand.Toolkit.Markup/latest?icon=nuget)](https://www.nuget.org/packages/VijayAnand.Toolkit.Markup/latest)|[![.NET 8](https://badgen.net/nuget/v/VijayAnand.Toolkit.Markup/absoluteLatest?icon=nuget)](https://www.nuget.org/packages/VijayAnand.Toolkit.Markup/absoluteLatest)|
+|Preview|[![.NET 6](https://badgen.net/badge/nuget/v1.1.0-preview.1/blue?icon=nuget)](https://www.nuget.org/packages/VijayAnand.Toolkit.Markup/1.1.0-preview.1)|[![.NET 7](https://badgen.net/badge/nuget/v2.1.0-preview.1/blue?icon=nuget)](https://www.nuget.org/packages/VijayAnand.Toolkit.Markup/2.1.0-preview.1)|[![.NET 8](https://badgen.net/nuget/v/VijayAnand.Toolkit.Markup/pre?icon=nuget)](https://www.nuget.org/packages/VijayAnand.Toolkit.Markup/absoluteLatest)|
 
 This extends the features of the official C# Markup NuGet package from Microsoft.
 
 `netstandard2.0` library targets Xamarin.Forms 5 and is dependent on the [Xamarin.CommunityToolkit.Markup](https://www.nuget.org/packages/Xamarin.CommunityToolkit.Markup/) package.
 
-Whereas `net6.0` and `net7.0` library targets .NET MAUI and is dependent on the [CommunityToolkit.Maui.Markup](https://www.nuget.org/packages/CommunityToolkit.Maui.Markup/) package. *Note this is NOT MauiCompat package.*
+Whereas the `net6.0`, `net7.0`, and `net8.0` library targets .NET MAUI and is dependent on the [CommunityToolkit.Maui.Markup](https://www.nuget.org/packages/CommunityToolkit.Maui.Markup/) package. *Note this is NOT a MauiCompat package.*
 
 ### VijayAnand.MauiToolkit.Core
 
@@ -30,7 +30,7 @@ The objective is to ease the development of the `Razor Class Library` (RCL) so t
 
 And .NET MAUI targets Android, iOS, macOS (via Mac Catalyst), Tizen, and Windows (via WinUI 3).
 
-To start with defines the following abstractions:
+To start with define the following abstractions:
 
 * Dialogs - `IDialogService`
 * Navigation - `INavigationService`
@@ -50,7 +50,7 @@ This is a toolkit with a set of helper methods and classes to simplify working w
 
 It depends on [VijayAnand.MauiToolkit.Core](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Core/) NuGet package.
 
-To start with, implements the concrete definition of the abstractions defined in Core package:
+To start with, implement the concrete definition of the abstractions defined in the Core package:
 
 * Dialogs - `DialogService` (works with MainPage or Shell definition)
   - Additional abstraction specific to .NET MAUI with `FlowDirection`
@@ -78,7 +78,7 @@ And if DialogService is required along with NavigationService:
 
 Then, invoke `UseVijayAnandMauiToolkit(ServiceRegistrations.Dialogs | ServiceRegistrations.Navigation)`.
 
-By default, the default value of configuration parameter is set to `ServiceRegistrations.All`.
+By default, the default value of the configuration parameter is set to `ServiceRegistrations.All`.
 
 Usage:
 
@@ -89,7 +89,7 @@ public static class MauiProgram
     {
         var builder = MauiApp.CreateBuilder();
         builder.UseMauiApp<App>()
-               .UseVijayAnandMauiToolkit(); // Implicit value of ServiceRegistrations.All passed as configuration parameter
+               .UseVijayAnandMauiToolkit(); // Implicit value of ServiceRegistrations.All passed as a configuration parameter
         return builder.Build();
     }
 }
@@ -108,13 +108,13 @@ It depends on the following NuGet packages:
 * [CommunityToolkit.Maui](https://www.nuget.org/packages/CommunityToolkit.Maui/)
 * [VijayAnand.MauiToolkit](https://www.nuget.org/packages/VijayAnand.MauiToolkit/)
 
-To start with, implements the concrete definition `PopupDialogService` for the `IDialogService` abstraction defined in Core package and `IMauiDialogService` abstraction defined in Regular package with the `Popup` type from the `CommunityToolkit.Maui` NuGet package.
+To start with implements the concrete definition `PopupDialogService` for the `IDialogService` abstraction defined in the Core package and `IMauiDialogService` abstraction defined in the Regular package with the `Popup` type from the `CommunityToolkit.Maui` NuGet package.
 
 Provides an extension method to register this service in .NET MAUI host builder startup:
 
 `UseVijayAnandMauiToolkitPro()`
 
-By default, the default value of configuration parameter is set to `ServiceRegistrations.All`.
+By default, the default value of the configuration parameter is set to `ServiceRegistrations.All`.
 
 Usage:
 
@@ -135,7 +135,7 @@ public static class MauiProgram
 
 ### VijayAnand.MauiBlazor.Markup
 
-This toolkit a set of fluent helper methods and classes to simplify working with .NET MAUI Blazor in C#.
+This toolkit is a set of fluent helper methods and classes to simplify working with .NET MAUI Blazor in C#.
 
 This toolkit depends on [Microsoft.AspNetCore.Components.WebView.Maui](https://www.nuget.org/packages/Microsoft.AspNetCore.Components.WebView.Maui) NuGet package.
 
@@ -144,7 +144,7 @@ This toolkit depends on [Microsoft.AspNetCore.Components.WebView.Maui](https://w
 |Stable|[![.NET 6](https://badgen.net/badge/nuget/v1.0.12/blue?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiBlazor.Markup/1.0.12)|[![.NET 7](https://badgen.net/nuget/v/VijayAnand.MauiBlazor.Markup/?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiBlazor.Markup/)| - |
 |Preview| - | - |[![.NET 8](https://badgen.net/nuget/v/VijayAnand.MauiBlazor.Markup/latest?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiBlazor.Markup/absoluteLatest)|
 
-Most useful method will be `Configure`, which can be invoked on an instance of a BlazorWebView and its derivatives, and it simplifies the initialization of BlazorWebView into a single fluent method call as shown in the below sample.
+The most useful method will be `Configure`, which can be invoked on an instance of a BlazorWebView and its derivatives, and it simplifies the initialization of BlazorWebView into a single fluent method call as shown in the below sample.
 
 Note: `Gateway` is a `Razor` component and assumes it can receive a parameter named `Foo` as described in the sample underneath.
 
@@ -157,8 +157,8 @@ public class HomePage : ContentPage
     {
         // A BlazorWebView can manage multiple RootComponents, to achieve this, define another Tuple with values of that component        
         // The method and Tuple parameter names are shown for clarity and it's optional
-        // Blazor component can have initialization parameters, which can be supplied thro parameters, a dictionary of keyValues 
-        // where key is of type string and value is of type object
+        // Blazor component can have initialization parameters, which can be supplied through parameters, a dictionary of keyValues 
+        // where the key is of type string and value is of type object
         
         // Without initialization parameters
         Content = new BlazorWebView().Configure(hostPage: "wwwroot/index.html", (selector: "#app", componentType: typeof(Gateway), parameters: null));
@@ -166,7 +166,7 @@ public class HomePage : ContentPage
         // With optional initialization parameters
         Content = new BlazorWebView().Configure(hostPage: "wwwroot/index.html", (selector: "#app", componentType: typeof(Gateway), parameters: new Dictionary<string, object?> { [nameof(Gateway.Foo)] = "Bar" }));
         
-        // In a much simplified form - Real intended usage        
+        // In a much-simplified form - Real intended usage        
         // Without initialization parameters
         Content = new BlazorWebView().Configure("wwwroot/index.html", ("#app", typeof(Gateway), null));
 
@@ -195,7 +195,7 @@ public class HomePage : ContentPage
 // The method and Tuple parameter names are shown for clarity and it's optional
 // A BlazorWebView can manage multiple RootComponents, to achieve this, define another Tuple with values of that component
 // Blazor component can have initialization parameters, which can be supplied thro parameters, a dictionary of keyValues 
-// where key is of type string and value is of type object
+// where the key is of type string and the value is of type object
 new BlazorWebView().Configure(hostPage: "wwwroot/index.html", (selector: "#app", componentType: typeof(Gateway), parameters: null))
 // Another example with component initialization parameters
 new BlazorWebView().Configure(hostPage: "wwwroot/index.html", (selector: "#app", componentType: typeof(Gateway), parameters: new Dictionary<string, object?> { ["Foo"] = "Bar" }))
