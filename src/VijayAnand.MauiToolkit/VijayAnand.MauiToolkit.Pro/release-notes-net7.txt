@@ -1,7 +1,11 @@
 Join me on Developer Thoughts, https://egvijayanand.in/, an exclusive blog for .NET MAUI and Blazor.
 
-What's new in ver. 2.1.0:
+What's new in ver. 2.1.1:
 -------------------------
+This version of package is released on top of .NET MAUI on .NET 7 SR8 (7.0.96) version.
+
+v2.1.0:
+
 This version of package is released on top of .NET MAUI on .NET 7 SR7 (7.0.92) version.
 
 v2.1.0-preview.7:
