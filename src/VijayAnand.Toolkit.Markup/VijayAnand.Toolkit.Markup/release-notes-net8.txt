@@ -1,5 +1,9 @@
-What's new in ver. 3.0.0-preview.1:
+What's new in ver. 3.0.0-preview.2:
 -----------------------------------
+This version of package is released on top of .NET MAUI on .NET 8 RC2 (8.0.0-rc.2.9373) version.
+
+v3.0.0-preview.1:
+
 Initial release of C# Markup Toolkit package to support .NET MAUI on .NET 8.
 
 .NET Standard 2.0 library targets Xamarin.Forms and extends the features of the Xamarin.CommunityToolkit.Markup package.
