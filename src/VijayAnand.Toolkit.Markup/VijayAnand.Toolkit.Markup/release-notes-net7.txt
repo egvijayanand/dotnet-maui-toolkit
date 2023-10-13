@@ -1,5 +1,9 @@
-What's new in ver. 2.1.0-preview.1:
+What's new in ver. 2.1.0-preview.2:
 -----------------------------------
+This version of package is released on top of .NET MAUI on .NET 7 SR8 (7.0.96) version.
+
+v2.1.0-preview.1:
+
 .NET MAUI Semantic markup methods moved to a separate namespace - VijayAnand.Toolkit.Markup.Semantics
 
 This version of package is released on top of .NET MAUI on .NET 7 SR7 (7.0.92) version.
