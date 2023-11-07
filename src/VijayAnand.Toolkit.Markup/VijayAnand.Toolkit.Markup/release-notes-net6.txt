@@ -1,5 +1,9 @@
-What's new in ver. 1.1.0-preview.3:
+What's new in ver. 1.1.0-preview.4:
 -----------------------------------
+Another preview version on top of .NET MAUI on .NET 6 SR11 (6.0.553) version.
+
+v1.1.0-preview.3:
+
 Another preview version on top of .NET MAUI on .NET 6 SR11 (6.0.553) version.
 
 v1.1.0-preview.2:
