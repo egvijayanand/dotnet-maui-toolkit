@@ -1,7 +1,11 @@
 Join me on Developer Thoughts, https://egvijayanand.in/, an exclusive blog for .NET MAUI and Blazor.
 
-What's new in ver. 3.0.0-rc.2.1:
+What's new in ver. 3.0.0-rc.2.2:
 --------------------------------
+The version of the package was released on top of .NET 8 RC2.
+
+v3.0.0-rc.2.1:
+
 The version of the package was released on top of .NET 8 RC2.
 
 v3.0.0-rc.2:
