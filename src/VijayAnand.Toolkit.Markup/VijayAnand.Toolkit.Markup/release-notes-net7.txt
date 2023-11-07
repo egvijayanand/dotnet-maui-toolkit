@@ -1,5 +1,9 @@
-What's new in ver. 2.1.0-preview.3:
+What's new in ver. 2.1.0-preview.4:
 -----------------------------------
+This version of package is released on top of .NET MAUI on .NET 7 SR10 (7.0.101) version.
+
+v2.1.0-preview.3:
+
 This version of package is released on top of .NET MAUI on .NET 7 SR9 (7.0.100) version.
 
 v2.1.0-preview.2:
