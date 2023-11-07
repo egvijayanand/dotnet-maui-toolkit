@@ -1,7 +1,11 @@
 Join me on Developer Thoughts, https://egvijayanand.in/, an exclusive blog for .NET MAUI and Blazor.
 
-What's new in ver. 2.1.2:
+What's new in ver. 2.1.3:
 -------------------------
+The version of the package was released on top of the latest build.
+
+v2.1.2:
+
 The version of the package was released on top of the latest build.
 
 v2.1.1:
