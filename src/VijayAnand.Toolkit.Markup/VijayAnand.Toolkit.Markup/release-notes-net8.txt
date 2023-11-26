@@ -1,5 +1,9 @@
-What's new in ver. 3.0.0:
+What's new in ver. 3.1.0:
 -------------------------
+CommunityToolkit.Maui.Markup dependency bumped to v4.0.0, the version released on top of .NET 8
+
+v3.0.0:
+
 Stable version on top of .NET MAUI on .NET 8 (8.0.3) version.
 
 v3.0.0-preview.4:
