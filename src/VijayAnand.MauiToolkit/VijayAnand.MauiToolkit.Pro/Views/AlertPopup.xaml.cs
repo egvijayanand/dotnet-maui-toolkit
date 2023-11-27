@@ -1,6 +1,10 @@
 ﻿namespace VijayAnand.MauiToolkit.Pro.Views
 {
+#if NET8_0_OR_GREATER
+    internal partial class AlertPopup : Popup
+#else
     public partial class AlertPopup : Popup
+#endif
     {
         private readonly bool acceptVisible;
 
