@@ -5,6 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:VijayAnand.MauiToolkit.Pro.Views"
     xmlns:mct="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    x:ClassModifier="NotPublic"
     x:DataType="local:ActionSheetPopup"
     CanBeDismissedByTappingOutsideOfPopup="False"
     Opened="OnPopupOpened"

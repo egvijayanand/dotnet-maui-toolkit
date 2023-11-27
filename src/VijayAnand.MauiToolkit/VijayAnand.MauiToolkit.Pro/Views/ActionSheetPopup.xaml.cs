@@ -2,7 +2,11 @@
 
 namespace VijayAnand.MauiToolkit.Pro.Views
 {
+#if NET8_0_OR_GREATER
+    internal partial class ActionSheetPopup : Popup
+#else
     public partial class ActionSheetPopup : Popup
+#endif
     {
         private readonly Button? btnDefault;
 

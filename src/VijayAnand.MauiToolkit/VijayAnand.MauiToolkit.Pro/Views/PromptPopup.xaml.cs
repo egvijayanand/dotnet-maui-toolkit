@@ -2,7 +2,11 @@
 
 namespace VijayAnand.MauiToolkit.Pro.Views
 {
+#if NET8_0_OR_GREATER
+    internal partial class PromptPopup : Popup
+#else
     public partial class PromptPopup : Popup
+#endif
     {
         private readonly Func<string, (bool, string)>? validate;
 

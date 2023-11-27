@@ -87,6 +87,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="CommunityToolkit.Maui" Version="4.0.0" />
+		<PackageReference Include="CommunityToolkit.Maui" Version="7.0.0" />
 	</ItemGroup>
 </Project>

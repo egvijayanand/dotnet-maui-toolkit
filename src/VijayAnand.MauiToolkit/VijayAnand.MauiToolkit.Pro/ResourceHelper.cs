@@ -1,6 +1,4 @@
-﻿using System.Reflection;
-
-namespace VijayAnand.MauiToolkit.Pro
+﻿namespace VijayAnand.MauiToolkit.Pro
 {
     internal static class ResourceHelper
     {

@@ -1,7 +1,13 @@
 Join me on Developer Thoughts, https://egvijayanand.in/, an exclusive blog for .NET MAUI and Blazor.
 
-What's new in ver. 3.0.0:
+What's new in ver. 3.1.0:
 -------------------------
+CommunityToolkit.Maui dependency bumped to v7.0.0, the version released on top of .NET 8
+
+The Popup type implemented with XAML and the accessibility modifier in its associated code-behind file is now set as internal.
+
+v3.0.0:
+
 This version of package is released on top of .NET MAUI on .NET 8 GA (8.0.3) version.
 
 v3.0.0-rc.2.2:
