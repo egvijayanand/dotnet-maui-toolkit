@@ -9,7 +9,7 @@ global using Microsoft.Maui.Hosting;
 global using CommunityToolkit.Maui.Markup;
 global using static Microsoft.Maui.Graphics.Colors;
 global using static CommunityToolkit.Maui.Markup.GridRowsColumns;
-#elif NETSTANDARD2_0_OR_GREATER
+#else
 global using Xamarin.Forms;
 global using Xamarin.Forms.StyleSheets;
 global using Xamarin.Forms.Xaml;

@@ -16,5 +16,26 @@ namespace VijayAnand.Toolkit.Markup
             fontElement.SetValue(FontElement.FontSizeProperty, Device.GetNamedSize(namedSize, fontElement));
             return fontElement;
         }
+
+        public static TElement AutomationId<TElement>(this TElement element, string value)
+            where TElement : Element
+        {
+            element.AutomationId = value;
+            return element;
+        }
+
+        public static TElement ClassId<TElement>(this TElement element, string value)
+            where TElement : Element
+        {
+            element.ClassId = value;
+            return element;
+        }
+
+        public static TElement StyleId<TElement>(this TElement element, string value)
+            where TElement : Element
+        {
+            element.StyleId = value;
+            return element;
+        }
     }
 }

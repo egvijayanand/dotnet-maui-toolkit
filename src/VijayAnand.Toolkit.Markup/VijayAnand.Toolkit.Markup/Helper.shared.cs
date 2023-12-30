@@ -5,7 +5,7 @@ namespace VijayAnand.Toolkit.Markup
 {
     public static class Helper
     {
-        public static string PropertyName<TSource>(Expression<Func<TSource, object>> expression)
+        public static string PropertyName<TSource, TProperty>(Expression<Func<TSource, TProperty>> expression)
         {
             MemberExpression? memExp;
 
@@ -32,7 +32,7 @@ namespace VijayAnand.Toolkit.Markup
                 memExp = memExp.Expression as MemberExpression;
             }
 
-            return path + propMemExp.Member.Name;
+            return $"{path}{propMemExp.Member.Name}";
         }
     }
 }

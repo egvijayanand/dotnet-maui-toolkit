@@ -2,8 +2,9 @@ namespace VijayAnand.Toolkit.Markup
 {
     public static class ViewInGridExtensions
     {
-
         const string Default = nameof(Default);
+        const string OnIdiom = nameof(OnIdiom);
+        const string OnPlatform = nameof(OnPlatform);
 
         // Grid Spacing
 
@@ -79,7 +80,7 @@ namespace VijayAnand.Toolkit.Markup
                 var content = markup[1..^1];
                 string markupId = content[..content.IndexOf("\x20")];
 
-                if (!(markupId == "OnIdiom" || markupId == "OnPlatform"))
+                if (!(markupId == OnIdiom || markupId == OnPlatform))
                 {
                     throw new ArgumentOutOfRangeException(nameof(markup), "Currently only OnIdiom and OnPlatform markup extension format is supported.");
                 }
@@ -98,7 +99,7 @@ namespace VijayAnand.Toolkit.Markup
 
                 int rowIndex;
 
-                if (markupId == "OnIdiom")
+                if (markupId == OnIdiom)
                 {
 #if NETSTANDARD2_0
                     rowIndex = Device.Idiom switch
@@ -148,7 +149,7 @@ namespace VijayAnand.Toolkit.Markup
                     };
 #endif
                 }
-                else if (markupId == "OnPlatform")
+                else if (markupId == OnPlatform)
                 {
 #if NETSTANDARD2_0
                     rowIndex = Device.RuntimePlatform switch
@@ -232,7 +233,7 @@ namespace VijayAnand.Toolkit.Markup
 
                 string markupId = content.Substring(0, content.IndexOf("\x20"));
 
-                if (!(markupId == "OnIdiom" || markupId == "OnPlatform"))
+                if (!(markupId == OnIdiom || markupId == OnPlatform))
                 {
                     throw new ArgumentOutOfRangeException(nameof(markup), "Currently only OnIdiom and OnPlatform markup extension format is supported.");
                 }
@@ -251,7 +252,7 @@ namespace VijayAnand.Toolkit.Markup
 
                 int columnIndex;
 
-                if (markupId == "OnIdiom")
+                if (markupId == OnIdiom)
                 {
 #if NETSTANDARD2_0
                     columnIndex = Device.Idiom switch
@@ -301,7 +302,7 @@ namespace VijayAnand.Toolkit.Markup
                     };
 #endif
                 }
-                else if (markupId == "OnPlatform")
+                else if (markupId == OnPlatform)
                 {
 #if NETSTANDARD2_0
                     columnIndex = Device.RuntimePlatform switch
@@ -373,6 +374,26 @@ namespace VijayAnand.Toolkit.Markup
                 throw new ArgumentOutOfRangeException(nameof(markup), "Markup input is not in the expected format.");
             }
 
+            return view;
+        }
+
+        public static TView Cell<TView>(this TView view, int row, int column)
+            where TView : View
+        {
+            view.SetValue(Grid.RowProperty, row);
+            view.SetValue(Grid.ColumnProperty, column);
+            return view;
+        }
+
+        public static TView Cell<TView, TRow, TColumn>(this TView view, TRow row, TColumn column)
+            where TView : View
+            where TRow : Enum
+            where TColumn : Enum
+        {
+            var rowIndex = row.ToInt();
+            var colIndex = column.ToInt();
+            view.SetValue(Grid.RowProperty, rowIndex);
+            view.SetValue(Grid.ColumnProperty, colIndex);
             return view;
         }
 

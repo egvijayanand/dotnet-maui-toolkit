@@ -48,6 +48,7 @@
 		<None Include="overview.md" Pack="true" PackagePath="\" />
 		<None Include="release-notes-net6.txt" />
 		<None Remove="release-notes-net7.txt" />
+		<None Remove="release-notes-net8.txt" />
 	</ItemGroup>
 
 	<PropertyGroup Condition="'$(TargetFramework)' == 'net6.0'">
