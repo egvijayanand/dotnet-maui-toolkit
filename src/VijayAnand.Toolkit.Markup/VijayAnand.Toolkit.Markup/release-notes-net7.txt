@@ -1,5 +1,17 @@
-What's new in ver. 2.1.0:
+What's new in ver. 2.2.0:
 -------------------------
+1. New Bind methods (suffixed with v2) that work based on the LINQ expression rather than classic reflection-based bindings.
+
+This form of binding supports nested properties, default properties, and most importantly type safety and compile time validation.
+
+2. Markup methods for all properties of Xamarin.Forms VisualElement for easier migration to .NET MAUI
+
+3. Markup methods for Text property for Label, Button, Span, MenuItem/SwipeItem and its derivatives.
+
+4. ConfigureServices() app builder method moved to 'VijayAnand.Toolkit.Markup.Configuration' namespace to avoid clash when using with VijayAnand.MauiToolkit NuGet package.
+
+v2.1.0:
+
 Stable version on top of .NET MAUI on .NET 7 SR10 (7.0.101) version.
 
 v2.1.0-preview.4:

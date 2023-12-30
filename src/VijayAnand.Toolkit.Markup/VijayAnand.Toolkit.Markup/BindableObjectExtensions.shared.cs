@@ -1,5 +1,6 @@
-﻿using System.ComponentModel;
-using System.Linq.Expressions;
+﻿using System.Linq.Expressions;
+using System.Windows.Input;
+
 using static VijayAnand.Toolkit.Markup.Helper;
 
 namespace VijayAnand.Toolkit.Markup
@@ -8,21 +9,48 @@ namespace VijayAnand.Toolkit.Markup
     {
         const string bindingContextPath = Binding.SelfPath;
 
-        /// <summary>Bind to the default property.</summary>
+        /// <summary>Binds to the default bindable property.</summary>
         /// <param name="expression">Lambda expression of the source property to bind to.</param>
-        public static TBindable Bind<TBindable, TSource>(this TBindable bindable,
-                                                         Expression<Func<TSource, object>> expression,
-                                                         BindingMode mode = BindingMode.Default,
-                                                         IValueConverter? converter = null,
-                                                         object? converterParameter = null,
-                                                         string? stringFormat = null,
-                                                         object? source = null,
-                                                         object? targetNullValue = null,
-                                                         object? fallbackValue = null)
+        public static TBindable Bindv2<TBindable, TBindingContext, TSource>(
+            this TBindable bindable,
+            Expression<Func<TBindingContext, TSource>> expression,
+            BindingMode mode = BindingMode.Default,
+            IValueConverter? converter = null,
+            object? converterParameter = null,
+            string? stringFormat = null,
+            object? source = null,
+            object? targetNullValue = null,
+            object? fallbackValue = null)
             where TBindable : BindableObject
-            where TSource : notnull, INotifyPropertyChanged
         {
             bindable.Bind(PropertyName(expression),
+                          mode,
+                          converter,
+                          converterParameter,
+                          stringFormat,
+                          source,
+                          targetNullValue,
+                          fallbackValue);
+            return bindable;
+        }
+
+        /// <summary>Binds to the specified bindable property.</summary>
+        /// <param name="expression">Lambda expression of the source property to bind to.</param>
+        public static TBindable Bindv2<TBindable, TBindingContext, TSource>(
+            this TBindable bindable,
+            BindableProperty property,
+            Expression<Func<TBindingContext, TSource>> expression,
+            BindingMode mode = BindingMode.Default,
+            IValueConverter? converter = null,
+            object? converterParameter = null,
+            string? stringFormat = null,
+            object? source = null,
+            object? targetNullValue = null,
+            object? fallbackValue = null)
+            where TBindable : BindableObject
+        {
+            bindable.Bind(property,
+                          PropertyName(expression),
                           mode,
                           converter,
                           converterParameter,
@@ -36,13 +64,14 @@ namespace VijayAnand.Toolkit.Markup
         /// <summary>Bind to the <typeparamref name="TBindable"/>'s default Command and CommandParameter properties.</summary>
         /// <param name="expression">Lambda expression of the source property to bind to.</param>
         /// <param name="parameterPath">If null, no binding is created for the CommandParameter property.</param>
-        public static TBindable BindCommand<TBindable, TSource>(this TBindable bindable,
-                                                                Expression<Func<TSource, object>> expression,
-                                                                object? source = null,
-                                                                string? parameterPath = bindingContextPath,
-                                                                object? parameterSource = null)
+        public static TBindable BindCommandv2<TBindable, TBindingContext, TSource>(
+            this TBindable bindable,
+            Expression<Func<TBindingContext, TSource>> expression,
+            object? source = null,
+            string? parameterPath = bindingContextPath,
+            object? parameterSource = null)
             where TBindable : BindableObject
-            where TSource : notnull
+            where TSource : ICommand
         {
             bindable.BindCommand(PropertyName(expression), source, parameterPath, parameterSource);
             return bindable;
@@ -50,10 +79,11 @@ namespace VijayAnand.Toolkit.Markup
 
         /// <summary>Bind to the <typeparamref name="TBindable"/>'s default Command and assign <paramref name="parameterValue"/> value to CommandParameter property.</summary>
         /// <param name="parameterValue">If null, not assigned to the CommandParameter property</param>
-        public static TBindable BindCommandWithParameter<TBindable>(this TBindable bindable,
-                                                                    string path = bindingContextPath,
-                                                                    object? source = null,
-                                                                    object? parameterValue = null)
+        public static TBindable BindCommandWithParameter<TBindable>(
+            this TBindable bindable,
+            string path = bindingContextPath,
+            object? source = null,
+            object? parameterValue = null)
             where TBindable : BindableObject
         {
             // Explicit value of null to parameterPath as value of CommandParameter is static in nature
@@ -61,13 +91,17 @@ namespace VijayAnand.Toolkit.Markup
             _ = bindable switch
             {
                 Button button => button.CommandParameter = parameterValue,
+                Entry entry => entry.ReturnCommandParameter = parameterValue,
                 ImageButton imgButton => imgButton.CommandParameter = parameterValue,
                 BackButtonBehavior backBtnBehavior => backBtnBehavior.CommandParameter = parameterValue,
                 MenuItem menuItem => menuItem.CommandParameter = parameterValue,
                 SearchBar searchBar => searchBar.SearchCommandParameter = parameterValue,
                 SearchHandler searchHandler => searchHandler.CommandParameter = parameterValue,
+                SwipeItemView swipeItemView => swipeItemView.CommandParameter = parameterValue,
                 TextCell textCell => textCell.CommandParameter = parameterValue,
                 ClickGestureRecognizer clickGesture => clickGesture.CommandParameter = parameterValue,
+                DropGestureRecognizer dropGesture => dropGesture.DropCommandParameter = parameterValue,
+                SwipeGestureRecognizer swipeGesture => swipeGesture.CommandParameter = parameterValue,
                 TapGestureRecognizer tapGesture => tapGesture.CommandParameter = parameterValue,
                 RefreshView refreshView => refreshView.CommandParameter = parameterValue,
                 //EventToCommandBehavior eventToCommand => eventToCommand.CommandParameter = parameterValue,
@@ -80,25 +114,30 @@ namespace VijayAnand.Toolkit.Markup
 
         /// <summary>Bind to the <typeparamref name="TBindable"/>'s default Command and assign <paramref name="parameterValue"/> value to CommandParameter property.</summary>
         /// <param name="parameterValue">If null, not assigned to the CommandParameter property</param>
-        public static TBindable BindCommandWithParameter<TBindable, TSource>(this TBindable bindable,
-                                                                             Expression<Func<TSource, object>> expression,
-                                                                             object? source = null,
-                                                                             object? parameterValue = null)
+        public static TBindable BindCommandWithParameterv2<TBindable, TBindingContext, TSource>(
+            this TBindable bindable,
+            Expression<Func<TBindingContext, TSource>> expression,
+            object? source = null,
+            object? parameterValue = null)
             where TBindable : BindableObject
-            where TSource : notnull
+            where TSource : ICommand
         {
             // Explicit value of null to parameterPath as value of CommandParameter is static in nature
             bindable.BindCommand(PropertyName(expression), source, null);
             _ = bindable switch
             {
                 Button button => button.CommandParameter = parameterValue,
+                Entry entry => entry.ReturnCommandParameter = parameterValue,
                 ImageButton imgButton => imgButton.CommandParameter = parameterValue,
                 BackButtonBehavior backBtnBehavior => backBtnBehavior.CommandParameter = parameterValue,
                 MenuItem menuItem => menuItem.CommandParameter = parameterValue,
                 SearchBar searchBar => searchBar.SearchCommandParameter = parameterValue,
                 SearchHandler searchHandler => searchHandler.CommandParameter = parameterValue,
+                SwipeItemView swipeItemView => swipeItemView.CommandParameter = parameterValue,
                 TextCell textCell => textCell.CommandParameter = parameterValue,
                 ClickGestureRecognizer clickGesture => clickGesture.CommandParameter = parameterValue,
+                DropGestureRecognizer dropGesture => dropGesture.DropCommandParameter = parameterValue,
+                SwipeGestureRecognizer swipeGesture => swipeGesture.CommandParameter = parameterValue,
                 TapGestureRecognizer tapGesture => tapGesture.CommandParameter = parameterValue,
                 RefreshView refreshView => refreshView.CommandParameter = parameterValue,
                 //EventToCommandBehavior eventToCommand => eventToCommand.CommandParameter = parameterValue,
@@ -124,13 +163,17 @@ namespace VijayAnand.Toolkit.Markup
             _ = bindable switch
             {
                 Button button => button.CommandParameter = parameterValue,
+                Entry entry => entry.ReturnCommandParameter = parameterValue,
                 ImageButton imgButton => imgButton.CommandParameter = parameterValue,
                 BackButtonBehavior backBtnBehavior => backBtnBehavior.CommandParameter = parameterValue,
                 MenuItem menuItem => menuItem.CommandParameter = parameterValue,
                 SearchBar searchBar => searchBar.SearchCommandParameter = parameterValue,
                 SearchHandler searchHandler => searchHandler.CommandParameter = parameterValue,
+                SwipeItemView swipeItemView => swipeItemView.CommandParameter = parameterValue,
                 TextCell textCell => textCell.CommandParameter = parameterValue,
                 ClickGestureRecognizer clickGesture => clickGesture.CommandParameter = parameterValue,
+                DropGestureRecognizer dropGesture => dropGesture.DropCommandParameter = parameterValue,
+                SwipeGestureRecognizer swipeGesture => swipeGesture.CommandParameter = parameterValue,
                 TapGestureRecognizer tapGesture => tapGesture.CommandParameter = parameterValue,
                 RefreshView refreshView => refreshView.CommandParameter = parameterValue,
                 //EventToCommandBehavior eventToCommand => eventToCommand.CommandParameter = parameterValue,

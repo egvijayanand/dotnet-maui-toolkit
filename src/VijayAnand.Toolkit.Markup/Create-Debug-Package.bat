@@ -49,7 +49,7 @@ if [%arg%] == [0] (echo.) else (if [%arg%] == [1] goto end)
 
 :: .NET 7 package version
 
-:dotnet6
+:dotnet7
 
 set projId=Net7
 

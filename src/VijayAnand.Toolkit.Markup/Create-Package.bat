@@ -43,7 +43,22 @@ echo.
 call Info "Creating %packageName% ver. %packageVersion% (%projId%) NuGet package in %config% mode ..."
 
 echo.
-dotnet build .\VijayAnand.Toolkit.Markup\VijayAnand.Toolkit.Markup.%projId%.csproj -c %config% -p:PackageVersion=%packageVersion%%revisionId%
+call Info "Restoring dependencies ..."
+
+echo.
+dotnet restore .\VijayAnand.Toolkit.Markup\VijayAnand.Toolkit.Markup.%projId%.csproj --force --nologo
+
+echo.
+call Info "Building project ..."
+
+echo.
+dotnet build .\VijayAnand.Toolkit.Markup\VijayAnand.Toolkit.Markup.%projId%.csproj -c %config% -p:PackageVersion=%packageVersion%%revisionId% --nologo
+
+::echo.
+::call Info "Cleanup ..."
+
+::echo.
+::dotnet clean .\VijayAnand.Toolkit.Markup\VijayAnand.Toolkit.Markup.%projId%.csproj -c %config% --nologo
 
 echo.
 if %errorlevel% == 0 (call Success "Process completed.") else (call Error "Failed to %projId% create package.")
