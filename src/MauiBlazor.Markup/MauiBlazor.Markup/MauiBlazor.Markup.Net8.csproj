@@ -4,6 +4,7 @@
 
 		<!-- .NET MAUI Options -->
 		<UseMaui>true</UseMaui>
+		<MauiVersion>8.0.6</MauiVersion>
 		<SingleProject>true</SingleProject>
 
 		<!-- Project Options -->
@@ -15,7 +16,7 @@
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<PackageId>VijayAnand.MauiBlazor.Markup</PackageId>
 		<Authors>Vijay Anand E G</Authors>
-		<Copyright>Copyright &#169; 2023 Vijay Anand E G</Copyright>
+		<Copyright>Copyright &#169; 2023-2024 Vijay Anand E G</Copyright>
 		<Product>VijayAnand.MauiBlazor.Markup is a toolkit with set of fluent helper methods and classes to simplify working with .NET MAUI Blazor in C#.</Product>
 		<Title>.NET MAUI Blazor - Fluent API Toolkit</Title>
 		<Description>VijayAnand.MauiBlazor.Markup is a toolkit with set of fluent helper methods and classes to simplify working with .NET MAUI Blazor in C#.</Description>
