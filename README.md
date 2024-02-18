@@ -147,12 +147,10 @@ This toolkit is a set of fluent helper methods and classes to simplify working w
 
 This toolkit depends on [Microsoft.AspNetCore.Components.WebView.Maui](https://www.nuget.org/packages/Microsoft.AspNetCore.Components.WebView.Maui) NuGet package.
 
-|[VijayAnand.MauiBlazor.Markup](https://www.nuget.org/packages/VijayAnand.MauiBlazor.Markup/)|.NET 6|.NET 7|.NET 8|
-|:---:|:---:|:---:|:---:|
-|Stable|[![.NET 6](https://badgen.net/badge/nuget/v1.0.12/blue?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiBlazor.Markup/1.0.12)|[![.NET 7](https://badgen.net/badge/nuget/v2.0.10/blue?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiBlazor.Markup/2.0.10)|[![.NET 8](https://badgen.net/nuget/v/VijayAnand.MauiBlazor.Markup/?icon=nuget&foo=bar)](https://www.nuget.org/packages/VijayAnand.MauiBlazor.Markup/)|
-<!--
-|Preview|-|-|[![.NET 8](https://badgen.net/nuget/v/VijayAnand.MauiBlazor.Markup/latest?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiBlazor.Markup/absoluteLatest)|
--->
+|[VijayAnand.MauiBlazor.Markup](https://www.nuget.org/packages/VijayAnand.MauiBlazor.Markup/)|.NET 6|.NET 7|.NET 8|.NET 9|
+|:---:|:---:|:---:|:---:|:---:|
+|Stable|[![.NET 6](https://badgen.net/badge/nuget/v1.0.12/blue?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiBlazor.Markup/1.0.12)|[![.NET 7](https://badgen.net/badge/nuget/v2.0.10/blue?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiBlazor.Markup/2.0.10)|[![.NET 8](https://badgen.net/badge/nuget/v3.0.2/blue?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiBlazor.Markup/3.0.2)|-|
+|Preview|-|-|-|[![.NET 9](https://badgen.net/nuget/v/VijayAnand.MauiBlazor.Markup/latest?icon=nuget&foo=bar)](https://www.nuget.org/packages/VijayAnand.MauiBlazor.Markup/absoluteLatest)|
 
 The most useful method will be `Configure`, which can be invoked on an instance of a BlazorWebView and its derivatives, and it simplifies the initialization of BlazorWebView into a single fluent method call as shown in the below sample.
 
@@ -165,25 +163,29 @@ public class HomePage : ContentPage
 {
     public HomePage()
     {
-        // A BlazorWebView can manage multiple RootComponents, to achieve this, define another Tuple with values of that component        
+        // A BlazorWebView can manage multiple RootComponents, to achieve this, define another Tuple with values of that component
         // The method and Tuple parameter names are shown for clarity and it's optional
-        // Blazor component can have initialization parameters, which can be supplied through parameters, a dictionary of keyValues 
+        // Blazor component can have initialization parameters, which can be supplied through parameters, a dictionary of keyValues
         // where the key is of type string and value is of type object
-        
+
         // Without initialization parameters
         Content = new BlazorWebView().Configure(hostPage: "wwwroot/index.html", (selector: "#app", componentType: typeof(Gateway), parameters: null));
-        
+
         // With optional initialization parameters
         Content = new BlazorWebView().Configure(hostPage: "wwwroot/index.html", (selector: "#app", componentType: typeof(Gateway), parameters: new Dictionary<string, object?> { [nameof(Gateway.Foo)] = "Bar" }));
-        
-        // In a much-simplified form - Real intended usage        
+
+        // In a simplified form - Real intended usage
         // Without initialization parameters
         Content = new BlazorWebView().Configure("wwwroot/index.html", ("#app", typeof(Gateway), null));
+        // Much more simplified, assuming hostPage is wwwroot/index.html and selector as #app
+        Content = new BlazorWebView().Configure(typeof(Gateway));
 
-        // With StartPath property introduced in .NET 8, overloaded Configure method
+        // With StartPath property introduced in .NET 8 or later, overloaded Configure method
         // Assuming search is the page with which the app is intended to start
         Content = new BlazorWebView().Configure("wwwroot/index.html", "/search", ("#app", typeof(Gateway), null));
-        
+        // Much more simplified version, assuming hostPage is wwwroot/index.html and selector as #app
+        Content = new BlazorWebView().Configure(typeof(Gateway), "/search");
+
         // With optional initialization parameters
         Content = new BlazorWebView().Configure("wwwroot/index.html", ("#app", typeof(Gateway), new Dictionary<string, object?> { [nameof(Gateway.Foo)] = "Bar" }));
     }
@@ -204,7 +206,7 @@ public class HomePage : ContentPage
 // For brevity, only the necessary code is made available. This can be nested anywhere a View can be defined
 // The method and Tuple parameter names are shown for clarity and it's optional
 // A BlazorWebView can manage multiple RootComponents, to achieve this, define another Tuple with values of that component
-// Blazor component can have initialization parameters, which can be supplied thro parameters, a dictionary of keyValues 
+// Blazor component can have initialization parameters, which can be supplied thro parameters, a dictionary of keyValues
 // where the key is of type string and the value is of type object
 new BlazorWebView().Configure(hostPage: "wwwroot/index.html", (selector: "#app", componentType: typeof(Gateway), parameters: null))
 // Another example with component initialization parameters

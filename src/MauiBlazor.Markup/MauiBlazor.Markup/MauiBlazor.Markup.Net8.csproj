@@ -4,7 +4,7 @@
 
 		<!-- .NET MAUI Options -->
 		<UseMaui>true</UseMaui>
-		<MauiVersion>8.0.6</MauiVersion>
+		<MauiVersion>8.0.7</MauiVersion>
 		<SingleProject>true</SingleProject>
 
 		<!-- Project Options -->
@@ -59,5 +59,6 @@
 	<ItemGroup>
 		<None Remove="release-notes-net6.txt" />
 		<None Remove="release-notes-net7.txt" />
+		<None Remove="release-notes-net9.txt" />
 	</ItemGroup>
 </Project>

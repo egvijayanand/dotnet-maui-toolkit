@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 	<PropertyGroup>
-		<TargetFramework>net7.0</TargetFramework>
+		<TargetFramework>net9.0</TargetFramework>
 
 		<!-- .NET MAUI Options -->
 		<UseMaui>true</UseMaui>
@@ -15,7 +15,7 @@
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<PackageId>VijayAnand.MauiBlazor.Markup</PackageId>
 		<Authors>Vijay Anand E G</Authors>
-		<Copyright>Copyright &#169; 2022-2023 Vijay Anand E G</Copyright>
+		<Copyright>Copyright &#169; 2024 Vijay Anand E G</Copyright>
 		<Product>VijayAnand.MauiBlazor.Markup is a toolkit with set of fluent helper methods and classes to simplify working with .NET MAUI Blazor in C#.</Product>
 		<Title>.NET MAUI Blazor - Fluent API Toolkit</Title>
 		<Description>VijayAnand.MauiBlazor.Markup is a toolkit with set of fluent helper methods and classes to simplify working with .NET MAUI Blazor in C#.</Description>
@@ -23,11 +23,11 @@
 		<RepositoryUrl>https://github.com/egvijayanand/dotnet-maui-toolkit</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 		<PackageTags>.NET,MAUI,Blazor,BlazorWebView,C#,Markup,Fluent,API,Declarative,Hybrid</PackageTags>
-		<PackageReleaseNotes>$([System.IO.File]::ReadAllText("$(MSBuildProjectDirectory)/release-notes-net7.txt"))</PackageReleaseNotes>
+		<PackageReleaseNotes>$([System.IO.File]::ReadAllText("$(MSBuildProjectDirectory)/release-notes-net9.txt"))</PackageReleaseNotes>
 		<AssemblyName>VijayAnand.MauiBlazor.Markup</AssemblyName>
-		<Version>2.0.0</Version>
-		<AssemblyVersion>2.0.0.0</AssemblyVersion>
-		<FileVersion>2.0.0.0</FileVersion>
+		<Version>4.0.0</Version>
+		<AssemblyVersion>4.0.0.0</AssemblyVersion>
+		<FileVersion>4.0.0.0</FileVersion>
 		<PackageReadmeFile>overview.md</PackageReadmeFile>
 		<PackageProjectUrl>https://egvijayanand.in/</PackageProjectUrl>
 		<!-- This project has no other dependencies, so disable the warning for that -->
@@ -44,17 +44,20 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebView.Maui" Version="$(MauiVersion)" />
+		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
+		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<None Include="overview.md" Pack="true" PackagePath="\" />
-		<None Include="release-notes-net7.txt" />
+		<None Include="release-notes-net9.txt" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<None Remove="release-notes-net6.txt" />
+		<None Remove="release-notes-net7.txt" />
 		<None Remove="release-notes-net8.txt" />
-		<None Remove="release-notes-net9.txt" />
 	</ItemGroup>
 </Project>

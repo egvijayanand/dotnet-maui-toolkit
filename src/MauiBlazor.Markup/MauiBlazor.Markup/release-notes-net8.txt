@@ -1,7 +1,11 @@
 Join me on Developer Thoughts, https://egvijayanand.in/, an exclusive blog for .NET MAUI and Blazor.
 
-What's new in ver. 3.0.1:
+What's new in ver. 3.0.2:
 -------------------------
+This version of package is released on top of .NET MAUI 8 SR2 (v8.0.7).
+
+v3.0.1:
+
 This version of package is released on top of .NET MAUI 8 SR1 (v8.0.6).
 
 v3.0.0:

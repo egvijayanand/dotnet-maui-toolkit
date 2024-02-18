@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Components.WebView.Maui;
+﻿using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.WebView.Maui;
 
 namespace VijayAnand.MauiBlazor.Markup
 {
@@ -38,6 +39,25 @@ namespace VijayAnand.MauiBlazor.Markup
                     Parameters = parameters
                 });
             }
+
+            return bwv;
+        }
+
+        /// <summary>Configures a <typeparamref name="TBlazorWebView"/></summary>
+        /// <typeparam name="TBlazorWebView"><seealso cref="BlazorWebView"/> or its derivative.</typeparam>
+        /// <param name="bwv"><typeparamref name="TBlazorWebView"/> instance.</param>
+        /// <param name="componentType">Component type.</param>
+        /// <returns>Same instance of <typeparamref name="TBlazorWebView"/> on which this method is invoked.</returns>
+        public static TBlazorWebView Configure<TBlazorWebView>(this TBlazorWebView bwv, Type componentType)
+            where TBlazorWebView : BlazorWebView
+        {
+            bwv.HostPage = "wwwroot/index.html";
+
+            bwv.RootComponents.Add(new RootComponent()
+            {
+                Selector = "#app",
+                ComponentType = componentType
+            });
 
             return bwv;
         }
@@ -83,6 +103,26 @@ namespace VijayAnand.MauiBlazor.Markup
 
             return bwv;
         }
+
+        /// <summary>Configures a <typeparamref name="TBlazorWebView"/></summary>
+        /// <typeparam name="TBlazorWebView"><seealso cref="BlazorWebView"/> or its derivative.</typeparam>
+        /// <param name="bwv"><typeparamref name="TBlazorWebView"/> instance.</param>
+        /// <param name="componentType">Component type.</param>
+        /// <returns>Same instance of <typeparamref name="TBlazorWebView"/> on which this method is invoked.</returns>
+        public static TBlazorWebView Configure<TBlazorWebView>(this TBlazorWebView bwv, Type componentType, string startPath = "/")
+            where TBlazorWebView : BlazorWebView
+        {
+            bwv.HostPage = "wwwroot/index.html";
+            bwv.StartPath = startPath;
+
+            bwv.RootComponents.Add(new RootComponent()
+            {
+                Selector = "#app",
+                ComponentType = componentType
+            });
+
+            return bwv;
+        }
 #endif
         /// <summary>
         /// Adds the component specified by <typeparamref name="TComponent"/> to the collection specified by
@@ -94,6 +134,7 @@ namespace VijayAnand.MauiBlazor.Markup
         /// <param name="selector">The selector to which the component will be associated.</param>
         /// <param name="parameters">The optional creation parameters for the component.</param>
         public static void Add<TComponent>(this RootComponentsCollection components, string selector, IDictionary<string, object?>? parameters = null)
+            where TComponent : IComponent
         {
             components.Add(new RootComponent()
             {
