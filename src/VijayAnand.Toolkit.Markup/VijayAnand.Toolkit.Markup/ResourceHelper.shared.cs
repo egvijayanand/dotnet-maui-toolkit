@@ -19,7 +19,7 @@ namespace VijayAnand.Toolkit.Markup
         public static Brush? AppBrush(string resourceKey) => AppResource<Brush>(resourceKey);
 
 #if NET6_0_OR_GREATER
-        public static Color? AppColor(string resourceKey) => AppResource<Color>(resourceKey);
+        public static Color AppColor(string resourceKey) => AppResource<Color>(resourceKey, KnownColor.Default);
 #else
         public static Color AppColor(string resourceKey) => AppResource<Color>(resourceKey, Color.Default);
 #endif
@@ -46,6 +46,18 @@ namespace VijayAnand.Toolkit.Markup
             }
         }
 
+        /// <summary>
+#if NET6_0_OR_GREATER
+        /// Gets the <see href="https://learn.microsoft.com/en-us/dotnet/api/microsoft.maui.controls.stylesheets.stylesheet?view=net-maui-8.0">StyleSheet</see> instance for the given <paramref name="resourcePath"/> in the specified <paramref name="assembly"/>.
+#else
+        /// Gets the <see href="https://learn.microsoft.com/en-us/dotnet/api/xamarin.forms.stylesheets.stylesheet?view=xamarin-forms">StyleSheet</see> instance for the given <paramref name="resourcePath"/> in the specified <paramref name="assembly"/>.
+#endif
+        /// </summary>
+        /// <param name="resourcePath">Relative path of the XAML resource.</param>
+        /// <param name="assembly">The assembly in which the resource is to be located.</param>
+        /// <returns>StyleSheet instance.</returns>
+        /// <exception cref="ArgumentNullException">Throws if eithet <paramref name="resourcePath"/> or <paramref name="assembly"/> is <see langword="null"/>.</exception>
+        /// <exception cref="ArgumentException">Throws if <paramref name="resourcePath"/> is malformed.</exception>
         public static StyleSheet GetStyleSheet(string resourcePath, Assembly assembly)
         {
             if (string.IsNullOrWhiteSpace(resourcePath))
@@ -58,6 +70,8 @@ namespace VijayAnand.Toolkit.Markup
                 throw new ArgumentNullException(nameof(assembly));
             }
 
+            resourcePath = resourcePath.Replace('\\', '/');
+
             if (!Uri.TryCreate(resourcePath, UriKind.Relative, out var _))
             {
                 throw new ArgumentException($"Not a well formed {resourcePath}. Check the path again.", nameof(resourcePath));
@@ -66,8 +80,6 @@ namespace VijayAnand.Toolkit.Markup
             var assemblyName = assembly.GetName().Name;
 
             string resourceId;
-
-            resourcePath = resourcePath.Replace('\\', '/');
 
             if (resourcePath.StartsWith("/"))
             {
@@ -98,6 +110,15 @@ namespace VijayAnand.Toolkit.Markup
             }
         }
 
+        /// <summary>
+        /// Gets the <typeparamref name="T"/> instance for the given <paramref name="resourcePath"/> in the specified <paramref name="assembly"/>.
+        /// </summary>
+        /// <typeparam name="T">The type of the XAML resource.</typeparam>
+        /// <param name="resourcePath">Relative path of the XAML resource.</param>
+        /// <param name="assembly">The assembly in which the resource is to be located.</param>
+        /// <returns>Instance of <typeparamref name="T"/></returns>
+        /// <exception cref="ArgumentNullException">Throws if eithet <paramref name="resourcePath"/> or <paramref name="assembly"/> is <see langword="null"/>.</exception>
+        /// <exception cref="ArgumentException">Throws if <paramref name="resourcePath"/> is malformed.</exception>
         public static T GetXamlResource<T>(string resourcePath, Assembly assembly)
         {
             if (string.IsNullOrWhiteSpace(resourcePath))
@@ -109,6 +130,8 @@ namespace VijayAnand.Toolkit.Markup
             {
                 throw new ArgumentNullException(nameof(assembly));
             }
+
+            resourcePath = resourcePath.Replace('\\', '/');
 
             if (!Uri.TryCreate(resourcePath, UriKind.Relative, out var _))
             {
@@ -135,6 +158,16 @@ namespace VijayAnand.Toolkit.Markup
             }
         }
 
+        /// <summary>
+#if NET6_0_OR_GREATER
+        /// Gets the <see href="https://learn.microsoft.com/en-us/dotnet/api/microsoft.maui.controls.resourcedictionary?view=net-maui-8.0">ResourceDictionary</see> instance for the given <paramref name="resourcePath"/> in the specified <paramref name="assembly"/>.
+#else
+        /// Gets the <see href="https://learn.microsoft.com/en-us/dotnet/api/xamarin.forms.resourcedictionary?view=xamarin-forms">ResourceDictionary</see> instance for the given <paramref name="resourcePath"/> in the specified <paramref name="assembly"/>.
+#endif
+        /// </summary>
+        /// <param name="resourcePath">Relative path of the XAML resource.</param>
+        /// /// <param name="assembly">The assembly in which the resource is to be located.</param>
+        /// <returns>ResourceDictionary instance.</returns>
         public static ResourceDictionary GetXamlResourceDictionary(string resourcePath, Assembly assembly)
             => GetXamlResource<ResourceDictionary>(resourcePath, assembly);
     }
