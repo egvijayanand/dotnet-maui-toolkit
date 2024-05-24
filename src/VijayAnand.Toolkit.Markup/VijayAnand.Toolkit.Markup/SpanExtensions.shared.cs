@@ -2,11 +2,11 @@
 {
     public static class SpanExtensions
     {
-        public static TSpan Text<TSpan>(this TSpan label, string value)
+        public static TSpan Text<TSpan>(this TSpan span, string value)
             where TSpan : Span
         {
-            label.Text = value;
-            return label;
+            span.Text = value;
+            return span;
         }
     }
 }
