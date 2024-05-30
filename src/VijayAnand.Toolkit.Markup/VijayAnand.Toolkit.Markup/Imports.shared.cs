@@ -24,5 +24,9 @@ global using System.Collections.Generic;
 global using System.Globalization;
 global using System.Linq;
 global using System.Text;
+global using System.Linq.Expressions;
 global using System.Text.RegularExpressions;
 global using System.Threading.Tasks;
+global using System.Windows.Input;
+
+global using static VijayAnand.Toolkit.Markup.Helper;

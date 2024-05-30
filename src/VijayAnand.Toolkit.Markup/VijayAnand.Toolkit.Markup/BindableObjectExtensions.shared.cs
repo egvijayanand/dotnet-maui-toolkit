@@ -1,9 +1,4 @@
-﻿using System.Linq.Expressions;
-using System.Windows.Input;
-
-using static VijayAnand.Toolkit.Markup.Helper;
-
-namespace VijayAnand.Toolkit.Markup
+﻿namespace VijayAnand.Toolkit.Markup
 {
     public static partial class BindableObjectExtensions
     {
