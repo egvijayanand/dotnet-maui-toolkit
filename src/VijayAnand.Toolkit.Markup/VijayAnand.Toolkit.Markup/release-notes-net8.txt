@@ -1,5 +1,11 @@
-What's new in ver. 3.2.0:
+What's new in ver. 3.3.0:
 -------------------------
+1. New Gesture methods (suffixed with v2) that work based on the LINQ expression rather than classic reflection-based bindings.
+
+This form of binding supports nested properties, default properties, and most importantly type safety and compile time validation.
+
+v3.2.0:
+
 1. New Bind methods (suffixed with v2) that work based on the LINQ expression rather than classic reflection-based bindings.
 
 This form of binding supports nested properties, default properties, and most importantly type safety and compile time validation.

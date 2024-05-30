@@ -1,5 +1,11 @@
-What's new in ver. 4.0.0-preview.1:
+What's new in ver. 4.0.0-preview.2:
 -----------------------------------
+1. New Gesture methods (suffixed with v2) that work based on the LINQ expression rather than classic reflection-based bindings.
+
+This form of binding supports nested properties, default properties, and most importantly type safety and compile time validation.
+
+v4.0.0-preview.1:
+
 Initial release of C# Markup Toolkit package to support .NET MAUI on .NET 9.
 
 .NET Standard 2.0 library targets Xamarin.Forms and extends the features of the Xamarin.CommunityToolkit.Markup package.
