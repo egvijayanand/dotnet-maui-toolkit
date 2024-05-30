@@ -10,7 +10,6 @@ namespace VijayAnand.Toolkit.Markup
             object? parameterSource = null,
             int? numberOfClicksRequired = default)
             where TGestureElement : Element, IGestureRecognizers
-            //where TSource : ICommand
         {
             gestureElement.BindClickGesture(PropertyName(expression),
                                             commandSource,
@@ -26,7 +25,6 @@ namespace VijayAnand.Toolkit.Markup
             string? parameterPath = null,
             object? parameterSource = null)
             where TGestureElement : Element, IGestureRecognizers
-            //where TSource : ICommand
         {
             gestureElement.BindSwipeGesture(PropertyName(expression),
                                             commandSource,
@@ -42,7 +40,6 @@ namespace VijayAnand.Toolkit.Markup
             string? parameterPath = null,
             object? parameterSource = null)
             where TGestureElement : Element, IGestureRecognizers
-            //where TSource : ICommand
         {
             gestureElement.BindTapGesture(PropertyName(expression),
                                           commandSource,
