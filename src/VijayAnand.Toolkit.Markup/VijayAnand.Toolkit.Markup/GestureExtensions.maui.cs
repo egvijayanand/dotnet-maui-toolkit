@@ -2,6 +2,7 @@ namespace VijayAnand.Toolkit.Markup
 {
     public static partial class GestureExtensions
     {
+        [Obsolete($"{nameof(BindClickGesturev2)} is deprecated; please use {nameof(BindTapGesturev2)} instead.")]
         public static TGestureElement BindClickGesturev2<TGestureElement, TBindingContext, TSource>(
             this TGestureElement gestureElement,
             Expression<Func<TBindingContext, TSource>> expression,
@@ -10,6 +11,7 @@ namespace VijayAnand.Toolkit.Markup
             object? parameterSource = null,
             int? numberOfClicksRequired = default)
             where TGestureElement : IGestureRecognizers
+            where TSource : ICommand
         {
             gestureElement.BindClickGesture(PropertyName(expression),
                                             commandSource,
@@ -28,6 +30,7 @@ namespace VijayAnand.Toolkit.Markup
             SwipeDirection? direction = default,
             uint? threshold = default)
             where TGestureElement : IGestureRecognizers
+            where TSource : ICommand
         {
             gestureElement.BindSwipeGesture(PropertyName(expression),
                                             commandSource,
@@ -46,6 +49,7 @@ namespace VijayAnand.Toolkit.Markup
             object? parameterSource = null,
             int? numberOfTapsRequired = default)
             where TGestureElement : IGestureRecognizers
+            where TSource : ICommand
         {
             gestureElement.BindTapGesture(PropertyName(expression),
                                           commandSource,

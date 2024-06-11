@@ -1,5 +1,15 @@
-What's new in ver. 3.3.0:
+What's new in ver. 3.4.0:
 -------------------------
+1. The typed binding Gesture method's LINQ expression is constrained to return a value of type ICommand
+
+2. Add a wrapper method for binding BindableLayout's ItemsSource as a LINQ expression
+
+new StackLayout()
+    .ItemTemplate((DataTemplate)Resources["CardLayout"])
+    .ItemsSource(static (HomeViewModel vm) => vm.Orders);
+
+v3.3.0:
+
 1. New Gesture methods (suffixed with v2) that work based on the LINQ expression rather than classic reflection-based bindings.
 
 This form of binding supports nested properties, default properties, and most importantly type safety and compile time validation.
