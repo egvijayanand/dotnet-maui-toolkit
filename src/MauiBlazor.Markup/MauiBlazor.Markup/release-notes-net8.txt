@@ -1,7 +1,13 @@
 Join me on Developer Thoughts, https://egvijayanand.in/, an exclusive blog for .NET MAUI and Blazor.
 
-What's new in ver. 3.0.6:
+What's new in ver. 3.0.7:
 -------------------------
+This version of package is built on top of .NET MAUI 8 SR6 (v8.0.60).
+
+Non-dependent Microsoft.Maui.Controls.Compatibility package reference has been removed.
+
+v3.0.6:
+
 This version of package is released on top of .NET MAUI 8 SR5 (v8.0.40).
 
 v3.0.5:
