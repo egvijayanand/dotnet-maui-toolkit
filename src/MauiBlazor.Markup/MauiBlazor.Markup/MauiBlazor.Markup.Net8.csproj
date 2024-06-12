@@ -4,7 +4,7 @@
 
 		<!-- .NET MAUI Options -->
 		<UseMaui>true</UseMaui>
-		<MauiVersion>8.*</MauiVersion>
+		<MauiVersion>8.0.3</MauiVersion>
 		<SingleProject>true</SingleProject>
 
 		<!-- Project Options -->
@@ -47,7 +47,7 @@
 	<ItemGroup>
 		<PackageReference Include="Microsoft.AspNetCore.Components.WebView.Maui" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
-		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
+		<!-- <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" /> -->
 		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" />
 	</ItemGroup>
 
