@@ -1,5 +1,23 @@
-What's new in ver. 3.4.0:
+What's new in ver. 3.5.0:
 -------------------------
+1. Microsoft.Maui.Controls.Compatibility package is no longer a dependency.
+
+2. Extension methods for Span to set Text and TextColor.
+
+new Span().Text("Hyperlink", Colors.Blue)
+
+new Span().Text("Hyperlink").TextColor(Colors.Blue)
+
+3. Extension method for Picker to set the Items inline.
+
+new Picker().Items(["Red", "Green", "Blue"])
+
+4. Extension method for BindableLayout to set the Items inline (with IEnumerable<T> as its parameter).
+
+new StackLayout().ItemsSource(["Red", "Green", "Blue"])
+
+v3.4.0:
+
 1. The typed binding Gesture method's LINQ expression is constrained to return a value of type ICommand
 
 2. Add a wrapper method for binding BindableLayout's ItemsSource as a LINQ expression
