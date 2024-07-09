@@ -2,6 +2,17 @@ namespace VijayAnand.Toolkit.Markup
 {
     public static partial class BindableLayoutExtensions
     {
+        public static TLayout ItemsSource<TLayout, T>(this TLayout layout, IEnumerable<T> items)
+#if NET6_0_OR_GREATER
+            where TLayout : BindableObject, Microsoft.Maui.ILayout
+#else
+            where TLayout : Layout<View>
+#endif
+        {
+            BindableLayout.SetItemsSource(layout, items);
+            return layout;
+        }
+
         /// <summary>Binds to the <seealso cref="BindableLayout.ItemsSourceProperty"/>.</summary>
         public static TLayout ItemsSource<TLayout, TBindingContext, TSource>(
             this TLayout layout,
