@@ -1,7 +1,11 @@
 Join me on Developer Thoughts, https://egvijayanand.in/, an exclusive blog for .NET MAUI and Blazor.
 
-What's new in ver. 4.0.0-preview.5:
+What's new in ver. 4.0.0-preview.6:
 -----------------------------------
+This package version is built upon .NET MAUI 9 Preview 6 (v9.0.0-preview.6.24327.7).
+
+v4.0.0-preview.5:
+
 This version of package is released on top of .NET MAUI on .NET 9 Preview 5 (9.0.0-preview.5.24307.10) version.
 
 Non-dependent Microsoft.Maui.Controls.Compatibility package reference has been removed.
