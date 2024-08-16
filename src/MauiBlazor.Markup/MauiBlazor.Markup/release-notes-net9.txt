@@ -1,7 +1,11 @@
 Join me on Developer Thoughts, https://egvijayanand.in/, an exclusive blog for .NET MAUI and Blazor.
 
-What's new in ver. 4.0.0-preview.6:
+What's new in ver. 4.0.0-preview.7:
 -----------------------------------
+This version of package is built on top of .NET MAUI 9 Preview 7 (v9.0.0-preview.7.24407.4).
+
+v4.0.0-preview.6:
+
 This package version is built upon .NET MAUI 9 Preview 6 (v9.0.0-preview.6.24327.7).
 
 v4.0.0-preview.5:
