@@ -1,7 +1,11 @@
 Join me on Developer Thoughts, https://egvijayanand.in/, an exclusive blog for .NET MAUI and Blazor.
 
-What's new in ver. 4.0.0-rc.1:
+What's new in ver. 4.0.0-rc.2:
 ------------------------------
+This version of package is built on top of .NET MAUI 9 RC2 (v9.0.0-rc.2.24503.2).
+
+4.0.0-rc.1:
+
 This version of package is built on top of .NET MAUI 9 RC1 (v9.0.0-rc.1.24453.9).
 
 v4.0.0-preview.7:
