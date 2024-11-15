@@ -2,20 +2,25 @@ Join me on [**Developer Thoughts**](https://egvijayanand.in/), an exclusive blog
 
 ### VijayAnand.Toolkit.Markup
 
-`VijayAnand.Toolkit.Markup` is a `shared class library NuGet package` with a set of fluent helper methods and classes for Xamarin.Forms / .NET MAUI to facilitate rapid UI development and better reuse in C#.
+[VijayAnand.Toolkit.Markup](https://www.nuget.org/packages/VijayAnand.Toolkit.Markup/) is a `shared class library NuGet package` with a set of fluent helper methods and classes for Xamarin.Forms / .NET MAUI to facilitate rapid UI development and better reuse in C#.
 
 <!-- [![VijayAnand.Toolkit.Markup - NuGet Package](https://badgen.net/nuget/v/VijayAnand.Toolkit.Markup/)](https://www.nuget.org/packages/VijayAnand.Toolkit.Markup/) -->
 
-|[VijayAnand.Toolkit.Markup](https://www.nuget.org/packages/VijayAnand.Toolkit.Markup/)|.NET 6|.NET 7|.NET 8|.NET 9|
+|Channel|.NET 8|.NET 9|
+|:---:|:---:|:---:|
+|Stable|[![.NET 8](https://badgen.net/badge/nuget/v3.5.0/blue?icon=nuget&foo=bar)](https://www.nuget.org/packages/VijayAnand.Toolkit.Markup/3.5.0)|[![.NET 9](https://badgen.net/nuget/v/VijayAnand.Toolkit.Markup/?icon=nuget&foo=bar)](https://www.nuget.org/packages/VijayAnand.Toolkit.Markup/)|
+<!--|Preview|-|-|-|[![.NET 9](https://badgen.net/nuget/v/VijayAnand.Toolkit.Markup/pre?icon=nuget&foo=bar)](https://www.nuget.org/packages/VijayAnand.Toolkit.Markup/absoluteLatest)|-->
+
+<!--|[VijayAnand.Toolkit.Markup](https://www.nuget.org/packages/VijayAnand.Toolkit.Markup/)|.NET 6|.NET 7|.NET 8|.NET 9|
 |:---:|:---:|:---:|:---:|:---:|
 |Stable|[![.NET 6](https://badgen.net/badge/nuget/v1.2.0/blue?icon=nuget&foo=bar)](https://www.nuget.org/packages/VijayAnand.Toolkit.Markup/1.2.0)|[![.NET 7](https://badgen.net/badge/nuget/v2.2.0/blue?icon=nuget&foo=bar)](https://www.nuget.org/packages/VijayAnand.Toolkit.Markup/2.2.0)|[![.NET 8](https://badgen.net/nuget/v/VijayAnand.Toolkit.Markup/?icon=nuget&foo=bar)](https://www.nuget.org/packages/VijayAnand.Toolkit.Markup/)|-|
-|Preview|-|-|-|[![.NET 9](https://badgen.net/nuget/v/VijayAnand.Toolkit.Markup/pre?icon=nuget&foo=bar)](https://www.nuget.org/packages/VijayAnand.Toolkit.Markup/absoluteLatest)|
+|Preview|-|-|-|[![.NET 9](https://badgen.net/nuget/v/VijayAnand.Toolkit.Markup/pre?icon=nuget&foo=bar)](https://www.nuget.org/packages/VijayAnand.Toolkit.Markup/absoluteLatest)|-->
 
 This extends the features of the official C# Markup NuGet package from Microsoft.
 
 `netstandard2.0` library targets Xamarin.Forms 5 and is dependent on the [Xamarin.CommunityToolkit.Markup](https://www.nuget.org/packages/Xamarin.CommunityToolkit.Markup/) package.
 
-Whereas the `net6.0`, `net7.0`, `net8.0`, and `net9.0` library targets .NET MAUI and is dependent on the [CommunityToolkit.Maui.Markup](https://www.nuget.org/packages/CommunityToolkit.Maui.Markup/) package. *Note this is NOT a MauiCompat package.*
+Whereas the `net8.0` and `net9.0` library targets .NET MAUI and is dependent on the [CommunityToolkit.Maui.Markup](https://www.nuget.org/packages/CommunityToolkit.Maui.Markup/) package. *Note this is NOT a MauiCompat package.*
 
 ### VijayAnand.MauiToolkit.Core
 
