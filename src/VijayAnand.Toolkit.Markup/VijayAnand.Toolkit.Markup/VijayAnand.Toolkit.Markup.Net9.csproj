@@ -53,6 +53,7 @@
 
 	<PropertyGroup Condition="'$(TargetFramework)' == 'net9.0'">
 		<UseMaui>true</UseMaui>
+		<MauiVersion>9.0.0</MauiVersion>
 		<SingleProject>true</SingleProject>
 	</PropertyGroup>
 
@@ -78,7 +79,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" />
+		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
 	</ItemGroup>
 
 </Project>
