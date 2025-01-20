@@ -15,7 +15,7 @@
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<PackageId>VijayAnand.Toolkit.Markup</PackageId>
 		<Authors>Vijay Anand E G</Authors>
-		<Copyright>Copyright &#169; 2024 Vijay Anand E G</Copyright>
+		<Copyright>Copyright &#169; 2024-2025 Vijay Anand E G</Copyright>
 		<Product>VijayAnand.Toolkit.Markup is a set of fluent helper methods and classes for Xamarin.Forms / .NET MAUI to facilitate rapid UI development and better reuse in C#.</Product>
 		<Title>VijayAnand.Toolkit.Markup</Title>
 		<Description>VijayAnand.Toolkit.Markup is a set of fluent helper methods and classes for Xamarin.Forms / .NET MAUI to facilitate rapid UI development and better reuse in C#.</Description>
@@ -53,7 +53,7 @@
 
 	<PropertyGroup Condition="'$(TargetFramework)' == 'net9.0'">
 		<UseMaui>true</UseMaui>
-		<MauiVersion>9.0.0</MauiVersion>
+		<MauiVersion>9.0.21</MauiVersion>
 		<SingleProject>true</SingleProject>
 	</PropertyGroup>
 
@@ -65,7 +65,7 @@
 	<ItemGroup Condition="'$(TargetFramework)' == 'net9.0'">
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<!-- <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" /> -->
-		<PackageReference Include="CommunityToolkit.Maui.Markup" Version="4.0.0" />
+		<PackageReference Include="CommunityToolkit.Maui.Markup" Version="5.1.0" />
 	</ItemGroup>
 
 	<ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">

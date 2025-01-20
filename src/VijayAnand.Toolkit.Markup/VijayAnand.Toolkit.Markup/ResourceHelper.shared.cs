@@ -16,15 +16,19 @@ namespace VijayAnand.Toolkit.Markup
             }
         }
 
-        public static Brush? AppBrush(string resourceKey) => AppResource<Brush>(resourceKey);
+        public static Brush AppBrush(string resourceKey) => AppResource<Brush>(resourceKey, Brush.Transparent);
 
 #if NET6_0_OR_GREATER
         public static Color AppColor(string resourceKey) => AppResource<Color>(resourceKey, KnownColor.Default);
+
+        public static Thickness AppThickness(string resourceKey) => AppResource<Thickness>(resourceKey, Thickness.Zero);
 #else
         public static Color AppColor(string resourceKey) => AppResource<Color>(resourceKey, Color.Default);
+
+        public static Thickness AppThickness(string resourceKey) => AppResource<Thickness>(resourceKey, new Thickness(0));
 #endif
 
-        public static double? AppDouble(string resourceKey) => AppResource<double>(resourceKey);
+        public static double AppDouble(string resourceKey) => AppResource<double>(resourceKey);
 
         public static IValueConverter? AppConverter(string resourceKey) => AppResource<IValueConverter>(resourceKey);
 

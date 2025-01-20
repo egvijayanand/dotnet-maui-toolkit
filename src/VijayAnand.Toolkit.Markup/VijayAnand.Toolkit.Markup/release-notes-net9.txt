@@ -1,5 +1,17 @@
-What's new in ver. 4.0.0:
+What's new in ver. 4.1.0:
 -------------------------
+The CommunityToolkit.Maui.Markup package dependency has been updated to v5.1.0, requiring .NET MAUI v9.0.21 or higher.
+
+Additional helper methods for handling global resources.
+
+Extension method to work with Style:
+
+ - Interop between non-generic Style and generic Markup Style<T>.
+
+ - To define a Setter object for the Style instance.
+
+v4.0.0:
+
 This version of package is released on top of .NET MAUI 9 GA (v9.0.0).
 
 v4.0.0-rc.2:

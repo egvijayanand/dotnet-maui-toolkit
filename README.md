@@ -1,4 +1,4 @@
-Join me on [**Developer Thoughts**](https://egvijayanand.in/), an exclusive blog for .NET MAUI and Blazor, for articles on working with these toolkits and much more.
+Join me on [**Developer Thoughts**](https://egvijayanand.in/?utm_source=github&utm_medium=readme&utm_campaign=toolkit), an exclusive blog for .NET MAUI and Blazor, for articles on working with these toolkits and much more.
 
 ### VijayAnand.Toolkit.Markup
 
@@ -8,7 +8,7 @@ Join me on [**Developer Thoughts**](https://egvijayanand.in/), an exclusive blog
 
 |Channel|.NET 8|.NET 9|
 |:---:|:---:|:---:|
-|Stable|[![.NET 8](https://badgen.net/badge/nuget/v3.5.0/blue?icon=nuget&foo=bar)](https://www.nuget.org/packages/VijayAnand.Toolkit.Markup/3.5.0)|[![.NET 9](https://badgen.net/nuget/v/VijayAnand.Toolkit.Markup/?icon=nuget&foo=bar)](https://www.nuget.org/packages/VijayAnand.Toolkit.Markup/)|
+|Stable|[![.NET 8](https://badgen.net/badge/nuget/v3.6.0/blue?icon=nuget&foo=bar)](https://www.nuget.org/packages/VijayAnand.Toolkit.Markup/3.6.0)|[![.NET 9](https://badgen.net/nuget/v/VijayAnand.Toolkit.Markup/?icon=nuget&foo=bar)](https://www.nuget.org/packages/VijayAnand.Toolkit.Markup/)|
 <!--|Preview|-|[![.NET 9](https://badgen.net/nuget/v/VijayAnand.Toolkit.Markup/pre?icon=nuget&foo=bar)](https://www.nuget.org/packages/VijayAnand.Toolkit.Markup/absoluteLatest)|-->
 
 <!--|[VijayAnand.Toolkit.Markup](https://www.nuget.org/packages/VijayAnand.Toolkit.Markup/)|.NET 6|.NET 7|.NET 8|.NET 9|
