@@ -2,6 +2,7 @@ namespace VijayAnand.Toolkit.Markup
 {
     public static partial class GestureExtensions
     {
+#if NET8_0
         [Obsolete($"{nameof(BindClickGesturev2)} is deprecated; please use {nameof(BindTapGesturev2)} instead.")]
         public static TGestureElement BindClickGesturev2<TGestureElement, TBindingContext, TSource>(
             this TGestureElement gestureElement,
@@ -20,6 +21,7 @@ namespace VijayAnand.Toolkit.Markup
                                             numberOfClicksRequired);
             return gestureElement;
         }
+#endif
 
         public static TGestureElement BindSwipeGesturev2<TGestureElement, TBindingContext, TSource>(
             this TGestureElement gestureElement,

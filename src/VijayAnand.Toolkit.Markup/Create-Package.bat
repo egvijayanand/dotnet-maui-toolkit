@@ -34,10 +34,15 @@ if %errorlevel% == 0 (for /F "tokens=*" %%g in ('git rev-parse --short HEAD') do
 
 :: Package Configuration
 
+if not exist .\VijayAnand.Toolkit.Markup\bin\%config%\%packageName%.%packageVersion%.nupkg goto create
+
 echo.
 call Info "Delete existing package ..."
 
-if exist .\VijayAnand.Toolkit.Markup\bin\%config%\%packageName%.%packageVersion%.nupkg del .\VijayAnand.Toolkit.Markup\bin\%config%\%packageName%.%packageVersion%.nupkg
+echo.
+del .\VijayAnand.Toolkit.Markup\bin\%config%\%packageName%.%packageVersion%.nupkg
+
+:create
 
 echo.
 call Info "Creating %packageName% ver. %packageVersion% (%projId%) NuGet package in %config% mode ..."

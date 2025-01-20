@@ -24,7 +24,11 @@ namespace VijayAnand.Toolkit.Markup
 
         // Grid Rows and Columns
 
+#if NET9_0_OR_GREATER
+        public static TGrid Rows<TGrid>(this TGrid gridLayout, params ReadOnlySpan<GridLength> heights)
+#else
         public static TGrid Rows<TGrid>(this TGrid gridLayout, params GridLength[] heights)
+#endif
             where TGrid : Grid
         {
             var rows = new RowDefinitionCollection();
@@ -38,7 +42,11 @@ namespace VijayAnand.Toolkit.Markup
             return gridLayout;
         }
 
+#if NET9_0_OR_GREATER
+        public static TGrid Columns<TGrid>(this TGrid gridLayout, params ReadOnlySpan<GridLength> widths)
+#else
         public static TGrid Columns<TGrid>(this TGrid gridLayout, params GridLength[] widths)
+#endif
             where TGrid : Grid
         {
             var columns = new ColumnDefinitionCollection();

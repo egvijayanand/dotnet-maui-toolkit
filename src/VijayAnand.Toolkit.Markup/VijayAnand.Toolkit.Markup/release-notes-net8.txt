@@ -1,5 +1,17 @@
-What's new in ver. 3.5.0:
+What's new in ver. 3.6.0:
 -------------------------
+The CommunityToolkit.Maui.Markup package dependency has been updated to v4.2.0, requiring .NET MAUI v8.0.91 or higher.
+
+Additional helper methods for handling global resources.
+
+Extension method to work with Style:
+
+ - Interop between non-generic Style and generic Markup Style<T>.
+
+ - To define a Setter object for the Style instance.
+
+v3.5.0:
+
 1. Microsoft.Maui.Controls.Compatibility package is no longer a dependency.
 
 2. Extension methods for Span to set Text and TextColor.

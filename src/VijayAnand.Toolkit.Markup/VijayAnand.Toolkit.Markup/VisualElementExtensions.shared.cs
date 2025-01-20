@@ -34,6 +34,21 @@ namespace VijayAnand.Toolkit.Markup
             return visualElement;
         }
 
+        public static TVisualElement VisualStates<TVisualElement>(this TVisualElement visualElement,
+                                                                  IEnumerable<VisualStateGroup> visualStateGroups)
+            where TVisualElement : VisualElement
+        {
+            var visualStateGroupList = new VisualStateGroupList();
+
+            foreach (var visualStateGroup in visualStateGroups)
+            {
+                visualStateGroupList.Add(visualStateGroup);
+            }
+
+            VisualStateManager.SetVisualStateGroups(visualElement, visualStateGroupList);
+            return visualElement;
+        }
+
         public static TVisualElement AddStyle<TVisualElement>(this TVisualElement visualElement,
                                                               Style style)
             where TVisualElement : VisualElement
