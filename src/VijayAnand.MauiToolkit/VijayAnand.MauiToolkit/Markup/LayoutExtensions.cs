@@ -1,18 +1,18 @@
-﻿namespace VijayAnand.MauiToolkit.Markup
+﻿namespace VijayAnand.MauiToolkit.Markup;
+
+public static class LayoutExtensions
 {
-    public static class LayoutExtensions
+    public static TLayout RadioButtonGroupName<TLayout>(this TLayout layout, string groupName)
+        where TLayout : Layout
     {
-        public static TLayout RadioButtonGroupName<TLayout>(this TLayout layout, string groupName)
-            where TLayout : Layout
-        {
-            RadioButtonGroup.SetGroupName(layout, groupName);
-            return layout;
-        }
-        public static TStackLayout InHorizontal<TStackLayout>(this TStackLayout stack)
-            where TStackLayout : StackLayout
-        {
-            stack.Orientation = StackOrientation.Horizontal;
-            return stack;
-        }
+        RadioButtonGroup.SetGroupName(layout, groupName);
+        return layout;
+    }
+
+    public static TStackLayout InHorizontal<TStackLayout>(this TStackLayout stack)
+        where TStackLayout : StackLayout
+    {
+        stack.Orientation = StackOrientation.Horizontal;
+        return stack;
     }
 }

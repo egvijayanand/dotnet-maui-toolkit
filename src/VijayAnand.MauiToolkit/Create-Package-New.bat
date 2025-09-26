@@ -63,7 +63,7 @@ if exist .\VijayAnand.MauiToolkit.Core\bin\%config%\%corePkgName%.%pkgVersion%.n
 
 if exist .\VijayAnand.MauiToolkit\bin\%config%\%toolkitPkgName%.%pkgVersion%.nupkg del .\VijayAnand.MauiToolkit\bin\%config%\%toolkitPkgName%.%pkgVersion%.nupkg
 
-if exist .\VijayAnand.MauiToolkit.Pro\bin\%config%\%proToolkitPkgName%.%pkgVersion%.nupkg del .\VijayAnand.MauiToolkit\bin\%config%\%proToolkitPkgName%.%pkgVersion%.nupkg
+if exist .\VijayAnand.MauiToolkit.Pro\bin\%config%\%proToolkitPkgName%.%pkgVersion%.nupkg del .\VijayAnand.MauiToolkit.Pro\bin\%config%\%proToolkitPkgName%.%pkgVersion%.nupkg
 
 echo.
 call Info "Creating NuGet package ..."
@@ -82,7 +82,6 @@ call Info "Building Toolkit package ..."
 echo.
 dotnet build .\VijayAnand.MauiToolkit\VijayAnand.MauiToolkit.%projId%.csproj -c %config% -p:PackageVersion=%pkgVersion%%revisionId% -p:PublishReadyToRun=false
 
-echo.
 if not %errorlevel% == 0 (call Error "Toolkit package creation failed.")
 
 echo.

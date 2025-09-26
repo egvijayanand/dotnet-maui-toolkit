@@ -10,7 +10,7 @@
 
 		<!-- .NET MAUI -->
 		<UseMaui>true</UseMaui>
-		<MauiVersion>7.0.52</MauiVersion>
+		<!-- <MauiVersion>7.0.101</MauiVersion> -->
 		<SingleProject>true</SingleProject>
 
 		<!-- Project Options -->

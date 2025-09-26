@@ -1,44 +1,37 @@
-﻿namespace VijayAnand.MauiToolkit.Converters
+namespace VijayAnand.MauiToolkit.Converters;
+
+public class EnumToBoolConverter : IValueConverter
 {
-    public class EnumToBoolConverter : IValueConverter
+    public IList<Enum> TrueValues { get; } = [];
+
+    public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
     {
-        public IList<Enum> TrueValues { get; } = new List<Enum>();
+        ArgumentNullException.ThrowIfNull(value);
+        return TrueValues.Count == 0 ? CompareEnums(value, parameter as Enum) : TrueValues.Any(item => CompareEnums(value, item));
 
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        static bool CompareEnums(object value, Enum? item)
         {
-            if (value is null)
+            if (item is null)
             {
-                throw new ArgumentNullException(nameof(value));
+                return false;
             }
 
-            return TrueValues.Count == 0 ? CompareEnums(value, parameter as Enum) : TrueValues.Any(item => CompareEnums(value, item));
+            var valueType = value.GetType();
 
-            static bool CompareEnums(object value, Enum? item)
+            if (valueType != item.GetType())
             {
-                if (item is null)
-                {
-                    return false;
-                }
-
-                var valueType = value.GetType();
-
-                if (valueType != item.GetType())
-                {
-                    return false;
-                }
-
-                if (valueType.GetTypeInfo().GetCustomAttribute<FlagsAttribute>() is not null)
-                {
-                    return item.HasFlag((Enum)value);
-                }
-
-                return Equals(value, item);
+                return false;
             }
-        }
 
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            throw new NotSupportedException();
+            if (valueType.GetTypeInfo().GetCustomAttribute<FlagsAttribute>() is not null)
+            {
+                return item.HasFlag((Enum)value);
+            }
+
+            return Equals(value, item);
         }
     }
+
+    public object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
+        => throw new NotSupportedException();
 }

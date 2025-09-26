@@ -1,0 +1,63 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net9.0</TargetFramework>
+
+		<!-- Project Options -->
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<RootNamespace>VijayAnand.MauiToolkit.Core</RootNamespace>
+
+		<!-- NuGet Package Info -->
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<PackageId>VijayAnand.MauiToolkit.Core</PackageId>
+		<Authors>Vijay Anand E G</Authors>
+		<Copyright>Copyright &#169; 2024-2025 Vijay Anand E G</Copyright>
+		<Product>VijayAnand.MauiToolkit.Core is a toolkit with a set of abstractions to simplify working with .NET MAUI and Blazor.</Product>
+		<Title>.NET MAUI Toolkit - Core</Title>
+		<Description>VijayAnand.MauiToolkit.Core a toolkit with a set of abstractions to simplify working with .NET MAUI and Blazor.</Description>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+		<RepositoryUrl>https://github.com/egvijayanand/dotnet-maui-toolkit</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageTags>.NET,MAUI,Blazor,BlazorWebView,C#,Hybrid,Toolkit,Razor,RCL,iOS,Android,macOS,WinForms,Windows,WinUI3,WPF,MacCatalyst,Server,WebAssembly,WASM,Tizen</PackageTags>
+		<PackageReleaseNotes>$([System.IO.File]::ReadAllText("$(MSBuildProjectDirectory)\release-notes-net9.txt"))</PackageReleaseNotes>
+		<AssemblyName>VijayAnand.MauiToolkit.Core</AssemblyName>
+		<Version>4.0.0</Version>
+		<AssemblyVersion>4.0.0.0</AssemblyVersion>
+		<FileVersion>4.0.0.0</FileVersion>
+		<PackageReadmeFile>overview.md</PackageReadmeFile>
+		<PackageProjectUrl>https://egvijayanand.in/</PackageProjectUrl>
+
+		<!-- Source Linking -->
+		<PublishRepositoryUrl>true</PublishRepositoryUrl>
+		<EmbedUntrackedSources>true</EmbedUntrackedSources>
+		<!--<DebugType>embedded</DebugType>-->
+		<IncludeSymbols>true</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+
+		<!-- Package Validation -->
+		<ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+	</PropertyGroup>
+
+	<!--<PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
+		<ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+	</PropertyGroup>-->
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="overview.md" Pack="true" PackagePath="\" />
+		<None Include="release-notes-net9.txt" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Remove="release-notes-net6.txt" />
+		<None Remove="release-notes-net7.txt" />
+		<None Remove="release-notes-net8.txt" />
+		<None Remove="release-notes-net10.txt" />
+	</ItemGroup>
+
+</Project>

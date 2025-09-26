@@ -10,19 +10,7 @@ namespace VijayAnand.MauiToolkit.Pro.Services
         public async Task<string> DisplayActionSheetAsync(string title, string message, string cancel, string? destruction, string? defaultButton, params string[] buttons)
         {
             var dialog = new ActionSheetPopup(title, message, cancel, destruction, defaultButton, buttons);
-
-            object? result;
-
-            if (Shell.Current is not null)
-            {
-                result = await Shell.Current.ShowPopupAsync(dialog);
-            }
-            else
-            {
-                result = await Application.Current!.MainPage!.ShowPopupAsync(dialog);
-            }
-
-            return result?.ToString() ?? string.Empty;
+            return (await GetMainPage().ShowPopupAsync(dialog))?.ToString() ?? string.Empty;
         }
 
         public async Task<string> DisplayActionSheetAsync(string title, string cancel, string destruction, FlowDirection flowDirection, params string[] buttons)
@@ -34,51 +22,14 @@ namespace VijayAnand.MauiToolkit.Pro.Services
                 dialog.Content.FlowDirection = flowDirection;
             }
 
-            object? result;
-
-            if (Shell.Current is not null)
-            {
-                result = await Shell.Current.ShowPopupAsync(dialog);
-            }
-            else
-            {
-                result = await Application.Current!.MainPage!.ShowPopupAsync(dialog);
-            }
-
-            return result?.ToString() ?? string.Empty;
+            return (await GetMainPage().ShowPopupAsync(dialog))?.ToString() ?? string.Empty;
         }
 
         public Task DisplayAlertAsync(string title, string message, string cancel)
-        {
-            var dialog = new AlertPopup(title, message, cancel);
-
-            if (Shell.Current is not null)
-            {
-                return Shell.Current.ShowPopupAsync(dialog);
-            }
-            else
-            {
-                return Application.Current!.MainPage!.ShowPopupAsync(dialog);
-            }
-        }
+            => GetMainPage().ShowPopupAsync(new AlertPopup(title, message, cancel));
 
         public async Task<bool> DisplayAlertAsync(string title, string message, string accept, string cancel)
-        {
-            var dialog = new AlertPopup(title, message, accept, cancel);
-
-            object? result;
-
-            if (Shell.Current is not null)
-            {
-                result = await Shell.Current.ShowPopupAsync(dialog);
-            }
-            else
-            {
-                result = await Application.Current!.MainPage!.ShowPopupAsync(dialog);
-            }
-
-            return result is true;
-        }
+            => await GetMainPage().ShowPopupAsync(new AlertPopup(title, message, accept, cancel)) is true;
 
         public Task DisplayAlertAsync(string title, string message, string cancel, FlowDirection flowDirection)
         {
@@ -89,14 +40,7 @@ namespace VijayAnand.MauiToolkit.Pro.Services
                 dialog.Content.FlowDirection = flowDirection;
             }
 
-            if (Shell.Current is not null)
-            {
-                return Shell.Current.ShowPopupAsync(dialog);
-            }
-            else
-            {
-                return Application.Current!.MainPage!.ShowPopupAsync(dialog);
-            }
+            return GetMainPage().ShowPopupAsync(dialog);
         }
 
         public async Task<bool> DisplayAlertAsync(string title, string message, string accept, string cancel, FlowDirection flowDirection)
@@ -108,18 +52,7 @@ namespace VijayAnand.MauiToolkit.Pro.Services
                 dialog.Content.FlowDirection = flowDirection;
             }
 
-            object? result;
-
-            if (Shell.Current is not null)
-            {
-                result = await Shell.Current.ShowPopupAsync(dialog);
-            }
-            else
-            {
-                result = await Application.Current!.MainPage!.ShowPopupAsync(dialog);
-            }
-
-            return result is true;
+            return await GetMainPage().ShowPopupAsync(dialog) is true;
         }
 
         public Task<string> DisplayPromptAsync(string title, string message, string accept = "OK", string cancel = "Cancel", string? placeholder = null, int maxLength = -1, InputType inputType = InputType.Default, string initialValue = "", Func<string, (bool, string)>? predicate = null)
@@ -134,32 +67,31 @@ namespace VijayAnand.MauiToolkit.Pro.Services
                 dialog.Content.FlowDirection = flowDirection;
             }
 
-            object? result;
-
-            if (Shell.Current is not null)
-            {
-                result = await Shell.Current.ShowPopupAsync(dialog);
-            }
-            else
-            {
-                result = await Application.Current!.MainPage!.ShowPopupAsync(dialog);
-            }
-
-            return result?.ToString() ?? string.Empty;
-
+            return (await GetMainPage().ShowPopupAsync(dialog))?.ToString() ?? string.Empty;
         }
 
-        private static Keyboard GetKeyboard(InputType inputType) => inputType switch
+        private static Keyboard GetKeyboard(InputType inputType)
+            => inputType switch
+            {
+                InputType.Plain => Keyboard.Plain,
+                InputType.Chat => Keyboard.Chat,
+                InputType.Decimal => Keyboard.Numeric,
+                InputType.Email => Keyboard.Email,
+                InputType.Numeric => Keyboard.Numeric,
+                InputType.Telephone => Keyboard.Telephone,
+                InputType.Text => Keyboard.Text,
+                InputType.Url => Keyboard.Url,
+                _ => Keyboard.Default
+            };
+
+        private static Page GetMainPage()
         {
-            InputType.Plain => Keyboard.Plain,
-            InputType.Chat => Keyboard.Chat,
-            InputType.Decimal => Keyboard.Numeric,
-            InputType.Email => Keyboard.Email,
-            InputType.Numeric => Keyboard.Numeric,
-            InputType.Telephone => Keyboard.Telephone,
-            InputType.Text => Keyboard.Text,
-            InputType.Url => Keyboard.Url,
-            _ => Keyboard.Default
-        };
+#if NET9_0_OR_GREATER
+            var mainPage = (Application.Current?.Windows?[0]?.Page) ?? throw new InvalidOperationException("Application.Current.Windows[0].Page cannot be null.");
+#else
+            var mainPage = (Application.Current?.MainPage) ?? throw new InvalidOperationException("Application.Current.MainPage cannot be null.");
+#endif
+            return mainPage is Shell ? Shell.Current : mainPage;
+        }
     }
 }

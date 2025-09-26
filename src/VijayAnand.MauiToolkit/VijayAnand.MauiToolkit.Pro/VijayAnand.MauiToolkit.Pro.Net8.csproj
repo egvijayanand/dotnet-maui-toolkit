@@ -10,6 +10,7 @@
 
 		<!-- .NET MAUI -->
 		<UseMaui>true</UseMaui>
+		<!-- <MauiVersion>8.0.100</MauiVersion> -->
 		<SingleProject>true</SingleProject>
 
 		<!-- Project Options -->
@@ -64,7 +65,7 @@
 	</PropertyGroup>-->
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" />
+		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -80,6 +81,8 @@
 	<ItemGroup>
 		<None Remove="release-notes-net6.txt" />
 		<None Remove="release-notes-net7.txt" />
+		<None Remove="release-notes-net9.txt" />
+		<None Remove="release-notes-net10.txt" />
 	</ItemGroup>
 
 	<ItemGroup>
