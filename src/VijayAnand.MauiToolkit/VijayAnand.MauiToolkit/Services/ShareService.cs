@@ -1,36 +1,28 @@
-﻿namespace VijayAnand.MauiToolkit.Services
+namespace VijayAnand.MauiToolkit.Services;
+
+public class ShareService(IShare share) : IShareService
 {
-    public class ShareService : IShareService
+    public async Task ShareTextAsync(string title, string text)
     {
-        private readonly IShare share;
-
-        public ShareService(IShare share)
+        try
         {
-            this.share = share;
+            await share.RequestAsync(new ShareTextRequest(text, title));
         }
-
-        public async Task ShareTextAsync(string title, string text)
+        catch
         {
-            try
-            {
-                await share.RequestAsync(new ShareTextRequest(text, title));
-            }
-            catch
-            {
-                throw;
-            }
+            throw;
         }
+    }
 
-        public async Task ShareUriAsync(string title, string text, string uri)
+    public async Task ShareUriAsync(string title, string text, string uri)
+    {
+        try
         {
-            try
-            {
-                await share.RequestAsync(new ShareTextRequest(text, title) { Uri = uri });
-            }
-            catch
-            {
-                throw;
-            }
+            await share.RequestAsync(new ShareTextRequest(text, title) { Uri = uri });
+        }
+        catch
+        {
+            throw;
         }
     }
 }

@@ -1,0 +1,90 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFrameworks>net9.0;net9.0-android</TargetFrameworks>
+		<!-- Targets possible from Windows OS -->
+		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net9.0-ios;net9.0-maccatalyst;net9.0-windows10.0.19041.0</TargetFrameworks>
+		<!-- Targets possible from macOS -->
+		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('osx'))">$(TargetFrameworks);net9.0-ios;net9.0-maccatalyst</TargetFrameworks>
+		<!-- Uncomment to also build the Tizen app. You will need to install Tizen by following this: https://github.com/Samsung/Tizen.NET -->
+		<!-- <TargetFrameworks>$(TargetFrameworks);net9.0-tizen</TargetFrameworks> -->
+
+		<!-- .NET MAUI -->
+		<UseMaui>true</UseMaui>
+		<SingleProject>true</SingleProject>
+
+		<!-- Project Options -->
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<RootNamespace>VijayAnand.MauiToolkit</RootNamespace>
+
+		<!-- Target Platform Options -->
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.2</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">14.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
+
+		<!-- Minimum Target OS Version for Windows Platform -->
+		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
+
+		<!-- NuGet Package Info -->
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<PackageId>VijayAnand.MauiToolkit</PackageId>
+		<Authors>Vijay Anand E G</Authors>
+		<Copyright>Copyright &#169; 2024-2025 Vijay Anand E G</Copyright>
+		<Product>VijayAnand.MauiToolkit is a toolkit with a set of helper methods and classes to simplify working with .NET MAUI and Blazor.</Product>
+		<Title>.NET MAUI Toolkit</Title>
+		<Description>VijayAnand.MauiToolkit is a toolkit with a set of helper methods and classes to simplify working with .NET MAUI and Blazor.</Description>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+		<RepositoryUrl>https://github.com/egvijayanand/dotnet-maui-toolkit</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageTags>.NET,MAUI,Blazor,BlazorWebView,C#,Hybrid,Toolkit,Razor,RCL,iOS,Android,macOS,Windows,WinUI3,MacCatalyst,Tizen</PackageTags>
+		<PackageReleaseNotes>$([System.IO.File]::ReadAllText("$(MSBuildProjectDirectory)\release-notes-net9.txt"))</PackageReleaseNotes>
+		<AssemblyName>VijayAnand.MauiToolkit</AssemblyName>
+		<Version>4.0.0</Version>
+		<AssemblyVersion>4.0.0.0</AssemblyVersion>
+		<FileVersion>4.0.0.0</FileVersion>
+		<PackageReadmeFile>overview.md</PackageReadmeFile>
+		<PackageProjectUrl>https://egvijayanand.in/</PackageProjectUrl>
+
+		<!-- Source Linking -->
+		<PublishRepositoryUrl>true</PublishRepositoryUrl>
+		<EmbedUntrackedSources>true</EmbedUntrackedSources>
+		<!--<DebugType>embedded</DebugType>-->
+		<IncludeSymbols>true</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+
+		<!-- Package Validation -->
+		<ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+	</PropertyGroup>
+
+	<!--<PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
+		<ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+	</PropertyGroup>-->
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
+		<!-- <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" /> -->
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="overview.md" Pack="true" PackagePath="\" />
+		<None Include="release-notes-net9.txt" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Remove="release-notes-net6.txt" />
+		<None Remove="release-notes-net7.txt" />
+		<None Remove="release-notes-net8.txt" />
+		<None Remove="release-notes-net10.txt" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\VijayAnand.MauiToolkit.Core\VijayAnand.MauiToolkit.Core.Net9.csproj" />
+	</ItemGroup>
+</Project>

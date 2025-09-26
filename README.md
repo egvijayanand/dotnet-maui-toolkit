@@ -26,9 +26,9 @@ Whereas the `net8.0` and `net9.0` library targets .NET MAUI and is dependent on 
 
 This is a toolkit with a set of abstractions to simplify working with .NET MAUI and Blazor.
 
-|[VijayAnand.MauiToolkit.Core](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Core/)|.NET 6|.NET 7|.NET 8|
-|:---:|:---:|:---:|:---:|
-|Stable|[![.NET 6](https://badgen.net/badge/nuget/v1.1.0/blue?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Core/1.1.0)|[![.NET 7](https://badgen.net/badge/nuget/v2.1.3/blue?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Core/2.1.3)|[![.NET 8](https://badgen.net/nuget/v/VijayAnand.MauiToolkit.Core/?icon=nuget&foo=bar)](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Core/)|
+|[VijayAnand.MauiToolkit.Core](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Core/)|.NET 8|.NET 9|
+|:---:|:---:|:---:|
+|Stable|[![.NET 8](https://badgen.net/badge/nuget/v3.2.0/blue?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Core/3.2.0)|[![.NET 9](https://badgen.net/nuget/v/VijayAnand.MauiToolkit.Core/?icon=nuget&foo=bar)](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Core/)|
 <!--
 |Preview|-|-|[![.NET 8](https://badgen.net/nuget/v/VijayAnand.MauiToolkit.Core/latest?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Core/absoluteLatest)|
 -->
@@ -50,9 +50,9 @@ A Model class for UserToken and frequently used Constants for OAuth / OIDC authe
 
 This is a toolkit with a set of helper methods and classes to simplify working with .NET MAUI and Blazor.
 
-|[VijayAnand.MauiToolkit](https://www.nuget.org/packages/VijayAnand.MauiToolkit/)|.NET 6|.NET 7|.NET 8|
-|:---:|:---:|:---:|:---:|
-|Stable|[![.NET 6](https://badgen.net/badge/nuget/v1.1.0/blue?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit/1.1.0)|[![.NET 7](https://badgen.net/badge/nuget/v2.1.3/blue?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit/2.1.3)|[![.NET 8](https://badgen.net/nuget/v/VijayAnand.MauiToolkit/?icon=nuget&foo=bar)](https://www.nuget.org/packages/VijayAnand.MauiToolkit/)|
+|[VijayAnand.MauiToolkit](https://www.nuget.org/packages/VijayAnand.MauiToolkit/)|.NET 8|.NET 9|
+|:---:|:---:|:---:|
+|Stable|[![.NET 8](https://badgen.net/badge/nuget/v3.2.0/blue?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit/3.2.0)|[![.NET 9](https://badgen.net/nuget/v/VijayAnand.MauiToolkit/?icon=nuget&foo=bar)](https://www.nuget.org/packages/VijayAnand.MauiToolkit/)|
 <!--
 |Preview|-|-|[![.NET 8](https://badgen.net/nuget/v/VijayAnand.MauiToolkit/latest?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit/absoluteLatest)|
 -->
@@ -107,9 +107,9 @@ public static class MauiProgram
 
 This is a toolkit with a set of helper methods and classes to simplify working with .NET MAUI and Blazor.
 
-|[VijayAnand.MauiToolkit.Pro](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Pro/)|.NET 6|.NET 7|.NET 8|
-|:---:|:---:|:---:|:---:|
-|Stable|[![.NET 6](https://badgen.net/badge/nuget/v1.1.0/blue?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Pro/1.1.0)|[![.NET 7](https://badgen.net/badge/nuget/v2.1.3/blue?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Pro/2.1.3)|[![.NET 8](https://badgen.net/nuget/v/VijayAnand.MauiToolkit.Pro/?icon=nuget&foo=bar)](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Pro/)|
+|[VijayAnand.MauiToolkit.Pro](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Pro/)|.NET 8|.NET 9|
+|:---:|:---:|:---:|
+|Stable|[![.NET 8](https://badgen.net/badge/nuget/v3.2.0/blue?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Pro/3.2.0)|[![.NET 9](https://badgen.net/nuget/v/VijayAnand.MauiToolkit.Pro/?icon=nuget&foo=bar)](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Pro/)|
 <!--
 |Preview|-|-|[![.NET 8](https://badgen.net/nuget/v/VijayAnand.MauiToolkit.Pro/latest?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Pro/absoluteLatest)|
 -->

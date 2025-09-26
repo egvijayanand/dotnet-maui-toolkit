@@ -80,6 +80,6 @@ namespace VijayAnand.MauiToolkit.Pro.Views
             }
         }
 
-        private void OnPopupOpened(object sender, PopupOpenedEventArgs e) => btnDefault?.Focus();
+        private void OnPopupOpened(object sender, EventArgs e) => btnDefault?.Focus();
     }
 }

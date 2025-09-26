@@ -58,6 +58,6 @@ namespace VijayAnand.MauiToolkit.Pro.Views
 
         private void OnCancelClicked(object sender, EventArgs e) => Close();
 
-        private void OnPopupOpened(object sender, PopupOpenedEventArgs e) => txtPrompt.Focus();
+        private void OnPopupOpened(object sender, EventArgs e) => txtPrompt.Focus();
     }
 }

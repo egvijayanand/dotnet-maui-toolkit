@@ -1,9 +1,8 @@
-﻿namespace VijayAnand.MauiToolkit.Core.Services
-{
-    public interface IThemeService
-    {
-        int Theme { get; }
+﻿namespace VijayAnand.MauiToolkit.Core.Services;
 
-        void SetTheme();
-    }
+public interface IThemeService
+{
+    int Theme { get; }
+
+    void SetTheme();
 }

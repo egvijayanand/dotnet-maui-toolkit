@@ -1,7 +1,11 @@
 Join me on Developer Thoughts, https://egvijayanand.in/, an exclusive blog for .NET MAUI and Blazor.
 
-What's new in ver. 3.1.0:
+What's new in ver. 3.2.0:
 -------------------------
+JSON serializer extension methods.
+
+v3.1.0:
+
 Package suite update.
 
 v3.0.0:

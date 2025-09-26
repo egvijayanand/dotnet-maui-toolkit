@@ -1,25 +1,21 @@
-﻿namespace VijayAnand.MauiToolkit.Converters
+﻿using static VijayAnand.MauiToolkit.StatusOrientation;
+
+namespace VijayAnand.MauiToolkit.Converters;
+
+public class StatusOrientationConverter : IValueConverter
 {
-    public class StatusOrientationConverter : IValueConverter
-    {
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+    public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
+        => value switch
         {
-            if (value is StatusOrientation orientation)
+            StatusOrientation orientation => orientation switch
             {
-                switch (orientation)
-                {
-                    case StatusOrientation.Horizontal:
-                        return StackOrientation.Horizontal;
-                    case StatusOrientation.VerticalTop:
-                    case StatusOrientation.VerticalBottom:
-                        return StackOrientation.Vertical;
-                }
-            }
+                Horizontal => StackOrientation.Horizontal,
+                VerticalTop or VerticalBottom => StackOrientation.Vertical,
+                _ => StackOrientation.Horizontal,
+            },
+            _ => StackOrientation.Horizontal
+        };
 
-            return StackOrientation.Horizontal;
-        }
-
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-            => throw new NotSupportedException();
-    }
+    public object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
+        => throw new NotSupportedException();
 }
