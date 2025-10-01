@@ -44,7 +44,7 @@ public static class MauiAppBuilderExtensions
     /// Configures services for the application by invoking the specified delegate on the service collection.
     /// </summary>
     /// <param name="builder">The <see cref="MauiAppBuilder"/> instance on which this method is invoked.</param>
-    /// <param name="configureDelegate">An optional delegate that provides custom configuration for the application's service collection. 
+    /// <param name="configureDelegate">An optional delegate that provides custom configuration for the application's service collection.
     /// If <see langword="null"/>, no additional configuration is applied.</param>
     /// <returns>Returns the updated <see cref="MauiAppBuilder"/> instance for further configuration.</returns>
     public static MauiAppBuilder ConfigureServices(
@@ -63,7 +63,7 @@ public static class MauiAppBuilderExtensions
     /// <param name="builder">The <see cref="MauiAppBuilder"/> instance on which this method is invoked.</param>
     /// <returns>Returns the updated <see cref="MauiAppBuilder"/> instance for further configuration.</returns>
     public static MauiAppBuilder UseMauiApp<TApp, TWindow>(this MauiAppBuilder builder)
-        where TApp : class, IApplication, new()
+        where TApp : class, IApplication
         where TWindow : Window
     {
         // Invoke the regular method and register the two other services in the pipeline.
@@ -72,7 +72,38 @@ public static class MauiAppBuilderExtensions
         builder.Services.TryAddSingleton<IWindowCreator, WindowCreator<TWindow>>();
         return builder;
     }
-    
+
+    /// <summary>
+    /// Configures the MAUI application by registering the application type, window type, and page type in the service collection.
+    /// </summary>
+    /// <typeparam name="TApp">Application type.</typeparam>
+    /// <typeparam name="TWindow">Window type.</typeparam>
+    /// <typeparam name="TPage">Page type.</typeparam>
+    /// <param name="builder">The <see cref="MauiAppBuilder"/> instance on which this method is invoked.</param>
+    /// <returns>Returns the updated <see cref="MauiAppBuilder"/> instance for further configuration.</returns>
+    public static MauiAppBuilder UseMauiApp<TApp, TWindow, TPage>(this MauiAppBuilder builder)
+        where TApp : class, IApplication
+        where TWindow : Window
+        where TPage : Page
+    {
+        // Invoke the regular method and register the other services in the pipeline.
+        builder.UseMauiApp<TApp>();
+        builder.Services.TryAddSingleton<TPage>();
+
+        // Register the window type only if it's not the base Window type.
+        if (typeof(TWindow) == typeof(Window))
+        {
+            builder.Services.TryAddSingleton<IWindowCreator>(new WindowCreator<Window, TPage>(new Window()));
+        }
+        else
+        {
+            builder.Services.TryAddSingleton<TWindow>();
+            builder.Services.TryAddSingleton<IWindowCreator, WindowCreator<TWindow, TPage>>();
+        }
+
+        return builder;
+    }
+
     /// <summary>
     /// Configures the MAUI application by registering an application factory delegate with the specified window type.
     /// </summary>
@@ -84,7 +115,7 @@ public static class MauiAppBuilderExtensions
     public static MauiAppBuilder UseMauiApp<TApp, TWindow>(
         this MauiAppBuilder builder,
         Func<IServiceProvider, TApp> appFactory)
-        where TApp : class, IApplication, new()
+        where TApp : class, IApplication
         where TWindow : Window
     {
         // Invoke the regular method and register the two other services in the pipeline.
@@ -93,7 +124,6 @@ public static class MauiAppBuilderExtensions
         builder.Services.TryAddSingleton<IWindowCreator, WindowCreator<TWindow>>();
         return builder;
     }
-    
     /// <summary>
     /// Configures the MAUI application and registers the application type and the window factory delegate to create the primary window.
     /// </summary>
@@ -105,7 +135,7 @@ public static class MauiAppBuilderExtensions
     public static MauiAppBuilder UseMauiApp<TApp, TWindow>(
         this MauiAppBuilder builder,
         Func<IServiceProvider, TWindow> windowFactory)
-        where TApp : class, IApplication, new()
+        where TApp : class, IApplication
         where TWindow : Window
     {
         // Invoke the regular method and register the two other services in the pipeline.
@@ -114,7 +144,7 @@ public static class MauiAppBuilderExtensions
         builder.Services.TryAddSingleton<IWindowCreator, WindowCreator<TWindow>>();
         return builder;
     }
-    
+
     /// <summary>
     /// Configures the MAUI and registers services for the application and window creation through factory delegates.
     /// </summary>
@@ -128,7 +158,7 @@ public static class MauiAppBuilderExtensions
         this MauiAppBuilder builder,
         Func<IServiceProvider, TApp> appFactory,
         Func<IServiceProvider, TWindow> windowFactory)
-        where TApp : class, IApplication, new()
+        where TApp : class, IApplication
         where TWindow : Window
     {
         // Invoke the regular method and register the two other services in the pipeline.
