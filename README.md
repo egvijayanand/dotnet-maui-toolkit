@@ -1,8 +1,8 @@
 Join me on [**Developer Thoughts**](https://egvijayanand.in/?utm_source=github&utm_medium=readme&utm_campaign=toolkit), an exclusive blog for .NET MAUI and Blazor, for articles on working with these toolkits and much more.
 
-### VijayAnand.Toolkit.Markup
+### [VijayAnand.Toolkit.Markup](https://www.nuget.org/packages/VijayAnand.Toolkit.Markup/)
 
-[VijayAnand.Toolkit.Markup](https://www.nuget.org/packages/VijayAnand.Toolkit.Markup/) is a `shared class library NuGet package` with a set of fluent helper methods and classes for Xamarin.Forms / .NET MAUI to facilitate rapid UI development and better reuse in C#.
+This is a `shared class library NuGet package` with a set of fluent helper methods and classes for Xamarin.Forms / .NET MAUI to facilitate rapid UI development and better reuse in C#.
 
 <!-- [![VijayAnand.Toolkit.Markup - NuGet Package](https://badgen.net/nuget/v/VijayAnand.Toolkit.Markup/)](https://www.nuget.org/packages/VijayAnand.Toolkit.Markup/) -->
 
@@ -18,15 +18,15 @@ Join me on [**Developer Thoughts**](https://egvijayanand.in/?utm_source=github&u
 
 This extends the features of the official C# Markup NuGet package from Microsoft.
 
-`netstandard2.0` library targets Xamarin.Forms 5 and is dependent on the [Xamarin.CommunityToolkit.Markup](https://www.nuget.org/packages/Xamarin.CommunityToolkit.Markup/) package.
+`netstandard2.0` library targets Xamarin.Forms 5 and works on top of the [Xamarin.CommunityToolkit.Markup](https://www.nuget.org/packages/Xamarin.CommunityToolkit.Markup/) package.
 
-Whereas the `net8.0` and `net9.0` library targets .NET MAUI and is dependent on the [CommunityToolkit.Maui.Markup](https://www.nuget.org/packages/CommunityToolkit.Maui.Markup/) package. *Note this is NOT a MauiCompat package.*
+Whereas the `net8.0` and `net9.0` library targets .NET MAUI and works on top of the [CommunityToolkit.Maui.Markup](https://www.nuget.org/packages/CommunityToolkit.Maui.Markup/) package. *Note this is NOT a MauiCompat package.*
 
-### VijayAnand.MauiToolkit.Core
+### [VijayAnand.MauiToolkit.Core](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Core/)
 
 This is a toolkit with a set of abstractions to simplify working with .NET MAUI and Blazor.
 
-|[VijayAnand.MauiToolkit.Core](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Core/)|.NET 8|.NET 9|
+|Channel|.NET 8|.NET 9|
 |:---:|:---:|:---:|
 |Stable|[![.NET 8](https://badgen.net/badge/nuget/v3.2.0/blue?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Core/3.2.0)|[![.NET 9](https://badgen.net/nuget/v/VijayAnand.MauiToolkit.Core/?icon=nuget&foo=bar)](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Core/)|
 <!--
@@ -46,11 +46,11 @@ To start with define the following abstractions:
 
 A Model class for UserToken and frequently used Constants for OAuth / OIDC authentication.
 
-### VijayAnand.MauiToolkit
+### [VijayAnand.MauiToolkit](https://www.nuget.org/packages/VijayAnand.MauiToolkit/)
 
 This is a toolkit with a set of helper methods and classes to simplify working with .NET MAUI and Blazor.
 
-|[VijayAnand.MauiToolkit](https://www.nuget.org/packages/VijayAnand.MauiToolkit/)|.NET 8|.NET 9|
+|Channel|.NET 8|.NET 9|
 |:---:|:---:|:---:|
 |Stable|[![.NET 8](https://badgen.net/badge/nuget/v3.2.0/blue?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit/3.2.0)|[![.NET 9](https://badgen.net/nuget/v/VijayAnand.MauiToolkit/?icon=nuget&foo=bar)](https://www.nuget.org/packages/VijayAnand.MauiToolkit/)|
 <!--
@@ -59,7 +59,31 @@ This is a toolkit with a set of helper methods and classes to simplify working w
 
 It depends on [VijayAnand.MauiToolkit.Core](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Core/) NuGet package.
 
-To start with, implement the concrete definition of the abstractions defined in the Core package:
+#### [Integrated App Hosting Builder Method](https://egvijayanand.in/2025/09/29/integrated-app-hosting-builder-method-for-dotnet-maui-explained/)
+
+The integrated app hosting builder method has been enhanced to support Application, Window, and Page in a single generic method call.
+
+A single place to handle all configuration-related tasks.
+
+The Application type will simply act as a container for global resources and handle startup and shutdown events.
+
+The prebuilt Window type can be used as it is. No need for a factory delegate for simple scenarios.
+
+While using generic overloads, there's no need to register the types in the DI container.
+
+
+```cs
+var builder = MauiApp.CreateBuilder();
+builder.UseMauiApp<App, Window, MainPage>();
+// To use Shell as the initial page.
+//builder.UseMauiApp<App, Window, AppShell>();
+// Rest of the configuration ...
+return builder.Build();
+```
+
+#### Abstract Implementations
+
+Concrete definition of the abstractions defined in the Core package:
 
 * Dialogs - `DialogService` (works with MainPage or Shell definition)
   - Additional abstraction specific to .NET MAUI with `FlowDirection`
@@ -103,11 +127,11 @@ public static class MauiProgram
     }
 }
 ```
-### VijayAnand.MauiToolkit.Pro
+### [VijayAnand.MauiToolkit.Pro](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Pro/)
 
 This is a toolkit with a set of helper methods and classes to simplify working with .NET MAUI and Blazor.
 
-|[VijayAnand.MauiToolkit.Pro](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Pro/)|.NET 8|.NET 9|
+|Channel|.NET 8|.NET 9|
 |:---:|:---:|:---:|
 |Stable|[![.NET 8](https://badgen.net/badge/nuget/v3.2.0/blue?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Pro/3.2.0)|[![.NET 9](https://badgen.net/nuget/v/VijayAnand.MauiToolkit.Pro/?icon=nuget&foo=bar)](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Pro/)|
 <!--
@@ -144,9 +168,9 @@ public static class MauiProgram
 }
 ```
 
-### VijayAnand.MauiBlazor.Markup
+### [VijayAnand.MauiBlazor.Markup](https://www.nuget.org/packages/VijayAnand.MauiBlazor.Markup/)
 
-This [markup](https://www.nuget.org/packages/VijayAnand.MauiBlazor.Markup/) package is a set of fluent helper methods and classes to simplify working with .NET MAUI Blazor in C#.
+This markup package is a set of fluent helper methods and classes to simplify working with .NET MAUI Blazor in C#.
 
 It depends on the [Microsoft.AspNetCore.Components.WebView.Maui](https://www.nuget.org/packages/Microsoft.AspNetCore.Components.WebView.Maui) NuGet package.
 

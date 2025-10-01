@@ -1,7 +1,24 @@
 Join me on Developer Thoughts, https://egvijayanand.in/, an exclusive blog for .NET MAUI and Blazor.
 
-What's new in ver. v4.0.0:
+What's new in ver. v4.1.0:
 --------------------------
+The integrated app hosting builder method has been enhanced to support Application, Window, and Page in a single generic method call.
+
+The prebuilt Window type can be used as it is. No need for a factory delegate for simple scenarios.
+
+While using generic overloads, there's no need to register the types in the DI container.
+
+var builder = MauiApp.CreateBuilder();
+builder.UseMauiApp<App, Window, MainPage>();
+// To use Shell as the initial page.
+//builder.UseMauiApp<App, Window, AppShell>();
+// Other configuration
+return builder.Build();
+
+Other overloads continue to work too.
+
+v4.0.0:
+
 Release built on top of .NET MAUI 9.
 
 MauiAppBuilder extension methods provide an easy way to host both Application and Window with just a single method call.

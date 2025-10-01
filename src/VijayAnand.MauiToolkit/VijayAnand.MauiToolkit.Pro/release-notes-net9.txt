@@ -1,5 +1,9 @@
 Join me on Developer Thoughts, https://egvijayanand.in/, an exclusive blog for .NET MAUI and Blazor.
 
-What's new in ver. v4.0.0:
+What's new in ver. v4.1.0:
 --------------------------
+Package suite update.
+
+v4.0.0:
+
 This version of package is released on top of .NET MAUI 9 SR5 (v9.0.50).
