@@ -28,7 +28,7 @@ This is a toolkit with a set of abstractions to simplify working with .NET MAUI 
 
 |Channel|.NET 8|.NET 9|
 |:---:|:---:|:---:|
-|Stable|[![.NET 8](https://badgen.net/badge/nuget/v3.3.0/blue?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Core/3.3.0)|[![.NET 9](https://badgen.net/nuget/v/VijayAnand.MauiToolkit.Core/?icon=nuget&foo=bar)](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Core/)|
+|Stable|[![.NET 8](https://badgen.net/badge/nuget/v3.4.0/blue?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Core/3.4.0)|[![.NET 9](https://badgen.net/nuget/v/VijayAnand.MauiToolkit.Core/?icon=nuget&foo=bar)](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Core/)|
 <!--
 |Preview|-|-|[![.NET 8](https://badgen.net/nuget/v/VijayAnand.MauiToolkit.Core/latest?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Core/absoluteLatest)|
 -->
@@ -52,7 +52,7 @@ This is a toolkit with a set of helper methods and classes to simplify working w
 
 |Channel|.NET 8|.NET 9|
 |:---:|:---:|:---:|
-|Stable|[![.NET 8](https://badgen.net/badge/nuget/v3.3.0/blue?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit/3.3.0)|[![.NET 9](https://badgen.net/nuget/v/VijayAnand.MauiToolkit/?icon=nuget&foo=bar)](https://www.nuget.org/packages/VijayAnand.MauiToolkit/)|
+|Stable|[![.NET 8](https://badgen.net/badge/nuget/v3.4.0/blue?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit/3.4.0)|[![.NET 9](https://badgen.net/nuget/v/VijayAnand.MauiToolkit/?icon=nuget&foo=bar)](https://www.nuget.org/packages/VijayAnand.MauiToolkit/)|
 <!--
 |Preview|-|-|[![.NET 8](https://badgen.net/nuget/v/VijayAnand.MauiToolkit/latest?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit/absoluteLatest)|
 -->
@@ -126,7 +126,7 @@ This is a toolkit with a set of helper methods and classes to simplify working w
 
 |Channel|.NET 8|.NET 9|
 |:---:|:---:|:---:|
-|Stable|[![.NET 8](https://badgen.net/badge/nuget/v3.3.0/blue?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Pro/3.3.0)|[![.NET 9](https://badgen.net/nuget/v/VijayAnand.MauiToolkit.Pro/?icon=nuget&foo=bar)](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Pro/)|
+|Stable|[![.NET 8](https://badgen.net/badge/nuget/v3.4.0/blue?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Pro/3.4.0)|[![.NET 9](https://badgen.net/nuget/v/VijayAnand.MauiToolkit.Pro/?icon=nuget&foo=bar)](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Pro/)|
 <!--
 |Preview|-|-|[![.NET 8](https://badgen.net/nuget/v/VijayAnand.MauiToolkit.Pro/latest?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Pro/absoluteLatest)|
 -->

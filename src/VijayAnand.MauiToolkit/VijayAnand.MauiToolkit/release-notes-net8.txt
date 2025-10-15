@@ -1,7 +1,23 @@
 Join me on Developer Thoughts, https://egvijayanand.in/, an exclusive blog for .NET MAUI and Blazor.
 
-What's new in ver. 3.3.0:
+What's new in ver. 3.4.0:
 -------------------------
+1. Key-based service registration for generic method overloads within the integrated app hosting builder method.
+
+This doesn't apply to the factory delegates since it's not supported.
+
+The Application type (TApp) is an exception because it is passed to the Framework method.
+
+2. The Window Title will update to match the Page Title when it is empty.
+
+At present, .NET MAUI updates the Window Title only when the start page is Shell; otherwise, it remains blank unless set manually.
+
+3. The app hosting builder method now accepts a page factory parameter, allowing it to be managed independently.
+
+builder.UseMauiApp<App, Window, Page>(_ => new NavigationPage(new MainPage()));
+
+v3.3.0:
+
 The integrated app hosting builder method has been enhanced to support Application, Window, and Page in a single generic method call.
 
 The prebuilt Window type can be used as it is. No need for a factory delegate for simple scenarios.
