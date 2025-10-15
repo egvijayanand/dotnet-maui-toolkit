@@ -68,7 +68,7 @@ public static class MauiAppBuilderExtensions
     {
         // Invoke the regular method and register the two other services in the pipeline.
         builder.UseMauiApp<TApp>();
-        builder.Services.TryAddSingleton<TWindow>();
+        builder.Services.TryAddKeyedSingleton<TWindow>(Startup);
         builder.Services.TryAddSingleton<IWindowCreator, WindowCreator<TWindow>>();
         return builder;
     }
@@ -88,19 +88,9 @@ public static class MauiAppBuilderExtensions
     {
         // Invoke the regular method and register the other services in the pipeline.
         builder.UseMauiApp<TApp>();
-        builder.Services.TryAddSingleton<TPage>();
-
-        // Register the window type only if it's not the base Window type.
-        if (typeof(TWindow) == typeof(Window))
-        {
-            builder.Services.TryAddSingleton<IWindowCreator>(new WindowCreator<Window, TPage>(new Window()));
-        }
-        else
-        {
-            builder.Services.TryAddSingleton<TWindow>();
-            builder.Services.TryAddSingleton<IWindowCreator, WindowCreator<TWindow, TPage>>();
-        }
-
+        builder.Services.TryAddKeyedSingleton<TWindow>(Startup);
+        builder.Services.TryAddKeyedSingleton<TPage>(Startup);
+        builder.Services.TryAddSingleton<IWindowCreator, WindowCreator<TWindow, TPage>>();
         return builder;
     }
 
@@ -120,10 +110,11 @@ public static class MauiAppBuilderExtensions
     {
         // Invoke the regular method and register the two other services in the pipeline.
         builder.UseMauiApp(appFactory);
-        builder.Services.TryAddSingleton<TWindow>();
+        builder.Services.TryAddKeyedSingleton<TWindow>(Startup);
         builder.Services.TryAddSingleton<IWindowCreator, WindowCreator<TWindow>>();
         return builder;
     }
+
     /// <summary>
     /// Configures the MAUI application and registers the application type and the window factory delegate to create the primary window.
     /// </summary>
@@ -141,7 +132,7 @@ public static class MauiAppBuilderExtensions
         // Invoke the regular method and register the two other services in the pipeline.
         builder.UseMauiApp<TApp>();
         builder.Services.TryAddSingleton(windowFactory);
-        builder.Services.TryAddSingleton<IWindowCreator, WindowCreator<TWindow>>();
+        builder.Services.TryAddSingleton<IWindowCreator>(sp => new WindowCreator(sp.GetRequiredService<TWindow>()));
         return builder;
     }
 
@@ -164,7 +155,29 @@ public static class MauiAppBuilderExtensions
         // Invoke the regular method and register the two other services in the pipeline.
         builder.UseMauiApp(appFactory);
         builder.Services.TryAddSingleton(windowFactory);
-        builder.Services.TryAddSingleton<IWindowCreator, WindowCreator<TWindow>>();
+        builder.Services.TryAddSingleton<IWindowCreator>(sp => new WindowCreator(sp.GetRequiredService<TWindow>()));
+        return builder;
+    }
+
+    /// <summary>
+    /// Configures the MAUI application by registering the application type, window type, and page type in the service collection.
+    /// </summary>
+    /// <typeparam name="TApp">Application type.</typeparam>
+    /// <typeparam name="TWindow">Window type.</typeparam>
+    /// <typeparam name="TPage">Page type.</typeparam>
+    /// <param name="builder">The <see cref="MauiAppBuilder"/> instance on which this method is invoked.</param>
+    /// <param name="pageFactory">A function that creates instances of the specified page type using a service provider.</param>
+    /// <returns>Returns the updated <see cref="MauiAppBuilder"/> instance for further configuration.</returns>
+    public static MauiAppBuilder UseMauiApp<TApp, TWindow, TPage>(this MauiAppBuilder builder, Func<IServiceProvider, TPage> pageFactory)
+        where TApp : class, IApplication
+        where TWindow : Window
+        where TPage : Page
+    {
+        // Invoke the regular method and register the other services in the pipeline.
+        builder.UseMauiApp<TApp>();
+        builder.Services.TryAddKeyedSingleton<TWindow>(Startup);
+        builder.Services.TryAddSingleton(pageFactory);
+        builder.Services.TryAddSingleton<IWindowCreator, WindowCreator<TWindow, TPage>>();
         return builder;
     }
 }

@@ -17,3 +17,4 @@ global using VijayAnand.MauiToolkit.Views;
 
 // Static
 global using static Microsoft.Maui.Graphics.Colors;
+global using static VijayAnand.MauiToolkit.Constants;
