@@ -1,5 +1,9 @@
-What's new in ver. 4.1.0:
+What's new in ver. 4.2.0:
 -------------------------
+Updated the global resource helper method to accept a default value, ensuring it always returns a non-nullable result.
+
+v4.1.0:
+
 The CommunityToolkit.Maui.Markup package dependency has been updated to v5.1.0, requiring .NET MAUI v9.0.21 or higher.
 
 Additional helper methods for handling global resources.

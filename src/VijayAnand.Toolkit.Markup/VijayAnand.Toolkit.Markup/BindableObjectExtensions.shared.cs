@@ -17,17 +17,15 @@
             object? targetNullValue = null,
             object? fallbackValue = null)
             where TBindable : BindableObject
-        {
-            bindable.Bind(PropertyName(expression),
-                          mode,
-                          converter,
-                          converterParameter,
-                          stringFormat,
-                          source,
-                          targetNullValue,
-                          fallbackValue);
-            return bindable;
-        }
+            => bindable.Bind(
+                PropertyName(expression),
+                mode,
+                converter,
+                converterParameter,
+                stringFormat,
+                source,
+                targetNullValue,
+                fallbackValue);
 
         /// <summary>Binds to the specified bindable property.</summary>
         /// <param name="expression">Lambda expression of the source property to bind to.</param>
@@ -43,18 +41,15 @@
             object? targetNullValue = null,
             object? fallbackValue = null)
             where TBindable : BindableObject
-        {
-            bindable.Bind(property,
-                          PropertyName(expression),
-                          mode,
-                          converter,
-                          converterParameter,
-                          stringFormat,
-                          source,
-                          targetNullValue,
-                          fallbackValue);
-            return bindable;
-        }
+            => bindable.Bind(property,
+                PropertyName(expression),
+                mode,
+                converter,
+                converterParameter,
+                stringFormat,
+                source,
+                targetNullValue,
+                fallbackValue);
 
         /// <summary>Bind to the <typeparamref name="TBindable"/>'s default Command and CommandParameter properties.</summary>
         /// <param name="expression">Lambda expression of the source property to bind to.</param>
@@ -67,10 +62,11 @@
             object? parameterSource = null)
             where TBindable : BindableObject
             where TSource : ICommand
-        {
-            bindable.BindCommand(PropertyName(expression), source, parameterPath, parameterSource);
-            return bindable;
-        }
+            => bindable.BindCommand(
+                PropertyName(expression),
+                source,
+                parameterPath,
+                parameterSource);
 
         /// <summary>Bind to the <typeparamref name="TBindable"/>'s default Command and assign <paramref name="parameterValue"/> value to CommandParameter property.</summary>
         /// <param name="parameterValue">If null, not assigned to the CommandParameter property</param>
@@ -93,8 +89,15 @@
                 SearchBar searchBar => searchBar.SearchCommandParameter = parameterValue,
                 SearchHandler searchHandler => searchHandler.CommandParameter = parameterValue,
                 SwipeItemView swipeItemView => swipeItemView.CommandParameter = parameterValue,
+#pragma warning disable CS0618 // Type or member is obsolete
                 TextCell textCell => textCell.CommandParameter = parameterValue,
+#pragma warning restore CS0618 // Type or member is obsolete
+#if !NET10_0_OR_GREATER
+                // .NET 10.0+ ClickGestureRecognizer is not available
+#pragma warning disable CS0618 // Type or member is obsolete
                 ClickGestureRecognizer clickGesture => clickGesture.CommandParameter = parameterValue,
+#pragma warning restore CS0618 // Type or member is obsolete
+#endif
                 DropGestureRecognizer dropGesture => dropGesture.DropCommandParameter = parameterValue,
                 SwipeGestureRecognizer swipeGesture => swipeGesture.CommandParameter = parameterValue,
                 TapGestureRecognizer tapGesture => tapGesture.CommandParameter = parameterValue,
@@ -129,8 +132,15 @@
                 SearchBar searchBar => searchBar.SearchCommandParameter = parameterValue,
                 SearchHandler searchHandler => searchHandler.CommandParameter = parameterValue,
                 SwipeItemView swipeItemView => swipeItemView.CommandParameter = parameterValue,
+#pragma warning disable CS0618 // Type or member is obsolete
                 TextCell textCell => textCell.CommandParameter = parameterValue,
+#pragma warning restore CS0618 // Type or member is obsolete
+#if !NET10_0_OR_GREATER
+                // .NET 10.0+ ClickGestureRecognizer is not available
+#pragma warning disable CS0618 // Type or member is obsolete
                 ClickGestureRecognizer clickGesture => clickGesture.CommandParameter = parameterValue,
+#pragma warning restore CS0618 // Type or member is obsolete
+#endif
                 DropGestureRecognizer dropGesture => dropGesture.DropCommandParameter = parameterValue,
                 SwipeGestureRecognizer swipeGesture => swipeGesture.CommandParameter = parameterValue,
                 TapGestureRecognizer tapGesture => tapGesture.CommandParameter = parameterValue,
@@ -165,8 +175,15 @@
                 SearchBar searchBar => searchBar.SearchCommandParameter = parameterValue,
                 SearchHandler searchHandler => searchHandler.CommandParameter = parameterValue,
                 SwipeItemView swipeItemView => swipeItemView.CommandParameter = parameterValue,
+#pragma warning disable CS0618 // Type or member is obsolete
                 TextCell textCell => textCell.CommandParameter = parameterValue,
+#pragma warning restore CS0618 // Type or member is obsolete
+#if !NET10_0_OR_GREATER
+                // .NET 10.0+ ClickGestureRecognizer is not available
+#pragma warning disable CS0618 // Type or member is obsolete
                 ClickGestureRecognizer clickGesture => clickGesture.CommandParameter = parameterValue,
+#pragma warning restore CS0618 // Type or member is obsolete
+#endif
                 DropGestureRecognizer dropGesture => dropGesture.DropCommandParameter = parameterValue,
                 SwipeGestureRecognizer swipeGesture => swipeGesture.CommandParameter = parameterValue,
                 TapGestureRecognizer tapGesture => tapGesture.CommandParameter = parameterValue,

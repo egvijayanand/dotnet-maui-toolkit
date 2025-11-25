@@ -6,4 +6,4 @@ This extends the features of the official C# Markup NuGet package from Microsoft
 
 `netstandard2.0` library targets Xamarin.Forms 5 and is dependent on the [Xamarin.CommunityToolkit.Markup](https://www.nuget.org/packages/Xamarin.CommunityToolkit.Markup/) package.
 
-Whereas `net6.0`, `net7.0`, `net8.0`, and `net9.0` library targets .NET MAUI and is dependent on the [CommunityToolkit.Maui.Markup](https://www.nuget.org/packages/CommunityToolkit.Maui.Markup/) package. *Note this is NOT MauiCompat package.*
+Whereas `net8.0`, `net9.0`, and `net10.0` library targets .NET MAUI and is dependent on the [CommunityToolkit.Maui.Markup](https://www.nuget.org/packages/CommunityToolkit.Maui.Markup/) package.

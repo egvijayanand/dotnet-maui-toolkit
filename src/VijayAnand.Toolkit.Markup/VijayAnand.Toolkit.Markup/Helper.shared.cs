@@ -1,4 +1,3 @@
-using System.Linq.Expressions;
 using System.Reflection;
 
 namespace VijayAnand.Toolkit.Markup
@@ -18,12 +17,12 @@ namespace VijayAnand.Toolkit.Markup
                 }
             }
 
-            memExp = (MemberExpression)expression.Body;
+            memExp = expression.Body as MemberExpression;
             var propMemExp = memExp;
 
-            string path = string.Empty;
+            var path = string.Empty;
 
-            while (memExp is not null && memExp.Expression.NodeType == ExpressionType.MemberAccess)
+            while (memExp is not null && memExp.Expression is not null && memExp.Expression.NodeType == ExpressionType.MemberAccess)
             {
                 var propInfo = memExp.Expression.GetType().GetProperty("Member");
                 var propValue = propInfo?.GetValue(memExp.Expression, null) as PropertyInfo;
@@ -32,7 +31,7 @@ namespace VijayAnand.Toolkit.Markup
                 memExp = memExp.Expression as MemberExpression;
             }
 
-            return $"{path}{propMemExp.Member.Name}";
+            return $"{path}{propMemExp?.Member?.Name ?? string.Empty}";
         }
     }
 }

@@ -1,0 +1,5 @@
+What's new in ver. 5.0.0:
+-------------------------
+Initial release of C# Markup Toolkit package to support .NET MAUI 10.
+
+This is published on top of .NET MAUI 10 SR1 (v10.0.10).
