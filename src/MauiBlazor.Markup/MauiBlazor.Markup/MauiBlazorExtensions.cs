@@ -21,11 +21,16 @@ namespace VijayAnand.MauiBlazor.Markup
         /// <typeparam name="TBlazorWebView"><seealso cref="BlazorWebView"/> or its derivative.</typeparam>
         /// <param name="bwv"><typeparamref name="TBlazorWebView"/> instance.</param>
         /// <param name="hostPage">Host page of the <typeparamref name="TBlazorWebView"/>.</param>
-        /// <param name="rootComponents">Array of <seealso cref="Tuple{T1, T2, T3}"/> (of type <seealso cref="string"/>, <seealso cref="Type"/>, <seealso cref="IDictionary{TKey, TValue}"/>), a simplified model representing the <seealso cref="RootComponent"/>, to be managed by this <typeparamref name="TBlazorWebView"/> instance.</param>
+        /// <param name="rootComponents">Collection of <seealso cref="Tuple{T1, T2, T3}"/> (of type <seealso cref="string"/>, <seealso cref="Type"/>, <seealso cref="IDictionary{TKey, TValue}"/>), a simplified model representing the <seealso cref="RootComponent"/>, to be managed by this <typeparamref name="TBlazorWebView"/> instance.</param>
         /// <returns>Same instance of <typeparamref name="TBlazorWebView"/> on which this method is invoked.</returns>
-        public static TBlazorWebView Configure<TBlazorWebView>(this TBlazorWebView bwv,
-                                                               string hostPage,
-                                                               params (string selector, Type componentType, IDictionary<string, object?>? parameters)[] rootComponents)
+        public static TBlazorWebView Configure<TBlazorWebView>(
+            this TBlazorWebView bwv,
+            string hostPage,
+#if NET9_0_OR_GREATER
+            params ReadOnlySpan<(string selector, Type componentType, IDictionary<string, object?>? parameters)> rootComponents)
+#else
+            params (string selector, Type componentType, IDictionary<string, object?>? parameters)[] rootComponents)
+#endif
             where TBlazorWebView : BlazorWebView
         {
             bwv.HostPage = hostPage;
@@ -80,12 +85,17 @@ namespace VijayAnand.MauiBlazor.Markup
         /// <param name="bwv"><typeparamref name="TBlazorWebView"/> instance.</param>
         /// <param name="hostPage">Host page of the <typeparamref name="TBlazorWebView"/>.</param>
         /// <param name="startPath">Start path of the <typeparamref name="TBlazorWebView"/>.</param>
-        /// <param name="rootComponents">Array of <seealso cref="Tuple{T1, T2, T3}"/> (of type <seealso cref="string"/>, <seealso cref="Type"/>, <seealso cref="IDictionary{TKey, TValue}"/>), a simplified model representing the <seealso cref="RootComponent"/>, to be managed by this <typeparamref name="TBlazorWebView"/> instance.</param>
+        /// <param name="rootComponents">Collection of <seealso cref="Tuple{T1, T2, T3}"/> (of type <seealso cref="string"/>, <seealso cref="Type"/>, <seealso cref="IDictionary{TKey, TValue}"/>), a simplified model representing the <seealso cref="RootComponent"/>, to be managed by this <typeparamref name="TBlazorWebView"/> instance.</param>
         /// <returns>Same instance of <typeparamref name="TBlazorWebView"/> on which this method is invoked.</returns>
-        public static TBlazorWebView Configure<TBlazorWebView>(this TBlazorWebView bwv,
-                                                               string hostPage,
-                                                               string startPath,
-                                                               params (string selector, Type componentType, IDictionary<string, object?>? parameters)[] rootComponents)
+        public static TBlazorWebView Configure<TBlazorWebView>(
+            this TBlazorWebView bwv,
+            string hostPage,
+            string startPath,
+#if NET9_0_OR_GREATER
+            params ReadOnlySpan<(string selector, Type componentType, IDictionary<string, object?>? parameters)> rootComponents)
+#else
+            params (string selector, Type componentType, IDictionary<string, object?>? parameters)[] rootComponents)
+#endif
             where TBlazorWebView : BlazorWebView
         {
             bwv.HostPage = hostPage;
@@ -133,7 +143,10 @@ namespace VijayAnand.MauiBlazor.Markup
         /// <param name="components">The collection to which the component should be added.</param>
         /// <param name="selector">The selector to which the component will be associated.</param>
         /// <param name="parameters">The optional creation parameters for the component.</param>
-        public static void Add<TComponent>(this RootComponentsCollection components, string selector, IDictionary<string, object?>? parameters = null)
+        public static void Add<TComponent>(
+            this RootComponentsCollection components,
+            string selector,
+            IDictionary<string, object?>? parameters = null)
             where TComponent : IComponent
         {
             components.Add(new RootComponent()
@@ -171,9 +184,17 @@ namespace VijayAnand.MauiBlazor.Markup
         /// <summary>Sets the parameters for the <typeparamref name="TRootComponent"/>.</summary>
         /// <typeparam name="TRootComponent"><seealso cref="RootComponent"/> or its derivative.</typeparam>
         /// <param name="component"><typeparamref name="TRootComponent"/> instance.</param>
-        /// <param name="parameters">Array of <seealso cref="Tuple{T1, T2}"/> of type <seealso cref="string"/> and <seealso cref="object"/>?, a model representing the key-value pair, to be set as <seealso cref="RootComponent.Parameters"/> of <typeparamref name="TRootComponent"/>.</param>
+        /// <param name="parameters">Collection of <seealso cref="Tuple{T1, T2}"/> of type <seealso cref="string"/> and <seealso cref="object"/>?, a model representing the key-value pair, to be set as <seealso cref="RootComponent.Parameters"/> of <typeparamref name="TRootComponent"/>.</param>
         /// <returns>Same instance of <typeparamref name="TRootComponent"/> on which this method is invoked.</returns>
-        public static TRootComponent Parameters<TRootComponent>(this TRootComponent component, params (string key, object? value)[] parameters)
+#if NET9_0_OR_GREATER
+        public static TRootComponent Parameters<TRootComponent>(
+            this TRootComponent component,
+            params ReadOnlySpan<(string key, object? value)> parameters)
+#else
+        public static TRootComponent Parameters<TRootComponent>(
+            this TRootComponent component,
+            params (string key, object? value)[] parameters)
+#endif
             where TRootComponent : RootComponent
         {
             var dict = new Dictionary<string, object?>();

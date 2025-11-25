@@ -9,7 +9,7 @@ if [%1]==[] (call Error "Build configuration is not provided." & set inputReqd=1
 
 if [%2]==[] (call Error "Version # is not provided." & set inputReqd=1)
 
-if %inputReqd% == 1 (pause & goto end)
+if [%inputReqd%] == [1] (pause & goto end)
 
 set projId=%1
 
@@ -36,10 +36,14 @@ call Info ".NET SDK Version"
 
 dotnet --version
 
+if not exist .\MauiBlazor.Markup\bin\%config%\%pkgName%.%pkgVersion%.nupkg goto build
+
 echo.
 call Info "Delete existing package ..."
 
-if exist .\MauiBlazor.Markup\bin\%config%\%pkgName%.%pkgVersion%.nupkg del .\MauiBlazor.Markup\bin\%config%\%pkgName%.%pkgVersion%.nupkg
+del .\MauiBlazor.Markup\bin\%config%\%pkgName%.%pkgVersion%.nupkg
+
+:build
 
 echo.
 call Info "Creating %pkgName% ver. %pkgVersion% NuGet package in %config% mode ..."

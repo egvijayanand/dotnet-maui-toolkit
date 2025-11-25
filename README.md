@@ -156,12 +156,14 @@ return builder.Build();
 
 This markup package is a set of fluent helper methods and classes to simplify working with .NET MAUI Blazor in C#.
 
-It depends on the [Microsoft.AspNetCore.Components.WebView.Maui](https://www.nuget.org/packages/Microsoft.AspNetCore.Components.WebView.Maui) NuGet package.
+It depends on the [Microsoft.AspNetCore.Components.WebView.Maui](https://www.nuget.org/packages/Microsoft.AspNetCore.Components.WebView.Maui/) NuGet package.
 
-|Channel|.NET 8|.NET 9|
-|:---:|:---:|:---:|
-|Stable|[![.NET 8](https://badgen.net/badge/nuget/v3.0.8/blue?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiBlazor.Markup/3.0.8)|[![.NET 9](https://badgen.net/nuget/v/VijayAnand.MauiBlazor.Markup?icon=nuget&foo=bar)](https://www.nuget.org/packages/VijayAnand.MauiBlazor.Markup)|
-<!--|Preview|-|[![.NET 9](https://badgen.net/nuget/v/VijayAnand.MauiBlazor.Markup/latest?icon=nuget&foo=bar)](https://www.nuget.org/packages/VijayAnand.MauiBlazor.Markup/absoluteLatest)|-->
+|Channel|.NET 8|.NET 9|.NET 10|
+|:---:|:---:|:---:|:---:|
+|Stable|[![.NET 8](https://badgen.net/badge/nuget/v3.0.8/blue?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiBlazor.Markup/3.0.8)|[![.NET 9](https://badgen.net/badge/nuget/v4.0.0/blue?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiBlazor.Markup/4.0.0)|[![.NET 10](https://badgen.net/nuget/v/VijayAnand.MauiBlazor.Markup/?icon=nuget&foo=bar)](https://www.nuget.org/packages/VijayAnand.MauiBlazor.Markup/)|
+<!--
+|Preview|-|-|[![.NET 10](https://badgen.net/nuget/v/VijayAnand.MauiBlazor.Markup/latest?icon=nuget&foo=bar)](https://www.nuget.org/packages/VijayAnand.MauiBlazor.Markup/absoluteLatest)|
+-->
 
 The most useful method will be `Configure`, which can be invoked on an instance of a BlazorWebView and its derivatives, and it simplifies the initialization of BlazorWebView into a single fluent method call as shown in the below sample.
 
