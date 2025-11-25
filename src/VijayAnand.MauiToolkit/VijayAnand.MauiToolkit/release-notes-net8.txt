@@ -1,7 +1,13 @@
 Join me on Developer Thoughts, https://egvijayanand.in/, an exclusive blog for .NET MAUI and Blazor.
 
-What's new in ver. 3.4.0:
+What's new in ver. 3.5.0:
 -------------------------
+The integrated app hosting generic builder method has been enhanced to support minor Window customization.
+
+builder.UseMauiApp<App, Window, AppShell>(window => window.Title = "MyApp");
+
+v3.4.0
+
 1. Key-based service registration for generic method overloads within the integrated app hosting builder method.
 
 This doesn't apply to the factory delegates since it's not supported.

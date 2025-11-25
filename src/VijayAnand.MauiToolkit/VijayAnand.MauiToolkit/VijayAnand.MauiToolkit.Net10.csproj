@@ -69,7 +69,6 @@
 
 	<ItemGroup>
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
-		<!-- <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" /> -->
 	</ItemGroup>
 
 	<ItemGroup>
@@ -78,8 +77,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<None Remove="release-notes-net6.txt" />
-		<None Remove="release-notes-net7.txt" />
 		<None Remove="release-notes-net8.txt" />
 		<None Remove="release-notes-net9.txt" />
 	</ItemGroup>

@@ -4,5 +4,4 @@
   </Folder>
   <Project Path="VijayAnand.MauiToolkit.Core/VijayAnand.MauiToolkit.Core.Net10.csproj" />
   <Project Path="VijayAnand.MauiToolkit/VijayAnand.MauiToolkit.Net10.csproj" />
-  <Project Path="VijayAnand.MauiToolkit.Pro/VijayAnand.MauiToolkit.Pro.Net10.csproj" />
 </Solution>

@@ -1,7 +1,13 @@
 Join me on Developer Thoughts, https://egvijayanand.in/, an exclusive blog for .NET MAUI and Blazor.
 
-What's new in ver. 4.2.0:
+What's new in ver. 4.3.0:
 -------------------------
+An extended ObservableRangeCollection<T> type that allows adding, replacing, and removing multiple items at once from the ObservableCollection<T> type.
+
+The IDataStore<T> interface has been updated to support a generic ID type, allowing the use of identifier type beyond just string.
+
+v4.2.0:
+
 Package suite update.
 
 v4.1.0:

@@ -1,22 +1,7 @@
 Join me on Developer Thoughts, https://egvijayanand.in/, an exclusive blog for .NET MAUI and Blazor.
 
-What's new in ver. v5.0.0-preview.1:
-------------------------------------
-Release built on top of .NET MAUI 10.
+What's new in ver. v5.0.0:
+--------------------------
+Initial release of MAUI Toolkit package to support .NET MAUI 10.
 
-MauiAppBuilder extension methods provide an easy way to host both Application and Window with just a single method call.
-
-A single place to handle all configuration-related tasks.
-
-The Application type will simply act as a container for global resources and handle startup and shutdown events.
-
-// To use the Window type as it is.
-
-var builder = MauiApp.CreateBuilder();
-builder.UseMauiApp<App, Window>(sp => new Window(new MainPage()) { Title = "MyApp" });
-// Rest of the configuration ...
-return builder.Build();
-
-For customization, extend the Window type and link it here.
-
-builder.UseMauiApp<App, MainWindow>();
+This is published on top of .NET MAUI 10 SR1 (v10.0.10).
