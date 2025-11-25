@@ -1,0 +1,6 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="Directory.Packages.props" />
+  </Folder>
+  <Project Path="VijayAnand.Toolkit.Markup\VijayAnand.Toolkit.Markup.Net8.csproj" />
+</Solution>

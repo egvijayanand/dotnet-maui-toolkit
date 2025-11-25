@@ -1,6 +1,7 @@
 :: Creates a new NuGet package from the project file
 @echo off
 
+set dirName=VijayAnand.Toolkit.Markup
 set inputReqd=0
 
 if [%1]==[] (call Error "Project Id is not provided." & set inputReqd=1)
@@ -34,36 +35,42 @@ if %errorlevel% == 0 (for /F "tokens=*" %%g in ('git rev-parse --short HEAD') do
 
 :: Package Configuration
 
-if not exist .\VijayAnand.Toolkit.Markup\bin\%config%\%packageName%.%packageVersion%.nupkg goto create
+if not exist .\%dirName%\bin\%config%\%packageName%.%packageVersion%.nupkg goto create
 
 echo.
 call Info "Delete existing package ..."
 
 echo.
-del .\VijayAnand.Toolkit.Markup\bin\%config%\%packageName%.%packageVersion%.nupkg
+del .\%dirName%\bin\%config%\%packageName%.%packageVersion%.nupkg
 
 :create
 
-echo.
+if not %errorlevel% == 0 echo.
 call Info "Creating %packageName% ver. %packageVersion% (%projId%) NuGet package in %config% mode ..."
 
 echo.
 call Info "Restoring dependencies ..."
 
 echo.
-dotnet restore .\VijayAnand.Toolkit.Markup\VijayAnand.Toolkit.Markup.%projId%.csproj --force --nologo
+dotnet restore .\%dirName%\%dirName%.%projId%.csproj --force --nologo
+
+echo.
+call Info "Listing dependencies ..."
+
+echo.
+dotnet list .\%dirName%\%dirName%.%projId%.csproj package
 
 echo.
 call Info "Building project ..."
 
 echo.
-dotnet build .\VijayAnand.Toolkit.Markup\VijayAnand.Toolkit.Markup.%projId%.csproj -c %config% -p:PackageVersion=%packageVersion%%revisionId% --nologo
+dotnet build .\%dirName%\%dirName%.%projId%.csproj -c %config% -p:PackageVersion=%packageVersion%%revisionId% --nologo --no-restore
 
 ::echo.
 ::call Info "Cleanup ..."
 
 ::echo.
-::dotnet clean .\VijayAnand.Toolkit.Markup\VijayAnand.Toolkit.Markup.%projId%.csproj -c %config% --nologo
+::dotnet clean .\%dirName%\%dirName%.%projId%.csproj -c %config% --nologo
 
 echo.
 if %errorlevel% == 0 (call Success "Process completed.") else (call Error "Failed to %projId% create package.")

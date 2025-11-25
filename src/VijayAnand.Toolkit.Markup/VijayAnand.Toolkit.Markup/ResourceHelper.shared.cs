@@ -4,11 +4,11 @@ namespace VijayAnand.Toolkit.Markup
 {
     public static class ResourceHelper
     {
-        public static T? AppResource<T>(string key, T defaultValue = default)
+        public static T? AppResource<T>(string key)
         {
             if (Application.Current?.Resources.TryGetValue(key, out var value) is true)
             {
-                return (value is T resource) ? resource : defaultValue;
+                return (value is T resource) ? resource : default;
             }
             else
             {
@@ -16,16 +16,19 @@ namespace VijayAnand.Toolkit.Markup
             }
         }
 
+        public static T AppResource<T>(string key, T defaultValue)
+            => AppResource<T>(key) ?? defaultValue;
+
         public static Brush AppBrush(string resourceKey) => AppResource<Brush>(resourceKey, Brush.Transparent);
 
 #if NET6_0_OR_GREATER
-        public static Color AppColor(string resourceKey) => AppResource<Color>(resourceKey, KnownColor.Default);
+        public static Color AppColor(string resourceKey) => AppResource(resourceKey, KnownColor.Default);
 
-        public static Thickness AppThickness(string resourceKey) => AppResource<Thickness>(resourceKey, Thickness.Zero);
+        public static Thickness AppThickness(string resourceKey) => AppResource(resourceKey, Thickness.Zero);
 #else
-        public static Color AppColor(string resourceKey) => AppResource<Color>(resourceKey, Color.Default);
+        public static Color AppColor(string resourceKey) => AppResource(resourceKey, Color.Default);
 
-        public static Thickness AppThickness(string resourceKey) => AppResource<Thickness>(resourceKey, new Thickness(0));
+        public static Thickness AppThickness(string resourceKey) => AppResource(resourceKey, new Thickness(0));
 #endif
 
         public static double AppDouble(string resourceKey) => AppResource<double>(resourceKey);
