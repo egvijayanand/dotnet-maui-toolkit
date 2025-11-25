@@ -1,0 +1,9 @@
+<Project>
+    <PropertyGroup>
+        <ManagePackageVersionsCentrally>false</ManagePackageVersionsCentrally>
+        <!-- .NET MAUI Version -->
+        <MauiVersion Condition="$(TargetFramework.StartsWith('net8.0'))">8.0.3</MauiVersion>
+        <MauiVersion Condition="$(TargetFramework.StartsWith('net9.0'))">9.0.0</MauiVersion>
+        <MauiVersion Condition="$(TargetFramework.StartsWith('net10.0'))">10.0.0</MauiVersion>
+    </PropertyGroup>
+</Project>

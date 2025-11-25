@@ -1,0 +1,7 @@
+Join me on Developer Thoughts, https://egvijayanand.in/, an exclusive blog for .NET MAUI and Blazor.
+
+What's new in ver. 5.0.0:
+-------------------------
+Initial release of MAUI Blazor Markup package to support .NET MAUI 10.
+
+This is published on top of .NET MAUI 10 GA (v10.0.0).
