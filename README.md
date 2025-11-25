@@ -21,11 +21,11 @@ Whereas the `net8.0`, `net9.0`, and `net10.0` library targets .NET MAUI and work
 
 This is a toolkit with a set of abstractions to simplify working with .NET MAUI and Blazor.
 
-|Channel|.NET 8|.NET 9|
-|:---:|:---:|:---:|
-|Stable|[![.NET 8](https://badgen.net/badge/nuget/v3.4.0/blue?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Core/3.4.0)|[![.NET 9](https://badgen.net/nuget/v/VijayAnand.MauiToolkit.Core/?icon=nuget&foo=bar)](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Core/)|
+|Channel|.NET 8|.NET 9|.NET 10|
+|:---:|:---:|:---:|:---:|
+|Stable|[![.NET 8](https://badgen.net/badge/nuget/v3.5.0/blue?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Core/3.5.0)|[![.NET 9](https://badgen.net/badge/nuget/v4.3.0/blue?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Core/4.3.0)|[![.NET 10](https://badgen.net/nuget/v/VijayAnand.MauiToolkit.Core/?icon=nuget&foo=bar)](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Core/)|
 <!--
-|Preview|-|-|[![.NET 8](https://badgen.net/nuget/v/VijayAnand.MauiToolkit.Core/latest?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Core/absoluteLatest)|
+|Preview|-|-|[![.NET 10](https://badgen.net/nuget/v/VijayAnand.MauiToolkit.Core/latest?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Core/absoluteLatest)|
 -->
 
 The objective is to ease the development of the `Razor Class Library` (RCL) so that it can be shared with all Blazor targets (.NET MAUI, Server, WebAssembly, Windows Forms, and WPF).
@@ -45,9 +45,9 @@ A Model class for UserToken and frequently used Constants for OAuth / OIDC authe
 
 This is a toolkit with a set of helper methods and classes to simplify working with .NET MAUI and Blazor.
 
-|Channel|.NET 8|.NET 9|
-|:---:|:---:|:---:|
-|Stable|[![.NET 8](https://badgen.net/badge/nuget/v3.4.0/blue?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit/3.4.0)|[![.NET 9](https://badgen.net/nuget/v/VijayAnand.MauiToolkit/?icon=nuget&foo=bar)](https://www.nuget.org/packages/VijayAnand.MauiToolkit/)|
+|Channel|.NET 8|.NET 9|.NET 10|
+|:---:|:---:|:---:|:---:|
+|Stable|[![.NET 8](https://badgen.net/badge/nuget/v3.5.0/blue?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit/3.5.0)|[![.NET 9](https://badgen.net/badge/nuget/v4.3.0/blue?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit/4.3.0)|[![.NET 10](https://badgen.net/nuget/v/VijayAnand.MauiToolkit/?icon=nuget&foo=bar)](https://www.nuget.org/packages/VijayAnand.MauiToolkit/)|
 <!--
 |Preview|-|-|[![.NET 8](https://badgen.net/nuget/v/VijayAnand.MauiToolkit/latest?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit/absoluteLatest)|
 -->
@@ -68,7 +68,7 @@ While using generic overloads, there's no need to register the types in the DI c
 
 ```cs
 var builder = MauiApp.CreateBuilder();
-builder.UseMauiApp<App, Window, MainPage>();
+builder.UseMauiApp<App, Window, MainPage>(window => window.Title = "MyApp");
 // To use Shell as the initial page.
 //builder.UseMauiApp<App, Window, AppShell>();
 // Rest of the configuration ...
@@ -121,9 +121,12 @@ This is a toolkit with a set of helper methods and classes to simplify working w
 
 |Channel|.NET 8|.NET 9|
 |:---:|:---:|:---:|
-|Stable|[![.NET 8](https://badgen.net/badge/nuget/v3.4.0/blue?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Pro/3.4.0)|[![.NET 9](https://badgen.net/nuget/v/VijayAnand.MauiToolkit.Pro/?icon=nuget&foo=bar)](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Pro/)|
+|Stable|[![.NET 8](https://badgen.net/badge/nuget/v3.5.0/blue?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Pro/3.5.0)|[![.NET 9](https://badgen.net/badge/nuget/v4.3.0/blue?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Pro/4.3.0)|
 <!--
-|Preview|-|-|[![.NET 8](https://badgen.net/nuget/v/VijayAnand.MauiToolkit.Pro/latest?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Pro/absoluteLatest)|
+[![.NET 10](https://badgen.net/nuget/v/VijayAnand.MauiToolkit.Pro/?icon=nuget&foo=bar)](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Pro/)|
+-->
+<!--
+|Preview|-|-|[![.NET 10](https://badgen.net/nuget/v/VijayAnand.MauiToolkit.Pro/latest?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiToolkit.Pro/absoluteLatest)|
 -->
 
 It depends on the following NuGet packages:
@@ -159,11 +162,6 @@ It depends on the [Microsoft.AspNetCore.Components.WebView.Maui](https://www.nug
 |:---:|:---:|:---:|
 |Stable|[![.NET 8](https://badgen.net/badge/nuget/v3.0.8/blue?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiBlazor.Markup/3.0.8)|[![.NET 9](https://badgen.net/nuget/v/VijayAnand.MauiBlazor.Markup?icon=nuget&foo=bar)](https://www.nuget.org/packages/VijayAnand.MauiBlazor.Markup)|
 <!--|Preview|-|[![.NET 9](https://badgen.net/nuget/v/VijayAnand.MauiBlazor.Markup/latest?icon=nuget&foo=bar)](https://www.nuget.org/packages/VijayAnand.MauiBlazor.Markup/absoluteLatest)|-->
-
-<!--|[VijayAnand.MauiBlazor.Markup](https://www.nuget.org/packages/VijayAnand.MauiBlazor.Markup/)|.NET 6|.NET 7|.NET 8|.NET 9|
-|:---:|:---:|:---:|:---:|:---:|
-|Stable|[![.NET 6](https://badgen.net/badge/nuget/v1.0.12/blue?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiBlazor.Markup/1.0.12)|[![.NET 7](https://badgen.net/badge/nuget/v2.0.10/blue?icon=nuget)](https://www.nuget.org/packages/VijayAnand.MauiBlazor.Markup/2.0.10)|[![.NET 8](https://badgen.net/nuget/v/VijayAnand.MauiBlazor.Markup?icon=nuget&foo=bar)](https://www.nuget.org/packages/VijayAnand.MauiBlazor.Markup)|-|
-|Preview|-|-|-|[![.NET 9](https://badgen.net/nuget/v/VijayAnand.MauiBlazor.Markup/latest?icon=nuget&foo=bar)](https://www.nuget.org/packages/VijayAnand.MauiBlazor.Markup/absoluteLatest)|-->
 
 The most useful method will be `Configure`, which can be invoked on an instance of a BlazorWebView and its derivatives, and it simplifies the initialization of BlazorWebView into a single fluent method call as shown in the below sample.
 

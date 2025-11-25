@@ -3,15 +3,17 @@
 
 set inputReqd=0
 
-if [%1]==[] (call Error "Project Id is not provided." & set inputReqd=1)
+if [%1]==[] (call Error "Version is not provided." & set inputReqd=1)
 
 if [%2]==[] (call Error "Build configuration is not provided." & set inputReqd=1)
 
 if [%3]==[] (call Error "Version # not provided." & set inputReqd=1)
 
-if %inputReqd% == 1 (pause & goto end)
+if [%inputReqd%] == [1] (pause & goto end)
 
-set projId=%1
+set version=%1
+
+set projId=Net%1
 
 set config=%2
 
@@ -84,13 +86,20 @@ dotnet build .\VijayAnand.MauiToolkit\VijayAnand.MauiToolkit.%projId%.csproj -c 
 
 if not %errorlevel% == 0 (call Error "Toolkit package creation failed.")
 
+:: Skip Pro package for .NET MAUI 10
+if [%version%] == [10] (goto confirm)
+
 echo.
 call Info "Building Pro package ..."
 
 echo.
 dotnet build .\VijayAnand.MauiToolkit.Pro\VijayAnand.MauiToolkit.Pro.%projId%.csproj -c %config% -p:PackageVersion=%pkgVersion%%revisionId% -p:PublishReadyToRun=false
 
+if not %errorlevel% == 0 (call Error "Pro toolkit package creation failed.")
+
+:confirm
+
 echo.
-if %errorlevel% == 0 (call Success "Process completed.") else (call Error "Pro toolkit package creation failed.")
+if %errorlevel% == 0 (call Success "Process completed.")
 
 :end

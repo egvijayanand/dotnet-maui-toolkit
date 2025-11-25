@@ -81,7 +81,7 @@ public static class MauiAppBuilderExtensions
     /// <typeparam name="TPage">Page type.</typeparam>
     /// <param name="builder">The <see cref="MauiAppBuilder"/> instance on which this method is invoked.</param>
     /// <returns>Returns the updated <see cref="MauiAppBuilder"/> instance for further configuration.</returns>
-    public static MauiAppBuilder UseMauiApp<TApp, TWindow, TPage>(this MauiAppBuilder builder)
+    public static MauiAppBuilder UseMauiApp<TApp, TWindow, TPage>(this MauiAppBuilder builder, Action<TWindow>? configureWindow = null)
         where TApp : class, IApplication
         where TWindow : Window
         where TPage : Page
@@ -91,6 +91,7 @@ public static class MauiAppBuilderExtensions
         builder.Services.TryAddKeyedSingleton<TWindow>(Startup);
         builder.Services.TryAddKeyedSingleton<TPage>(Startup);
         builder.Services.TryAddSingleton<IWindowCreator, WindowCreator<TWindow, TPage>>();
+        WindowCreator<TWindow, TPage>.ConfigureWindow = configureWindow;
         return builder;
     }
 

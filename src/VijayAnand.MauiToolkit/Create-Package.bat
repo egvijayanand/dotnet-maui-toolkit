@@ -3,15 +3,17 @@
 
 set inputReqd=0
 
-if [%1]==[] (echo Project Id is not provided. & set inputReqd=1)
+if [%1]==[] (echo Version is not provided. & set inputReqd=1)
 
 if [%2]==[] (echo Build configuration is not provided. & set inputReqd=1)
 
 if [%3]==[] (echo Version # not provided. & set inputReqd=1)
 
-if %inputReqd% == 1 (pause & goto end)
+if [%inputReqd%] == [1] (pause & goto end)
 
-set projId=%1
+set version=%1
+
+set projId=Net%1
 
 set config=%2
 
@@ -79,10 +81,17 @@ dotnet build .\VijayAnand.MauiToolkit\VijayAnand.MauiToolkit.%projId%.csproj -c 
 echo.
 if not %errorlevel% == 0 (echo Toolkit package creation failed.)
 
+if [%version%] == [10] (goto confirm)
+
 echo.
 dotnet build .\VijayAnand.MauiToolkit.Pro\VijayAnand.MauiToolkit.Pro.%projId%.csproj -c %config% -p:PackageVersion=%pkgVersion%%revisionId% -p:PublishReadyToRun=false
 
 echo.
-if %errorlevel% == 0 (echo Process completed.) else (echo Pro toolkit package creation failed.)
+if not %errorlevel% == 0 (echo Pro toolkit package creation failed.)
+
+:confirm
+
+echo.
+if %errorlevel% == 0 (echo Process completed.)
 
 :end

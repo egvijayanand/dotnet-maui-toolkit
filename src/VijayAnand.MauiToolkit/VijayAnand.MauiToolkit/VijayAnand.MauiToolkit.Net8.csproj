@@ -78,8 +78,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<None Remove="release-notes-net6.txt" />
-		<None Remove="release-notes-net7.txt" />
 		<None Remove="release-notes-net9.txt" />
 		<None Remove="release-notes-net10.txt" />
 	</ItemGroup>

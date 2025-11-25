@@ -30,6 +30,8 @@ internal sealed class WindowCreator<TWindow, TPage>([FromKeyedServices(Startup)]
     where TWindow : Window
     where TPage : Page
 {
+    public static Action<TWindow>? ConfigureWindow { get; set; }
+
     public Window CreateWindow(Application app, IActivationState? activationState)
     {
         window.Page ??= AppService.GetKeyedService<TPage>(Startup, true);
@@ -38,6 +40,8 @@ internal sealed class WindowCreator<TWindow, TPage>([FromKeyedServices(Startup)]
         {
             window.Title = page.Title;
         }
+
+        ConfigureWindow?.Invoke(window);
 
         return window;
     }

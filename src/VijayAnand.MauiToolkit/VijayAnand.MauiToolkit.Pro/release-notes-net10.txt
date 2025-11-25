@@ -1,5 +1,0 @@
-Join me on Developer Thoughts, https://egvijayanand.in/, an exclusive blog for .NET MAUI and Blazor.
-
-What's new in ver. v5.0.0-preview.1:
-------------------------------------
-This version of package is released on top of .NET MAUI 10 RC1 (v10.0.0-rc.1.25452.6).

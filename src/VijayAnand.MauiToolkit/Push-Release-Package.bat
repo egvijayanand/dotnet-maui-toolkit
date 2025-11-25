@@ -1,9 +1,11 @@
 :: Installs the NuGet package
 @echo off
 
+setlocal EnableDelayedExpansion
+
 if [%1] == [] (set arg=0) else (set arg=%1)
 
-if not [%arg%] == [-h] goto process
+if not [%arg%] == [-h] goto start
 
 echo Pass 0 to build for .NET 8, .NET 9, and .NET 10
 echo Pass 1 to process only for .NET 8
@@ -12,7 +14,7 @@ echo Pass 3 to process only for .NET 10
 
 goto end
 
-:process
+:start
 
 title Publishing the NuGet packages to MyGet ...
 
@@ -54,232 +56,119 @@ if [%arg%] == [0] (goto dotnet8) else (if [%arg%] == [1] (goto dotnet8) else (if
 
 :dotnet8
 
-if not exist PackageVersion-Net8.txt (call Error ".NET 8 package version file not available." & goto end)
+call :process 8
 
-set /P pkgVersion=<PackageVersion-Net8.txt
-
-if [%pkgVersion%]==[] (call Error ".NET 8 package version # not configured." & goto end)
-
-:: Existence Check
-
-if not exist .\VijayAnand.MauiToolkit.Core\bin\Release\%corePkgName%.%pkgVersion%.nupkg call Error ".NET 8 Core NuGet package not avilable ..." & goto end
-
-if not exist .\VijayAnand.MauiToolkit\bin\Release\%toolkitPkgName%.%pkgVersion%.nupkg call Error ".NET 8 Toolkit NuGet package not avilable ..." & goto end
-
-if not exist .\VijayAnand.MauiToolkit.Pro\bin\Release\%proToolkitPkgName%.%pkgVersion%.nupkg call Error ".NET 8 Pro toolkit NuGet package not avilable ..." & goto end
-
-:: Validate the Package
-
-call Info "Validating .NET 8 %corePkgName% ver. %pkgVersion% ..."
-
-echo.
-dotnet-validate package local .\VijayAnand.MauiToolkit.Core\bin\Release\%corePkgName%.%pkgVersion%.nupkg
-
-call Info "Validating .NET 8 %toolkitPkgName% ver. %pkgVersion% ..."
-
-echo.
-dotnet-validate package local .\VijayAnand.MauiToolkit\bin\Release\%toolkitPkgName%.%pkgVersion%.nupkg
-
-call Info "Validating .NET 8 %proToolkitPkgName% ver. %pkgVersion% ..."
-
-echo.
-dotnet-validate package local .\VijayAnand.MauiToolkit.Pro\bin\Release\%proToolkitPkgName%.%pkgVersion%.nupkg
-
-:: Push the Package
-
-call Info "Pushing .NET 8 %corePkgName% ver. %pkgVersion% to My NuGet ..."
-
-echo.
-dotnet nuget push .\VijayAnand.MauiToolkit.Core\bin\Release\%corePkgName%.%pkgVersion%.nupkg --source %nugetSource%\%corePkgName%
-
-if not %errorlevel% == 0 (call Error ".NET 8 Core package folder push failed." & goto end)
-
-echo.
-nuget add .\VijayAnand.MauiToolkit.Core\bin\Release\%corePkgName%.%pkgVersion%.nupkg -Source %nugetServer%\
-
-if not %errorlevel% == 0 (call Error ".NET 8 Core package hosted push failed." & goto end)
-
-echo.
-call Info "Pushing .NET 8 %toolkitPkgName% ver. %pkgVersion% to My NuGet ..."
-
-echo.
-dotnet nuget push .\VijayAnand.MauiToolkit\bin\Release\%toolkitPkgName%.%pkgVersion%.nupkg --source %nugetSource%\%toolkitPkgName%
-
-echo.
-if not %errorlevel% == 0 (call Error ".NET 8 Toolkit package folder push failed." & goto end)
-
-nuget add .\VijayAnand.MauiToolkit\bin\Release\%toolkitPkgName%.%pkgVersion%.nupkg -Source %nugetServer%\
-
-if not %errorlevel% == 0 (call Error ".NET 8 Toolkit package hosted push failed." & goto end)
-
-echo.
-call Info "Pushing .NET 8 %proToolkitPkgName% ver. %pkgVersion% to My NuGet ..."
-
-echo.
-dotnet nuget push .\VijayAnand.MauiToolkit.Pro\bin\Release\%proToolkitPkgName%.%pkgVersion%.nupkg --source %nugetSource%\%proToolkitPkgName%
-
-echo.
-if not %errorlevel% == 0 (call Error ".NET 8 Pro toolkit package folder push failed." & goto end)
-
-nuget add .\VijayAnand.MauiToolkit.Pro\bin\Release\%proToolkitPkgName%.%pkgVersion%.nupkg -Source %nugetServer%\
-
-if not %errorlevel% == 0 (call Error ".NET 8 Pro toolkit package hosted push failed." & goto end)
-
-if [%arg%] == [0] (echo.) else (if [%arg%] == [1] goto end)
+if [%arg%] == [0] (echo.) else (goto end)
 
 :: .NET 9 Package Version
 
 :dotnet9
 
-if not exist PackageVersion-Net9.txt (call Error ".NET 9 package version file not available." & goto end)
+call :process 9
 
-set /P pkgVersion=<PackageVersion-Net9.txt
-
-if [%pkgVersion%]==[] (call Error ".NET 9 package version # not configured." & goto end)
-
-:: Existence Check
-
-if not exist .\VijayAnand.MauiToolkit.Core\bin\Release\%corePkgName%.%pkgVersion%.nupkg call Error ".NET 9 Core NuGet package not avilable ..." & goto end
-
-if not exist .\VijayAnand.MauiToolkit\bin\Release\%toolkitPkgName%.%pkgVersion%.nupkg call Error ".NET 9 Toolkit NuGet package not avilable ..." & goto end
-
-if not exist .\VijayAnand.MauiToolkit.Pro\bin\Release\%proToolkitPkgName%.%pkgVersion%.nupkg call Error ".NET 9 Pro toolkit NuGet package not avilable ..." & goto end
-
-:: Validate the Package
-
-call Info "Validating .NET 9 %corePkgName% ver. %pkgVersion% ..."
-
-echo.
-dotnet-validate package local .\VijayAnand.MauiToolkit.Core\bin\Release\%corePkgName%.%pkgVersion%.nupkg
-
-call Info "Validating .NET 9 %toolkitPkgName% ver. %pkgVersion% ..."
-
-echo.
-dotnet-validate package local .\VijayAnand.MauiToolkit\bin\Release\%toolkitPkgName%.%pkgVersion%.nupkg
-
-call Info "Validating .NET 9 %proToolkitPkgName% ver. %pkgVersion% ..."
-
-echo.
-dotnet-validate package local .\VijayAnand.MauiToolkit.Pro\bin\Release\%proToolkitPkgName%.%pkgVersion%.nupkg
-
-:: Push the Package
-
-call Info "Pushing .NET 9 %corePkgName% ver. %pkgVersion% to My NuGet ..."
-
-echo.
-dotnet nuget push .\VijayAnand.MauiToolkit.Core\bin\Release\%corePkgName%.%pkgVersion%.nupkg --source %nugetSource%\%corePkgName%
-
-if not %errorlevel% == 0 (call Error ".NET 9 Core package folder push failed." & goto end)
-
-echo.
-nuget add .\VijayAnand.MauiToolkit.Core\bin\Release\%corePkgName%.%pkgVersion%.nupkg -Source %nugetServer%\
-
-if not %errorlevel% == 0 (call Error ".NET 9 Core package hosted push failed." & goto end)
-
-echo.
-call Info "Pushing .NET 9 %toolkitPkgName% ver. %pkgVersion% to My NuGet ..."
-
-echo.
-dotnet nuget push .\VijayAnand.MauiToolkit\bin\Release\%toolkitPkgName%.%pkgVersion%.nupkg --source %nugetSource%\%toolkitPkgName%
-
-if not %errorlevel% == 0 (call Error ".NET 9 Toolkit package folder push failed." & goto end)
-
-echo.
-nuget add .\VijayAnand.MauiToolkit\bin\Release\%toolkitPkgName%.%pkgVersion%.nupkg -Source %nugetServer%\
-
-echo.
-if not %errorlevel% == 0 (call Error ".NET 9 Toolkit package hosted push failed.")
-
-call Info "Pushing .NET 9 %proToolkitPkgName% ver. %pkgVersion% to My NuGet ..."
-
-echo.
-dotnet nuget push .\VijayAnand.MauiToolkit.Pro\bin\Release\%proToolkitPkgName%.%pkgVersion%.nupkg --source %nugetSource%\%proToolkitPkgName%
-
-if not %errorlevel% == 0 (call Error ".NET 9 Pro toolkit package folder push failed." & goto end)
-
-echo.
-nuget add .\VijayAnand.MauiToolkit.Pro\bin\Release\%proToolkitPkgName%.%pkgVersion%.nupkg -Source %nugetServer%\
-
-echo.
-if %errorlevel% == 0 (call Success "Process completed.") else (call Error ".NET 9 Pro toolkit package hosted push failed.")
-
-if [%arg%] == [0] (echo.) else (if [%arg%] == [2] goto end)
+if [%arg%] == [0] (echo.) else (goto end)
 
 :: .NET 10 Package Version
 
 :dotnet10
 
-if not exist PackageVersion-Net10.txt (call Error ".NET 10 package version file not available." & goto end)
+call :process 10
 
-set /P pkgVersion=<PackageVersion-Net10.txt
+:end
 
-if [%pkgVersion%]==[] (call Error ".NET 10 package version # not configured." & goto end)
+if [%1] == [] pause
+
+goto :eof
+
+:process
+
+set projId=Net%1
+set version=%1
+
+if not exist PackageVersion-%projId%.txt (call Error ".NET %version% package version file not available." & goto end)
+
+set /P pkgVersion=<PackageVersion-%projId%.txt
+
+if [%pkgVersion%]==[] (call Error ".NET %version% package version # not configured." & goto end)
 
 :: Existence Check
 
-if not exist .\VijayAnand.MauiToolkit.Core\bin\Release\%corePkgName%.%pkgVersion%.nupkg call Error ".NET 10 Core NuGet package not avilable ..." & goto end
+if not exist .\VijayAnand.MauiToolkit.Core\bin\Release\%corePkgName%.%pkgVersion%.nupkg call Error ".NET %version% Core NuGet package not avilable ..." & goto end
 
-if not exist .\VijayAnand.MauiToolkit\bin\Release\%toolkitPkgName%.%pkgVersion%.nupkg call Error ".NET 10 Toolkit NuGet package not avilable ..." & goto end
+if not exist .\VijayAnand.MauiToolkit\bin\Release\%toolkitPkgName%.%pkgVersion%.nupkg call Error ".NET %version% Toolkit NuGet package not avilable ..." & goto end
 
-if not exist .\VijayAnand.MauiToolkit.Pro\bin\Release\%proToolkitPkgName%.%pkgVersion%.nupkg call Error ".NET 10 Pro toolkit NuGet package not avilable ..." & goto end
+if [%version%] == [10] (goto validate)
+
+if not exist .\VijayAnand.MauiToolkit.Pro\bin\Release\%proToolkitPkgName%.%pkgVersion%.nupkg call Error ".NET %version% Pro toolkit NuGet package not avilable ..." & goto end
 
 :: Validate the Package
 
-call Info "Validating .NET 10 %corePkgName% ver. %pkgVersion% ..."
+:validate
+
+call Info "Validating .NET %version% %corePkgName% ver. %pkgVersion% ..."
 
 echo.
 dotnet-validate package local .\VijayAnand.MauiToolkit.Core\bin\Release\%corePkgName%.%pkgVersion%.nupkg
 
-call Info "Validating .NET 10 %toolkitPkgName% ver. %pkgVersion% ..."
+call Info "Validating .NET %version% %toolkitPkgName% ver. %pkgVersion% ..."
 
 echo.
 dotnet-validate package local .\VijayAnand.MauiToolkit\bin\Release\%toolkitPkgName%.%pkgVersion%.nupkg
 
-call Info "Validating .NET 10 %proToolkitPkgName% ver. %pkgVersion% ..."
+if [%version%] == [10] (goto push)
+
+call Info "Validating .NET %version% %proToolkitPkgName% ver. %pkgVersion% ..."
 
 echo.
 dotnet-validate package local .\VijayAnand.MauiToolkit.Pro\bin\Release\%proToolkitPkgName%.%pkgVersion%.nupkg
 
 :: Push the Package
 
-call Info "Pushing .NET 10 %corePkgName% ver. %pkgVersion% to My NuGet ..."
+:push
+
+call Info "Pushing .NET %version% %corePkgName% ver. %pkgVersion% to My NuGet ..."
 
 echo.
 dotnet nuget push .\VijayAnand.MauiToolkit.Core\bin\Release\%corePkgName%.%pkgVersion%.nupkg --source %nugetSource%\%corePkgName%
 
-if not %errorlevel% == 0 (call Error ".NET 10 Core package folder push failed." & goto end)
+if not %errorlevel% == 0 (call Error ".NET %version% Core package folder push failed." & goto end)
 
 echo.
 nuget add .\VijayAnand.MauiToolkit.Core\bin\Release\%corePkgName%.%pkgVersion%.nupkg -Source %nugetServer%\
 
-if not %errorlevel% == 0 (call Error ".NET 10 Core package hosted push failed." & goto end)
+if not %errorlevel% == 0 (call Error ".NET %version% Core package hosted push failed." & goto end)
 
 echo.
-call Info "Pushing .NET 10 %toolkitPkgName% ver. %pkgVersion% to My NuGet ..."
+call Info "Pushing .NET %version% %toolkitPkgName% ver. %pkgVersion% to My NuGet ..."
 
 echo.
 dotnet nuget push .\VijayAnand.MauiToolkit\bin\Release\%toolkitPkgName%.%pkgVersion%.nupkg --source %nugetSource%\%toolkitPkgName%
 
-if not %errorlevel% == 0 (call Error ".NET 10 Toolkit package folder push failed." & goto end)
-
 echo.
+if not %errorlevel% == 0 (call Error ".NET %version% Toolkit package folder push failed." & goto end)
+
 nuget add .\VijayAnand.MauiToolkit\bin\Release\%toolkitPkgName%.%pkgVersion%.nupkg -Source %nugetServer%\
 
-echo.
-if not %errorlevel% == 0 (call Error ".NET 10 Toolkit package hosted push failed.")
+if not %errorlevel% == 0 (call Error ".NET %version% Toolkit package hosted push failed." & goto end)
 
-call Info "Pushing .NET 10 %proToolkitPkgName% ver. %pkgVersion% to My NuGet ..."
+if [%version%] == [10] (goto confirm)
+
+echo.
+call Info "Pushing .NET %version% %proToolkitPkgName% ver. %pkgVersion% to My NuGet ..."
 
 echo.
 dotnet nuget push .\VijayAnand.MauiToolkit.Pro\bin\Release\%proToolkitPkgName%.%pkgVersion%.nupkg --source %nugetSource%\%proToolkitPkgName%
 
-if not %errorlevel% == 0 (call Error ".NET 10 Pro toolkit package folder push failed." & goto end)
-
 echo.
+if not %errorlevel% == 0 (call Error ".NET %version% Pro toolkit package folder push failed." & goto end)
+
 nuget add .\VijayAnand.MauiToolkit.Pro\bin\Release\%proToolkitPkgName%.%pkgVersion%.nupkg -Source %nugetServer%\
 
-echo.
-if %errorlevel% == 0 (call Success "Process completed.") else (call Error ".NET 10 Pro toolkit package hosted push failed.")
+if not %errorlevel% == 0 (call Error ".NET %version% Pro toolkit package hosted push failed." & goto end)
 
-:end
-if [%1] == [] pause
+:confirm
+
+echo.
+if %errorlevel% == 0 (call Success "Process completed.")
+
+exit /b
